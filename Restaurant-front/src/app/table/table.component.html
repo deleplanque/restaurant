@@ -1,0 +1,110 @@
+<div class="col-md-6">
+  <ul class="nav nav-tabs">
+    <li class="active" id="nav-boissons"><a data-toggle="tab" href="#boissons">Boissons</a></li>
+    <li id="nav-plats"><a data-toggle="tab" href="#plats">Plats</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="boissons" class="tab-pane fade in active">
+      <ul class="nav nav-tabs">
+        <li class="active categoriesBoissons"><a data-toggle="tab" href="#softs">Softs</a></li>
+        <li class="categoriesBoissons"><a data-toggle="tab" href="#bieres">Bières</a></li>
+        <li class="categoriesBoissons"><a data-toggle="tab" href="#vins">Vins</a></li>
+        <li class="categoriesBoissons"><a data-toggle="tab" href="#aperitifs">Apéritifs</a></li>
+        <li class="categoriesBoissons"><a data-toggle="tab" href="#chaudes">Chaudes</a></li>
+        <li class="categoriesBoissons"><a data-toggle="tab" href="#digestifs">Digestifs</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div id="softs" class="tab-pane fade in active">
+            <div class="col-md-2 col-sm-4 col-xs-4"
+                 style="margin-top: 15px; text-align: center;" *ngFor="let boisson of softs">
+              <a (click)="ajouterBoisson(boisson.idBoisson)">
+                <img class="img-responsive img-thumbnail"
+                     src="./../../assets/Boisson/soft/{{boisson.logo}}">
+              </a>
+              <div class="col-md-12 item">
+                <span>{{boisson.libelleBoisson}}</span>
+              </div>
+            </div>
+        </div>
+        <div id="bieres" class="tab-pane fade">
+          bieres
+        </div>
+        <div id="vins" class="tab-pane fade">
+         vins
+        </div>
+        <div id="aperitifs" class="tab-pane fade">
+         apero
+        </div>
+        <div id="chaudes" class="tab-pane fade">
+          chaudes
+        </div>
+        <div id="digestifs" class="tab-pane fade">
+         digestifs
+        </div>
+      </div>
+    </div>
+    <div id="plats" class="tab-pane fade">
+      <h3>Plat</h3>
+    </div>
+  </div>
+</div>
+
+
+<div class="col-md-6" style="padding: 0px;">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th
+        style="text-align: left; width: 30%; border-radius: 10px 0px 0px 0px">Libelle</th>
+      <th style="width: 15%;">Quantité</th>
+      <th style="width: 15%;">P/U</th>
+      <th style="width: 15%;">Ajouter</th>
+      <th style="width: 15%; border-radius: 0px 10px 0px 0px">Retirer</th>
+    </tr>
+    </thead>
+  </table>
+
+  <div class="col-md-12 note">
+    <table class="table table-striped">
+
+      <tbody>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-md-12 montant">
+
+    <span class="total"> Total:
+			</span>
+  </div>
+  <div class="col-md-12 center">
+    <div>
+      <a
+        href=""><img
+        onclick="payer('espece')" alt=""
+        src="./../../assets/paiement/espece.jpg"
+        class="img-responsive img-thumbnail"></a> <a
+      href=""><img
+      alt="" src="./../../assets/paiement/Logo_CB.png"
+      class="img-responsive img-thumbnail"></a> <a
+      href=""><img
+      alt="" src="./../../assets/paiement/tr.png"
+      class="img-responsive  img-thumbnail"></a>
+
+      <button class="btn btn-lg btn-success" data-toggle="modal"
+              data-target="#paiement">Payer</button>
+
+      <a href=""><button
+        class="btn btn-lg btn-default">Diviser addition</button></a>
+    </div>
+
+  </div>
+</div>
+<app-calculatrice></app-calculatrice>
+
+
+
+
