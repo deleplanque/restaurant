@@ -105,15 +105,6 @@ public class Tables implements Serializable{
 		this.estLibre = estLibre;
 	}
 
-	public void resetAdditionProvisoire() {
-		additionProvisoire.getListeBoisson().clear();
-		additionProvisoire.getListePlat().clear();
-	}
-
-	public void resetAddition() {
-		addition.getListeBoisson().clear();
-		addition.getListePlat().clear();
-	}
 
 	public Salle getSalle() {
 		return salle;

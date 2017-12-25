@@ -1,16 +1,11 @@
 package deleplanque.dylan.restaurant.services;
 
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import deleplanque.dylan.restaurant.entity.Addition;
 import deleplanque.dylan.restaurant.entity.Boisson;
 import deleplanque.dylan.restaurant.entity.Tables;
 import deleplanque.dylan.restaurant.repository.IAdditionRepository;
@@ -37,26 +32,17 @@ public class BoissonService implements IBoissonService{
 
 	@Override
 	public Tables addBoisson(int idTable, int idBoisson) {
-		Tables table = tableRepository.findByIdTable(idTable);
-		Boisson boisson = boissonRepository.findByIdBoisson(idBoisson);
-		Addition addition = table.getAddition();
-		addition.getBoissons().add(boisson);
-		addition.setBoissons(addition.getBoissons());
-		return table;
+		return null;
 	}
 
 	@Override
 	public List<Boisson> getBoissonsAddition(int idTable) {
-		Tables table = tableRepository.findByIdTable(idTable);
-		return table.getAddition().getBoissons();
+		return null;
 	}
 
 	@Override
 	public Tables removeBoisson(int idTable, int idBoisson) {
-		Tables table = tableRepository.findByIdTable(idTable);
-		Boisson boisson = boissonRepository.findByIdBoisson(idBoisson);
-		table.getAddition().getBoissons().remove(boisson);
-		return table;
+		return null;
 	}
 
 	@Override

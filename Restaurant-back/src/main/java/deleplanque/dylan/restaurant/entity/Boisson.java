@@ -8,9 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -28,9 +26,10 @@ public class Boisson implements Serializable{
 	private String sousCategorie;
 	private float prix;
 	private String logo;
-	@ManyToMany(cascade=CascadeType.ALL)
+	
+	@OneToMany(mappedBy="boisson", cascade=CascadeType.ALL)
 	@JsonIgnore
-	private List<Addition> additions;
+	private List<Boisson_Addition> boissons;
 
 	public Boisson() {
 	}

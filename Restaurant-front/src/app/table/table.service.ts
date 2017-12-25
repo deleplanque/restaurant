@@ -29,18 +29,18 @@ export class TableService {
     return this._http.get<Plat[]>(this.platsUrl);
   }
 
-  getBoissonsAddition(id: number): Observable<Boisson[]> {
+  getBoissonsAddition(id: number): Observable<Table> {
     const url = `${this.boissonsUrl}/${id}`;
-    return this._http.get<Boisson[]>(url);
+    return this._http.get<Table>(url);
   }
 
-  addBoisson(idTable: number, id: number): Observable<Boisson> {
+  addBoisson(idTable: number, id: number): Observable<Table> {
     const url = `${this.addBoissonsUrl}/${idTable}/${id}`;
-    return this._http.get<Boisson>(url);
+    return this._http.get<Table>(url);
   }
 
-  removeBoisson(idTable: number, id: number): Observable<Boisson> {
+  removeBoisson(idTable: number, id: number): Observable<Table> {
     const url = `${this.removeBoissonsUrl}/${idTable}/${id}`;
-    return this._http.get<Boisson>(url);
+    return this._http.get<Table>(url);
   }
 }

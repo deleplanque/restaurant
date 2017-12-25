@@ -18,7 +18,6 @@ export class TablesComponent implements OnInit {
   ngOnInit() {
 
     this.tables = JSON.parse(sessionStorage.getItem('tables'));
-    console.log(this.tables);
   }
 
   getTable(id: number): void {

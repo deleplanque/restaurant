@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import deleplanque.dylan.restaurant.entity.Boisson;
 import deleplanque.dylan.restaurant.entity.Tables;
 import deleplanque.dylan.restaurant.services.IBoissonService;
+import deleplanque.dylan.restaurant.services.IBoisson_AdditionService;
 
 @Controller
 @RequestMapping("/api")
@@ -22,6 +23,9 @@ public class BoissonsController {
 	@Autowired
 	IBoissonService boissonService;
 	
+	@Autowired
+	IBoisson_AdditionService boisson_addition;
+	
 	@RequestMapping(value="/getBoissons", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Boisson>> getBoissons(){
 		return new ResponseEntity<List<Boisson>>(boissonService.getBoissons(), HttpStatus.OK);
@@ -29,17 +33,18 @@ public class BoissonsController {
 	
 	@RequestMapping(value="/addBoisson/{idTable}/{idBoisson}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Tables> addBoisson(@PathVariable("idTable") int idTable ,@PathVariable("idBoisson") int idBoisson){
-		return new ResponseEntity<Tables>(boissonService.addBoisson(idTable, idBoisson), HttpStatus.OK);
+		return new ResponseEntity<Tables>(boisson_addition.addBoisson(idTable, idBoisson), HttpStatus.OK);
 	}
 
 	@RequestMapping(value="/removeBoisson/{idTable}/{idBoisson}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Tables> removeBoisson(@PathVariable("idTable") int idTable ,@PathVariable("idBoisson") int idBoisson){
-		return new ResponseEntity<Tables>(boissonService.removeBoisson(idTable, idBoisson), HttpStatus.OK);
+		return new ResponseEntity<Tables>(boisson_addition.removeBoisson(idTable, idBoisson), HttpStatus.OK);
 	}
 
+	
 	@RequestMapping(value="/getBoissons/{idTable}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<Boisson>> getBoissonsAddition(@PathVariable("idTable") int idTable){
-		return new ResponseEntity<List<Boisson>>(boissonService.getBoissonsAddition(idTable), HttpStatus.OK);
+	public ResponseEntity<Tables> getBoissonsAddition(@PathVariable("idTable") int idTable){
+		return new ResponseEntity<Tables>(boisson_addition.getBoissonsAddition(idTable), HttpStatus.OK);
 	}
 	
 	@RequestMapping(value="/setNomBoisson/{idBoisson}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

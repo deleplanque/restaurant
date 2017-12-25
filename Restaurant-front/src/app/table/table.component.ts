@@ -23,6 +23,8 @@ export class TableComponent implements OnInit {
   vins: Boisson[] = [];
   bieres: Boisson[] = [];
   boissonsAddition: Boisson[];
+  boissonMap: Map<Boisson, number> = new Map<Boisson, number>();
+  tab: any;
 
   constructor(private tableService: TableService, private app: AppComponent) { }
 
@@ -39,6 +41,7 @@ export class TableComponent implements OnInit {
     this.tableService.getBoissons()
       .subscribe(data => {
         this.boissons = data;
+        console.log(this.boissons);
         for (let i = 0; i < this.boissons.length; i++) {
           switch (this.boissons[i].categorie) {
             case 'soft':
@@ -48,7 +51,6 @@ export class TableComponent implements OnInit {
               this.bieres.push(this.boissons[i]);
               break;
             case 'aperitif':
-              console.log(this.boissons[i].categorie);
               this.aperitifs.push(this.boissons[i]);
               break;
             case 'vin':
@@ -62,7 +64,6 @@ export class TableComponent implements OnInit {
               break;
           }
         }
-        console.log(data);
       }, error => {
         console.log(error);
       });
@@ -72,7 +73,6 @@ export class TableComponent implements OnInit {
     this.tableService.getPlats()
       .subscribe(data => {
         this.plats = data;
-        console.log(data);
       }, error => {
         console.log(error);
       });
@@ -81,17 +81,49 @@ export class TableComponent implements OnInit {
   getBoissonsAddition(): void {
     this.tableService.getBoissonsAddition(this.table.idTable)
       .subscribe(data => {
-      this.boissonsAddition = data;
-      console.log(data);
+        this.boissonMap.clear();
+        this.table = data;
+      this.boissonsAddition = data.addition.boissons;
+        for (let i = 0; i < this.boissonsAddition.length; i++) {
+          if (this.mapContainKey(this.boissonsAddition[i].libelleBoisson)) {
+            const  b = this.getKeyBoisson(this.boissonsAddition[i].libelleBoisson);
+            let quantite: number;
+            quantite = this.boissonMap.get(b);
+            this.boissonMap.set(b, ++quantite);
+          }else {
+           this.boissonMap.set(this.boissonsAddition[i], 1);
+          }
+        }
+      this.tab = Array.from(this.boissonMap);
     }, error => {
       console.log(error);
     });
   }
 
+
+  mapContainKey(libelle: string): boolean {
+    const listKey = Array.from(this.boissonMap.keys())
+    for (let i = 0; i < listKey.length; i++) {
+      if (listKey[i].libelleBoisson ===  libelle) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  getKeyBoisson(libelle: string): Boisson {
+    const listKey = Array.from(this.boissonMap.keys())
+    for (let i = 0; i < listKey.length; i++) {
+      if (listKey[i].libelleBoisson === libelle) {
+        return listKey[i];
+      }
+    }
+    return null;
+  }
+
   ajouterBoisson(id: number): void {
     this.tableService.addBoisson(this.table.idTable, id).subscribe(data => {
-      this.boissonsAddition = data.addition.boissons;
-      console.log(data.addition.boissons);
+      this.getBoissonsAddition();
     }, error => {
       console.log(error);
     });
@@ -99,7 +131,7 @@ export class TableComponent implements OnInit {
 
   supprimerBoisson(id: number): void {
     this.tableService.removeBoisson(this.table.idTable, id).subscribe(data => {
-      this.boissonsAddition = data.addition.boissons;
+      this.getBoissonsAddition();
     }, error => {
       console.log(error);
     });

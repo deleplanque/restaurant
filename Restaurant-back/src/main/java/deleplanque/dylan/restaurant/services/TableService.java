@@ -13,6 +13,9 @@ public class TableService implements ITableService{
 
 	@Autowired
 	ITableRepository tableRepository;
+	
+	@Autowired
+	IBoisson_AdditionService boissonAdditionService;
 
 	@Override
 	public List<Tables> getTables() {
@@ -26,7 +29,9 @@ public class TableService implements ITableService{
 
 	@Override
 	public Tables getTablesById(int id) {
-		return tableRepository.findByIdTable(id);
+		Tables table = tableRepository.findByIdTable(id);
+		boissonAdditionService.getBoissonsAddition(id);
+		return table;
 	}
 
 }
