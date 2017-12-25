@@ -76,6 +76,18 @@ h1{
   overflow-y:overlay;
 }
 
+.table-striped>tbody>tr:nth-of-type(odd) {
+  background-color: rgba(252,221,68,0.8);
+}
+.table-striped>tbody>tr:nth-of-type(odd) td{
+  color: black;
+}
+
+td{
+  font-weight: bolder;
+}
+
+
 .item{
   background: #FCDD44;
   color: #34495E;

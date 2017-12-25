@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -31,7 +32,7 @@ public class Addition implements Serializable{
 	@Transient
 	private HashMap<Plat, Integer> listePlat;
 	
-	@ManyToMany(mappedBy="additions")
+	@ManyToMany(mappedBy="additions", cascade=CascadeType.ALL)
 	private List<Boisson> boissons;
 	
 	@ManyToMany(mappedBy="additions")

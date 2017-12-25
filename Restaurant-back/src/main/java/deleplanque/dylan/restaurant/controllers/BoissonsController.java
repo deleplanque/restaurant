@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import deleplanque.dylan.restaurant.entity.Addition;
 import deleplanque.dylan.restaurant.entity.Boisson;
+import deleplanque.dylan.restaurant.entity.Tables;
 import deleplanque.dylan.restaurant.services.IBoissonService;
 
 @Controller
@@ -28,8 +28,23 @@ public class BoissonsController {
 	}
 	
 	@RequestMapping(value="/addBoisson/{idTable}/{idBoisson}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Addition> addBoisson(@PathVariable("idTable") int idTable ,@PathVariable("idBoisson") int idBoisson){
-		return new ResponseEntity<Addition>(boissonService.addBoisson(idTable, idBoisson), HttpStatus.OK);
+	public ResponseEntity<Tables> addBoisson(@PathVariable("idTable") int idTable ,@PathVariable("idBoisson") int idBoisson){
+		return new ResponseEntity<Tables>(boissonService.addBoisson(idTable, idBoisson), HttpStatus.OK);
 	}
 
+	@RequestMapping(value="/removeBoisson/{idTable}/{idBoisson}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Tables> removeBoisson(@PathVariable("idTable") int idTable ,@PathVariable("idBoisson") int idBoisson){
+		return new ResponseEntity<Tables>(boissonService.removeBoisson(idTable, idBoisson), HttpStatus.OK);
+	}
+
+	@RequestMapping(value="/getBoissons/{idTable}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Boisson>> getBoissonsAddition(@PathVariable("idTable") int idTable){
+		return new ResponseEntity<List<Boisson>>(boissonService.getBoissonsAddition(idTable), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/setNomBoisson/{idBoisson}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Boisson> setNomBoissons(@PathVariable("idBoisson") int idBoisson){
+		return new ResponseEntity<Boisson>(boissonService.setNomBoissons(idBoisson), HttpStatus.OK);
+	}
+	
 }

@@ -34,8 +34,6 @@ public class Tables implements Serializable{
 
 	boolean estLibre;
 
-	
-	
 	@ManyToOne
 	@JsonIgnore
 	private Salle salle;

@@ -67,10 +67,15 @@
   </table>
 
   <div class="col-md-12 note">
-    <table class="table table-striped">
-
+    <table class="table table-striped table-condensed">
       <tbody>
-
+        <tr *ngFor="let boisson of boissonsAddition">
+          <td>{{boisson.libelleBoisson}}</td>
+          <td></td>
+          <td>{{boisson.prix}}</td>
+          <td><button class="btn btn-xs btn-success">+</button> </td>
+          <td><button (click)="supprimerBoisson(boisson.idBoisson)" class="btn btn-xs btn-danger">-</button> </td>
+        </tr>
       </tbody>
     </table>
   </div>

@@ -3,6 +3,8 @@ import {Table} from '../bean/table';
 import {TableService} from './table.service';
 import {Boisson} from '../bean/boisson';
 import {Plat} from '../bean/plat';
+import {AppPage} from '../../../e2e/app.po';
+import {AppComponent} from '../app.component';
 
 @Component({
   selector: 'app-table',
@@ -20,16 +22,17 @@ export class TableComponent implements OnInit {
   digestifs: Boisson[] = [];
   vins: Boisson[] = [];
   bieres: Boisson[] = [];
+  boissonsAddition: Boisson[];
 
-
-  constructor(private tableService: TableService) { }
+  constructor(private tableService: TableService, private app: AppComponent) { }
 
   ngOnInit() {
 
     this.table = JSON.parse(sessionStorage.getItem('table'));
-    console.log(this.table);
+    this.app.numTable = this.table.numero;
     this.getBoissons();
     this.getPlats();
+    this.getBoissonsAddition();
   }
 
   getBoissons(): void {
@@ -73,6 +76,33 @@ export class TableComponent implements OnInit {
       }, error => {
         console.log(error);
       });
+  }
+
+  getBoissonsAddition(): void {
+    this.tableService.getBoissonsAddition(this.table.idTable)
+      .subscribe(data => {
+      this.boissonsAddition = data;
+      console.log(data);
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  ajouterBoisson(id: number): void {
+    this.tableService.addBoisson(this.table.idTable, id).subscribe(data => {
+      this.boissonsAddition = data.addition.boissons;
+      console.log(data.addition.boissons);
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  supprimerBoisson(id: number): void {
+    this.tableService.removeBoisson(this.table.idTable, id).subscribe(data => {
+      this.boissonsAddition = data.addition.boissons;
+    }, error => {
+      console.log(error);
+    });
   }
 
 }

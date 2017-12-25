@@ -11,6 +11,8 @@ export class TableService {
   private tableUrl = 'api/getTable';
   private boissonsUrl = 'api/getBoissons';
   private platsUrl = 'api/getPlats';
+  private addBoissonsUrl = 'api/addBoisson';
+  private removeBoissonsUrl = 'api/removeBoisson';
 
   constructor(private _http: HttpClient) { }
 
@@ -25,5 +27,20 @@ export class TableService {
 
   getPlats(): Observable<Plat[]> {
     return this._http.get<Plat[]>(this.platsUrl);
+  }
+
+  getBoissonsAddition(id: number): Observable<Boisson[]> {
+    const url = `${this.boissonsUrl}/${id}`;
+    return this._http.get<Boisson[]>(url);
+  }
+
+  addBoisson(idTable: number, id: number): Observable<Boisson> {
+    const url = `${this.addBoissonsUrl}/${idTable}/${id}`;
+    return this._http.get<Boisson>(url);
+  }
+
+  removeBoisson(idTable: number, id: number): Observable<Boisson> {
+    const url = `${this.removeBoissonsUrl}/${idTable}/${id}`;
+    return this._http.get<Boisson>(url);
   }
 }

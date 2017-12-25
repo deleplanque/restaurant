@@ -9,6 +9,8 @@ export class AppComponent {
 
   hasSalle = false;
   hasTable = false;
+  nomSalle = '';
+  numTable: number;
 
 
 }

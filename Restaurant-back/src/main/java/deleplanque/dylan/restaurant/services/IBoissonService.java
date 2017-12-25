@@ -2,14 +2,20 @@ package deleplanque.dylan.restaurant.services;
 
 import java.util.List;
 
-import deleplanque.dylan.restaurant.entity.Addition;
 import deleplanque.dylan.restaurant.entity.Boisson;
+import deleplanque.dylan.restaurant.entity.Tables;
 
 public interface IBoissonService {
 
 	List<Boisson> getBoissons();
 
-	Addition addBoisson(int idTable, int idBoisson);
+	Tables addBoisson(int idTable, int idBoisson);
+
+	List<Boisson> getBoissonsAddition(int idTable);
+
+	Tables removeBoisson(int idTable, int idBoisson);
+
+	Boisson setNomBoissons(int idBoisson);
 
 
 }

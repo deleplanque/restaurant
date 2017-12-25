@@ -30,7 +30,6 @@ export class SallesComponent implements OnInit {
       });
   }
   getTablesByIdSalle(idSalle: number): void {
-    console.log(idSalle);
     this.tablesService.getTablesByIdSalle(idSalle)
       .subscribe(data => {
         this.app.hasSalle = true;
