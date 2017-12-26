@@ -44,7 +44,7 @@
           <div class="col-md-2 col-sm-4 col-xs-4"
                style="margin-top: 15px; text-align: center;" *ngFor="let boisson of vins">
             <a (click)="ajouterBoisson(boisson.idBoisson)">
-              <img class="img-responsive img-thumbnail"
+              <img   class="img-responsive img-thumbnail"
                    src="./../../assets/Boisson/vin/{{boisson.logo}}">
             </a>
             <div class="col-md-12 item">
@@ -117,7 +117,16 @@
               </div>
             </div>
             <div id="petitesPi" class="tab-pane fade">
-              pettiespizza
+              <div class="col-md-2 col-sm-4 col-xs-4"
+                   style="margin-top: 15px; text-align: center;" *ngFor="let plat of ppizzas">
+                <a (click)="ajouterPlat(plat.idPlat)">
+                  <img class="img-responsive img-thumbnail"
+                       src="./../../assets/Plat/plat/pizza/{{plat.photo}}">
+                </a>
+                <div class="col-md-12 item">
+                  <span>{{plat.libellePlat}}</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -128,18 +137,54 @@
           </ul>
           <div class="tab-content">
             <div id="GrandesPa" class="tab-pane fade in active">
-              grande pates
+              <div class="col-md-2 col-sm-4 col-xs-4"
+                   style="margin-top: 15px; text-align: center;" *ngFor="let plat of gpates">
+                <a (click)="ajouterPlat(plat.idPlat)">
+                  <img class="img-responsive img-thumbnail"
+                       src="./../../assets/Plat/plat/pizza/{{plat.photo}}">
+                </a>
+                <div class="col-md-12 item">
+                  <span>{{plat.libellePlat}}</span>
+                </div>
+              </div>
             </div>
             <div id="PetitesPa" class="tab-pane fade">
-              pettiespizza
+              <div class="col-md-2 col-sm-4 col-xs-4"
+                   style="margin-top: 15px; text-align: center;" *ngFor="let plat of ppates">
+                <a (click)="ajouterPlat(plat.idPlat)">
+                  <img class="img-responsive img-thumbnail"
+                       src="./../../assets/Plat/plat/pizza/{{plat.photo}}">
+                </a>
+                <div class="col-md-12 item">
+                  <span>{{plat.libellePlat}}</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <div id="entrees" class="tab-pane fade">
-          entrees
+          <div class="col-md-2 col-sm-4 col-xs-4"
+               style="margin-top: 15px; text-align: center;" *ngFor="let plat of entrees">
+            <a (click)="ajouterPlat(plat.idPlat)">
+              <img class="img-responsive img-thumbnail"
+                   src="./../../assets/Plat/plat/pizza/{{plat.photo}}">
+            </a>
+            <div class="col-md-12 item">
+              <span>{{plat.libellePlat}}</span>
+            </div>
+          </div>
         </div>
         <div id="desserts" class="tab-pane fade">
-          pizzas
+          <div class="col-md-2 col-sm-4 col-xs-4"
+               style="margin-top: 15px; text-align: center;" *ngFor="let plat of desserts">
+            <a (click)="ajouterPlat(plat.idPlat)">
+              <img class="img-responsive img-thumbnail"
+                   src="./../../assets/Plat/dessert/{{plat.photo}}">
+            </a>
+            <div class="col-md-12 item">
+              <span>{{plat.libellePlat}}</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -204,7 +249,7 @@
       <button class="btn btn-lg btn-success" data-toggle="modal"
               data-target="#paiement">Payer</button>
 
-      <a href=""><button
+      <a href="" routerLink="/payer"><button
         class="btn btn-lg btn-default">Diviser addition</button></a>
     </div>
 

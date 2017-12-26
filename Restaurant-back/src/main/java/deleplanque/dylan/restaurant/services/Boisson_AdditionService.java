@@ -15,26 +15,23 @@ import deleplanque.dylan.restaurant.repository.IBoisson_AdditionRepository;
 import deleplanque.dylan.restaurant.repository.ITableRepository;
 
 @Service
-public class Boisson_AdditionService implements IBoisson_AdditionService{
+public class Boisson_AdditionService implements IBoisson_AdditionService {
 
-	
 	@Autowired
 	IBoisson_AdditionRepository boissonAdditionRepository;
 
 	@Autowired
 	ITableRepository tableRepository;
-	
 
 	@Autowired
 	IBoissonRepository boissonRepository;
-	
-	
+
 	@Override
 	public Tables getBoissonsAddition(int idTable) {
-		List<Boisson_Addition> listeBoissonA = boissonAdditionRepository.findByAdditionIdAddition(idTable);
 		Tables table = tableRepository.findByIdTable(idTable);
+		List<Boisson_Addition> listeBoissonA = boissonAdditionRepository.findByAdditionIdAddition(table.getAddition().getIdAddition());
 		List<Boisson> listBoisson = new ArrayList<Boisson>();
-		for (int i=0; i<listeBoissonA.size();i++) {
+		for (int i = 0; i < listeBoissonA.size(); i++) {
 			listBoisson.add(listeBoissonA.get(i).getBoisson());
 		}
 		table.getAddition().setBoissons(listBoisson);
@@ -50,16 +47,58 @@ public class Boisson_AdditionService implements IBoisson_AdditionService{
 		getBoissonsAddition(idTable);
 		return table;
 	}
-	
+
 	@Override
 	public Tables removeBoisson(int idTable, int idBoisson) {
 		Tables table = tableRepository.findByIdTable(idTable);
 		Addition addition = table.getAddition();
-		List<Boisson_Addition> ba = boissonAdditionRepository.findByAdditionIdAdditionAndBoissonIdBoisson(addition.getIdAddition(), idBoisson);
-		if(ba.size() > 0) {
-			boissonAdditionRepository.delete(ba.get(ba.size()-1).getId());			
+		List<Boisson_Addition> ba = boissonAdditionRepository
+				.findByAdditionIdAdditionAndBoissonIdBoisson(addition.getIdAddition(), idBoisson);
+		if (ba.size() > 0) {
+			boissonAdditionRepository.delete(ba.get(ba.size() - 1).getId());
 		}
 		getBoissonsAddition(idTable);
+		return table;
+	}
+
+
+	@Override
+	public Tables addBoissonAdditionToAdditionProvisoire(int idTable, int idBoisson) {
+		Tables table = tableRepository.findByIdTable(idTable);
+		Boisson boisson = boissonRepository.findByIdBoisson(idBoisson);
+		boissonAdditionRepository.saveAndFlush(new Boisson_Addition(table.getAdditionProvisoire(), boisson));
+		List<Boisson_Addition> ba = boissonAdditionRepository
+				.findByAdditionIdAdditionAndBoissonIdBoisson(table.getAddition().getIdAddition(), idBoisson);
+		if (ba.size() > 0) {
+			boissonAdditionRepository.delete(ba.get(ba.size() - 1).getId());
+		}
+		getBoissonsAddition(idTable);
+		return table;
+	}
+
+	@Override
+	public Tables addBoissonAdditionProvisoireToAddition(int idTable, int idBoisson) {
+		Tables table = tableRepository.findByIdTable(idTable);
+		Boisson boisson = boissonRepository.findByIdBoisson(idBoisson);
+		boissonAdditionRepository.saveAndFlush(new Boisson_Addition(table.getAddition(), boisson));
+		List<Boisson_Addition> ba = boissonAdditionRepository
+				.findByAdditionIdAdditionAndBoissonIdBoisson(table.getAdditionProvisoire().getIdAddition(), idBoisson);
+		if (ba.size() > 0) {
+			boissonAdditionRepository.delete(ba.get(ba.size() - 1).getId());
+		}
+		getBoissonsAddition(idTable);
+		return table;
+	}
+
+	@Override
+	public Tables getBoissonsProvisoire(int idTable) {
+		Tables table = tableRepository.findByIdTable(idTable);
+		List<Boisson_Addition> listeBoissonA = boissonAdditionRepository.findByAdditionIdAddition(table.getAdditionProvisoire().getIdAddition());
+		List<Boisson> listBoisson = new ArrayList<Boisson>();
+		for (int i = 0; i < listeBoissonA.size(); i++) {
+			listBoisson.add(listeBoissonA.get(i).getBoisson());
+		}
+		table.getAddition().setBoissons(listBoisson);
 		return table;
 	}
 }

@@ -3,7 +3,6 @@ import {Table} from '../bean/table';
 import {TableService} from './table.service';
 import {Boisson} from '../bean/boisson';
 import {Plat} from '../bean/plat';
-import {AppPage} from '../../../e2e/app.po';
 import {AppComponent} from '../app.component';
 
 @Component({
@@ -14,112 +13,44 @@ import {AppComponent} from '../app.component';
 export class TableComponent implements OnInit {
 
   table: Table;
-  boissons: Boisson[];
-  plats: Plat[];
-  softs: Boisson[] = [];
-  chaudes: Boisson[] = [];
-  aperitifs: Boisson[] = [];
-  digestifs: Boisson[] = [];
-  vins: Boisson[] = [];
-  bieres: Boisson[] = [];
   boissonsAddition: Boisson[];
   platsAddition: Plat[];
   boissonMap: Map<Boisson, number> = new Map<Boisson, number>();
   platMap: Map<Plat, number> = new Map<Plat, number>();
   tabBoissons: any;
   tabPlats: any;
-  pizzas: Plat[] = [];
-  entrees: Plat[] = [];
-  pates: Plat[] = [];
-  desserts: Plat[] = [];
-  gpizzas: Plat[] = [];
-  ppizzas: Plat[] = [];
-  gpates: Plat[] = [];
-  ppates: Plat[] = [];
 
   constructor(private tableService: TableService, private app: AppComponent) { }
+
+  softs = this.app.softs;
+  chaudes= this.app.chaudes;
+  aperitifs= this.app.aperitifs;
+  digestifs= this.app.digestifs;
+  vins= this.app.vins;
+  bieres= this.app.bieres;
+  entrees= this.app.entrees;
+  desserts= this.app.desserts;
+  gpizzas= this.app.gpizzas;
+  ppizzas= this.app.ppizzas;
+  gpates= this.app.gpates;
+  ppates= this.app.ppates;
+
 
   ngOnInit() {
 
     this.table = JSON.parse(sessionStorage.getItem('table'));
     this.app.numTable = this.table.numero;
-    this.getBoissons();
-    this.getPlats();
     this.getBoissonsAddition();
     this.getPlatsAddition();
   }
 
-  getBoissons(): void {
-    this.tableService.getBoissons()
-      .subscribe(data => {
-        this.boissons = data;
-        for (let i = 0; i < this.boissons.length; i++) {
-          switch (this.boissons[i].categorie) {
-            case 'soft':
-              this.softs.push(this.boissons[i]);
-              break;
-            case 'biere':
-              this.bieres.push(this.boissons[i]);
-              break;
-            case 'aperitif':
-              this.aperitifs.push(this.boissons[i]);
-              break;
-            case 'vin':
-              this.vins.push(this.boissons[i]);
-              break;
-            case 'digestif':
-              this.digestifs.push(this.boissons[i]);
-              break;
-            case 'chaude':
-              this.chaudes.push(this.boissons[i]);
-              break;
-          }
-        }
-      }, error => {
-        console.log(error);
-      });
-  }
 
-  getPlats(): void {
-    this.tableService.getPlats()
-      .subscribe(data => {
-        this.plats = data;
-        for (let i = 0; i < this.plats.length; i++) {
-          switch (this.plats[i].categorie) {
-            case 'pizza':
-              this.pizzas.push(this.plats[i]);
-              break;
-            case 'pates':
-              this.pates.push(this.plats[i]);
-              break;
-            case 'dessert':
-              this.desserts.push(this.plats[i]);
-              break;
-            case 'entree':
-              this.entrees.push(this.plats[i]);
-              break;
-          }
-        }
-        for (let i = 0; i < this.pizzas.length; i++) {
-          switch (this.pizzas[i].sousCategorie) {
-            case 'grande':
-              this.gpizzas.push(this.pizzas[i]);
-              break;
-            case 'petite':
-              this.ppizzas.push(this.pizzas[i]);
-              break;
-          }
-        }
-      }, error => {
-        console.log(error);
-      });
-  }
 
   getBoissonsAddition(): void {
     this.tableService.getBoissonsAddition(this.table.idTable)
       .subscribe(data => {
+        this.table.addition.montantTotal = data.addition.montantTotal;
         this.boissonMap.clear();
-        this.table = data;
       this.boissonsAddition = data.addition.boissons;
         for (let i = 0; i < this.boissonsAddition.length; i++) {
           if (this.mapBoissonContainKey(this.boissonsAddition[i].libelleBoisson)) {
@@ -132,6 +63,9 @@ export class TableComponent implements OnInit {
           }
         }
       this.tabBoissons = Array.from(this.boissonMap);
+      this.table.tabBoissons = this.tabBoissons;
+      console.log(this.table);
+      sessionStorage.setItem('table', JSON.stringify(this.table));
     }, error => {
       console.log(error);
     });
@@ -140,8 +74,8 @@ export class TableComponent implements OnInit {
   getPlatsAddition(): void {
     this.tableService.getPlatsAddition(this.table.idTable)
       .subscribe(data => {
+        this.table.addition.montantTotal = data.addition.montantTotal;
         this.platMap.clear();
-        this.table = data;
         this.platsAddition = data.addition.plats;
         for (let i = 0; i < this.platsAddition.length; i++) {
           if (this.mapPlatContainKey(this.platsAddition[i].libellePlat)) {
@@ -154,7 +88,9 @@ export class TableComponent implements OnInit {
           }
         }
         this.tabPlats = Array.from(this.platMap);
-        console.log(this.tabPlats);
+        this.table.tabPlats = this.tabPlats;
+        console.log(this.table);
+        sessionStorage.setItem('table', JSON.stringify(this.table));
       }, error => {
         console.log(error);
       });

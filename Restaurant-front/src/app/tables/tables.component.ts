@@ -4,6 +4,8 @@ import {TablesService} from './tables.service';
 import {TableService} from '../table/table.service';
 import {Router} from '@angular/router';
 import {AppComponent} from '../app.component';
+import {Boisson} from '../bean/boisson';
+import {Plat} from '../bean/plat';
 
 @Component({
   selector: 'app-tables',
@@ -15,6 +17,7 @@ export class TablesComponent implements OnInit {
   constructor(private tablesService: TablesService, private  tableService: TableService, private router: Router, private app: AppComponent) { }
 
   tables: Table[];
+
   ngOnInit() {
 
     this.tables = JSON.parse(sessionStorage.getItem('tables'));

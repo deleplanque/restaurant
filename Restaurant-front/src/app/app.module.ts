@@ -12,12 +12,11 @@ import { SallesComponent } from './salles/salles.component';
 import {SurPlaceComponent} from './sur-place/sur-place.component';
 import { TablesComponent } from './tables/tables.component';
 import { TableComponent } from './table/table.component';
-import { AdditionComponent } from './addition/addition.component';
-import { AdditionProvisoireComponent } from './addition-provisoire/addition-provisoire.component';
 import {TablesService} from './tables/tables.service';
 import {SallesService} from './salles/salles.service';
 import {TableService} from './table/table.service';
 import { CalculatriceComponent } from './calculatrice/calculatrice.component';
+import { PayerSeparementComponent } from './payer-separement/payer-separement.component';
 
 
 @NgModule({
@@ -28,9 +27,8 @@ import { CalculatriceComponent } from './calculatrice/calculatrice.component';
     SallesComponent,
     TablesComponent,
     TableComponent,
-    AdditionComponent,
-    AdditionProvisoireComponent,
-    CalculatriceComponent
+    CalculatriceComponent,
+    PayerSeparementComponent
   ],
   imports: [
     BrowserModule,

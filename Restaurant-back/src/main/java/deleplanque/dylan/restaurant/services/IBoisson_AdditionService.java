@@ -10,4 +10,10 @@ public interface IBoisson_AdditionService {
 
 	Tables removeBoisson(int idTable, int idBoisson);
 
+	Tables addBoissonAdditionToAdditionProvisoire(int idTable, int idBoisson);
+
+	Tables addBoissonAdditionProvisoireToAddition(int idTable, int idBoisson);
+
+	Tables getBoissonsProvisoire(int idTable);
+
 }

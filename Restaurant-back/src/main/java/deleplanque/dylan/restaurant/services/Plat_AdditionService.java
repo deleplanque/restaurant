@@ -52,8 +52,8 @@ public class Plat_AdditionService implements IPlat_additionService {
 
 	@Override
 	public Tables getPlatsAddition(int idTable) {
-		List<Plat_Addition> listePlatA = platAdditionRepository.findByAdditionIdAddition(idTable);
 		Tables table = tableRepository.findByIdTable(idTable);
+		List<Plat_Addition> listePlatA = platAdditionRepository.findByAdditionIdAddition(table.getAddition().getIdAddition());
 		List<Plat> listPlats = new ArrayList<Plat>();
 		for (int i=0; i<listePlatA.size();i++) {
 			listPlats.add(listePlatA.get(i).getPlat());

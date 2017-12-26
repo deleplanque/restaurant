@@ -7,6 +7,8 @@ export class Table {
     public capaciteTable: number,
     public addition: Addition,
     public additionProvisoire: Addition,
-    public estLibre: boolean
+    public estLibre: boolean,
+    public tabBoissons: any,
+    public tabPlats: any
   ) {  }
 }

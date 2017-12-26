@@ -52,4 +52,14 @@ public class BoissonsController {
 		return new ResponseEntity<Boisson>(boissonService.setNomBoissons(idBoisson), HttpStatus.OK);
 	}
 	
+	@RequestMapping(value="/addBoissonAdditionToAdditionProvisoire/{idTable}/{idBoisson}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Tables> addBoissonAdditionToAdditionProvisoire(@PathVariable("idTable") int idTable ,@PathVariable("idBoisson") int idBoisson){
+		return new ResponseEntity<Tables>(boisson_addition.addBoissonAdditionToAdditionProvisoire(idTable, idBoisson), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/addBoissonAdditionProvisoireToAddition/{idTable}/{idBoisson}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Tables> addBoissonAdditionProvisoire(@PathVariable("idTable") int idTable ,@PathVariable("idBoisson") int idBoisson){
+		return new ResponseEntity<Tables>(boisson_addition.addBoissonAdditionProvisoireToAddition(idTable, idBoisson), HttpStatus.OK);
+	}
+	
 }

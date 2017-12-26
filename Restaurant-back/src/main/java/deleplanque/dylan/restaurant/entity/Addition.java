@@ -45,6 +45,11 @@ public class Addition implements Serializable{
 	@OneToOne(mappedBy="addition")
 	private Tables table;
 	
+	@OneToOne(mappedBy="additionProvisoire")
+	@JsonIgnore
+	private Tables tableProvisoire;
+	
+	private String paiement;
 	
 	public Addition() {
 		this.montantTotal = 0;
@@ -104,7 +109,14 @@ public class Addition implements Serializable{
 	public void setIdAddition(int idAddition) {
 		this.idAddition = idAddition;
 	}
-	
-	
+
+	public String getPaiement() {
+		return paiement;
+	}
+
+	public void setPaiement(String paiement) {
+		this.paiement = paiement;
+	}
+		
 
 }

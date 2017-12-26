@@ -28,9 +28,10 @@ public class Tables implements Serializable{
 
 	private int capaciteTable;
 	@OneToOne
-	private Addition addition;
-	@Transient
-	private Addition additionProvisoire;
+	private Addition addition = new Addition();
+
+	@OneToOne
+	private Addition additionProvisoire = new Addition();
 
 	boolean estLibre;
 

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdditionProvisoireComponent } from './addition-provisoire.component';
+import { PayerSeparementComponent } from './payer-separement.component';
 
-describe('AdditionProvisoireComponent', () => {
-  let component: AdditionProvisoireComponent;
-  let fixture: ComponentFixture<AdditionProvisoireComponent>;
+describe('PayerSeparementComponent', () => {
+  let component: PayerSeparementComponent;
+  let fixture: ComponentFixture<PayerSeparementComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdditionProvisoireComponent ]
+      declarations: [ PayerSeparementComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdditionProvisoireComponent);
+    fixture = TestBed.createComponent(PayerSeparementComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
