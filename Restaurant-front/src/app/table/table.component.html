@@ -91,7 +91,57 @@
       </div>
     </div>
     <div id="plats" class="tab-pane fade">
-      <h3>Plat</h3>
+      <ul class="nav nav-tabs">
+        <li class="active categoriesPlats"><a data-toggle="tab" href="#pizzas">Pizzas</a></li>
+        <li class="categoriesPlats"><a data-toggle="tab" href="#pates">Pâtes</a></li>
+        <li class="categoriesPlats"><a data-toggle="tab" href="#entrees">Entrées</a></li>
+        <li class="categoriesPlats"><a data-toggle="tab" href="#desserts">Desserts</a></li>
+      </ul>
+      <div class="tab-content">
+        <div id="pizzas" class="tab-pane fade in active">
+          <ul class="nav nav-tabs">
+            <li class="active categoriesPizzas"><a data-toggle="tab" href="#grandesPi">Grandes</a></li>
+            <li class="categoriesPizzas"><a data-toggle="tab" href="#petitesPi">Petites</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="grandesPi" class="tab-pane fade in active">
+              <div class="col-md-2 col-sm-4 col-xs-4"
+                   style="margin-top: 15px; text-align: center;" *ngFor="let plat of gpizzas">
+                <a (click)="ajouterPlat(plat.idPlat)">
+                  <img class="img-responsive img-thumbnail"
+                       src="./../../assets/Plat/plat/pizza/{{plat.photo}}">
+                </a>
+                <div class="col-md-12 item">
+                  <span>{{plat.libellePlat}}</span>
+                </div>
+              </div>
+            </div>
+            <div id="petitesPi" class="tab-pane fade">
+              pettiespizza
+            </div>
+          </div>
+        </div>
+        <div id="pates" class="tab-pane fade ">
+          <ul class="nav nav-tabs">
+            <li class="active categoriesPizzas"><a data-toggle="tab" href="#GrandesPa">Grandes</a></li>
+            <li class="categoriesPizzas"><a data-toggle="tab" href="#PetitesPa">Petites</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="GrandesPa" class="tab-pane fade in active">
+              grande pates
+            </div>
+            <div id="PetitesPa" class="tab-pane fade">
+              pettiespizza
+            </div>
+          </div>
+        </div>
+        <div id="entrees" class="tab-pane fade">
+          entrees
+        </div>
+        <div id="desserts" class="tab-pane fade">
+          pizzas
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -114,12 +164,19 @@
   <div class="col-md-12 note">
     <table class="table table-striped table-condensed">
       <tbody>
-        <tr *ngFor="let boisson of tab">
+        <tr *ngFor="let boisson of tabBoissons">
           <td>{{boisson[0].libelleBoisson}}</td>
           <td>{{boisson[1]}}</td>
           <td>{{boisson[0].prix}}</td>
           <td><button (click)="ajouterBoisson(boisson[0].idBoisson)"  class="btn btn-xs btn-success">+</button> </td>
           <td><button (click)="supprimerBoisson(boisson[0].idBoisson)" class="btn btn-xs btn-danger">-</button> </td>
+        </tr>
+        <tr *ngFor="let plat of tabPlats">
+          <td>{{plat[0].libellePlat}}</td>
+          <td>{{plat[1]}}</td>
+          <td>{{plat[0].prix}}</td>
+          <td><button (click)="ajouterPlat(plat[0].idPlat)"  class="btn btn-xs btn-success">+</button> </td>
+          <td><button (click)="supprimerPlat(plat[0].idPlat)" class="btn btn-xs btn-danger">-</button> </td>
         </tr>
       </tbody>
     </table>

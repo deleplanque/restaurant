@@ -16,6 +16,9 @@ public class TableService implements ITableService{
 	
 	@Autowired
 	IBoisson_AdditionService boissonAdditionService;
+	
+	@Autowired
+	IPlat_additionService platAdditionService;
 
 	@Override
 	public List<Tables> getTables() {
@@ -31,6 +34,7 @@ public class TableService implements ITableService{
 	public Tables getTablesById(int id) {
 		Tables table = tableRepository.findByIdTable(id);
 		boissonAdditionService.getBoissonsAddition(id);
+		platAdditionService.getPlatsAddition(id);
 		return table;
 	}
 

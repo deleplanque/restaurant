@@ -6,4 +6,6 @@ import deleplanque.dylan.restaurant.entity.Plat;
 
 public interface IPlatRepository extends JpaRepository<Plat, Long>{
 
+	Plat findByIdPlat(int idPlat);
+
 }

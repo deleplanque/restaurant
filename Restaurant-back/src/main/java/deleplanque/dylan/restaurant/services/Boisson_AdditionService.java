@@ -19,7 +19,7 @@ public class Boisson_AdditionService implements IBoisson_AdditionService{
 
 	
 	@Autowired
-	IBoisson_AdditionRepository boisson_addition;
+	IBoisson_AdditionRepository boissonAdditionRepository;
 
 	@Autowired
 	ITableRepository tableRepository;
@@ -28,9 +28,10 @@ public class Boisson_AdditionService implements IBoisson_AdditionService{
 	@Autowired
 	IBoissonRepository boissonRepository;
 	
+	
 	@Override
 	public Tables getBoissonsAddition(int idTable) {
-		List<Boisson_Addition> listeBoissonA = boisson_addition.findByAdditionIdAddition(idTable);
+		List<Boisson_Addition> listeBoissonA = boissonAdditionRepository.findByAdditionIdAddition(idTable);
 		Tables table = tableRepository.findByIdTable(idTable);
 		List<Boisson> listBoisson = new ArrayList<Boisson>();
 		for (int i=0; i<listeBoissonA.size();i++) {
@@ -45,7 +46,7 @@ public class Boisson_AdditionService implements IBoisson_AdditionService{
 		Tables table = tableRepository.findByIdTable(idTable);
 		Addition addition = table.getAddition();
 		Boisson boisson = boissonRepository.findByIdBoisson(idBoisson);
-		boisson_addition.saveAndFlush(new Boisson_Addition(addition, boisson));
+		boissonAdditionRepository.saveAndFlush(new Boisson_Addition(addition, boisson));
 		getBoissonsAddition(idTable);
 		return table;
 	}
@@ -54,9 +55,9 @@ public class Boisson_AdditionService implements IBoisson_AdditionService{
 	public Tables removeBoisson(int idTable, int idBoisson) {
 		Tables table = tableRepository.findByIdTable(idTable);
 		Addition addition = table.getAddition();
-		List<Boisson_Addition> ba = boisson_addition.findByAdditionIdAdditionAndBoissonIdBoisson(addition.getIdAddition(), idBoisson);
+		List<Boisson_Addition> ba = boissonAdditionRepository.findByAdditionIdAdditionAndBoissonIdBoisson(addition.getIdAddition(), idBoisson);
 		if(ba.size() > 0) {
-			boisson_addition.delete(ba.get(ba.size()-1).getId());			
+			boissonAdditionRepository.delete(ba.get(ba.size()-1).getId());			
 		}
 		getBoissonsAddition(idTable);
 		return table;

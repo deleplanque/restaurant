@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
@@ -32,12 +31,16 @@ public class Addition implements Serializable{
 	@Transient
 	private List<Boisson> boissons;
 	
+	@Transient 
+	List<Plat> plats;
+	
 	@OneToMany(mappedBy="addition", cascade=CascadeType.ALL)
 	@JsonIgnore
 	private List<Boisson_Addition> listBoissons;
 	
-	@ManyToMany(mappedBy="additions")
-	private List<Plat> plats;
+	@OneToMany(mappedBy="addition", cascade=CascadeType.ALL)
+	@JsonIgnore
+	private List<Plat_Addition> listPlats;
 	
 	@OneToOne(mappedBy="addition")
 	private Tables table;
@@ -51,6 +54,9 @@ public class Addition implements Serializable{
 		for(int i=0; i< getBoissons().size();i++) {
 			montantTotal = montantTotal + getBoissons().get(i).getPrix();
 		}
+		for(int i=0; i< getPlats().size();i++) {
+			montantTotal = montantTotal + getPlats().get(i).getPrix();
+		}
 		return montantTotal;
 	}
 
@@ -62,6 +68,9 @@ public class Addition implements Serializable{
 
 
 	public List<Plat> getPlats() {
+		if(this.plats == null) {
+			this.plats = new ArrayList<Plat>();
+		}
 		return plats;
 	}
 

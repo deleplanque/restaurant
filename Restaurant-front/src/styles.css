@@ -246,6 +246,10 @@ td{
   border-radius: 0px;
 }
 
+#plats a {
+  border-radius: 0px;
+}
+
 .nav-tabs>li>a, .nav-tabs>li>a:hover {
   border: 0px;
   background-color: rgba(0,0,0,0.3);
@@ -257,7 +261,13 @@ td{
   width: 16.66%;
 }
 
+.categoriesPlats{
+  width: 25%;
+}
 
+.categoriesPizzas, categoriesPates{
+  width: 50%;
+}
 #boissons{
   padding: 0px;
 }

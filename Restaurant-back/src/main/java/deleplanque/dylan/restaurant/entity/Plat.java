@@ -4,11 +4,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -34,9 +35,9 @@ public class Plat implements Serializable{
 	@JsonIgnore
 	private ArrayList<Supplement> listeSupplements;
 	private String photo;	
-	@ManyToMany
+	@OneToMany(mappedBy="plat", cascade=CascadeType.ALL)
 	@JsonIgnore
-	private List<Addition> additions;
+	private List<Plat_Addition> plats;
 	
 	public Plat() {}
 	
@@ -114,6 +115,15 @@ public class Plat implements Serializable{
 	public void setIdPlat(int idPlat) {
 		this.idPlat = idPlat;
 	}
+
+	public List<Plat_Addition> getPlats() {
+		return plats;
+	}
+
+	public void setPlats(List<Plat_Addition> plats) {
+		this.plats = plats;
+	}
+	
 	
 	
 }
