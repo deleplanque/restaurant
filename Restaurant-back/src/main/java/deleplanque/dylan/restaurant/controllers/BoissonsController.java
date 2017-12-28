@@ -30,6 +30,7 @@ public class BoissonsController {
 	public ResponseEntity<List<Boisson>> getBoissons(){
 		return new ResponseEntity<List<Boisson>>(boissonService.getBoissons(), HttpStatus.OK);
 	}
+
 	
 	@RequestMapping(value="/addBoisson/{idTable}/{idBoisson}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Tables> addBoisson(@PathVariable("idTable") int idTable ,@PathVariable("idBoisson") int idBoisson){
@@ -45,6 +46,11 @@ public class BoissonsController {
 	@RequestMapping(value="/getBoissons/{idTable}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Tables> getBoissonsAddition(@PathVariable("idTable") int idTable){
 		return new ResponseEntity<Tables>(boisson_addition.getBoissonsAddition(idTable), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/getBoissonsProvisoire/{idTable}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Tables> getBoissonsProvisoire(@PathVariable("idTable") int idTable){
+		return new ResponseEntity<Tables>(boisson_addition.getBoissonsProvisoire(idTable), HttpStatus.OK);
 	}
 	
 	@RequestMapping(value="/setNomBoisson/{idBoisson}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

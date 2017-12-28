@@ -8,7 +8,5 @@ export class Table {
     public addition: Addition,
     public additionProvisoire: Addition,
     public estLibre: boolean,
-    public tabBoissons: any,
-    public tabPlats: any
   ) {  }
 }

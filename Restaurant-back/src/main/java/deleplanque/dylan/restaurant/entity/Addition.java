@@ -55,18 +55,7 @@ public class Addition implements Serializable{
 		this.montantTotal = 0;
 	}
 
-	public float getMontantTotal() {
-		for(int i=0; i< getBoissons().size();i++) {
-			montantTotal = montantTotal + getBoissons().get(i).getPrix();
-		}
-		for(int i=0; i< getPlats().size();i++) {
-			montantTotal = montantTotal + getPlats().get(i).getPrix();
-		}
-		return montantTotal;
-	}
-
-
-
+	
 	public void setMontantTotal(float montantTotal) {
 		this.montantTotal = montantTotal;
 	}

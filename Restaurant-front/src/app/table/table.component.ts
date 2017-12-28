@@ -4,6 +4,7 @@ import {TableService} from './table.service';
 import {Boisson} from '../bean/boisson';
 import {Plat} from '../bean/plat';
 import {AppComponent} from '../app.component';
+import {Addition} from '../bean/addition';
 
 @Component({
   selector: 'app-table',
@@ -19,6 +20,7 @@ export class TableComponent implements OnInit {
   platMap: Map<Plat, number> = new Map<Plat, number>();
   tabBoissons: any;
   tabPlats: any;
+
 
   constructor(private tableService: TableService, private app: AppComponent) { }
 
@@ -44,12 +46,27 @@ export class TableComponent implements OnInit {
     this.getPlatsAddition();
   }
 
+  getMontantTotal(addition: Addition) {
+    addition.montantTotal = 0;
+    if (this.boissonsAddition != null) {
+      for (let i = 0; i < this.boissonsAddition.length; i++) {
+        addition.montantTotal = addition.montantTotal + this.boissonsAddition[i].prix;
+      }
+    }
+
+    if (this.platsAddition != null) {
+      for (let i = 0; i < this.platsAddition.length; i++) {
+        addition.montantTotal = addition.montantTotal + this.platsAddition[i].prix;
+      }
+    }
+    return addition.montantTotal;
+  }
 
 
   getBoissonsAddition(): void {
+    this.table = JSON.parse(sessionStorage.getItem('table'));
     this.tableService.getBoissonsAddition(this.table.idTable)
       .subscribe(data => {
-        this.table.addition.montantTotal = data.addition.montantTotal;
         this.boissonMap.clear();
       this.boissonsAddition = data.addition.boissons;
         for (let i = 0; i < this.boissonsAddition.length; i++) {
@@ -63,15 +80,18 @@ export class TableComponent implements OnInit {
           }
         }
       this.tabBoissons = Array.from(this.boissonMap);
-      this.table.tabBoissons = this.tabBoissons;
-      console.log(this.table);
+      this.table.addition.tabBoissons = this.tabBoissons;
+      this.table.addition.montantTotal = this.getMontantTotal(this.table.addition);
       sessionStorage.setItem('table', JSON.stringify(this.table));
     }, error => {
       console.log(error);
     });
   }
 
+
+
   getPlatsAddition(): void {
+    this.table = JSON.parse(sessionStorage.getItem('table'));
     this.tableService.getPlatsAddition(this.table.idTable)
       .subscribe(data => {
         this.table.addition.montantTotal = data.addition.montantTotal;
@@ -88,8 +108,8 @@ export class TableComponent implements OnInit {
           }
         }
         this.tabPlats = Array.from(this.platMap);
-        this.table.tabPlats = this.tabPlats;
-        console.log(this.table);
+        this.table.addition.tabPlats = this.tabPlats;
+        this.table.addition.montantTotal = this.getMontantTotal(this.table.addition);
         sessionStorage.setItem('table', JSON.stringify(this.table));
       }, error => {
         console.log(error);

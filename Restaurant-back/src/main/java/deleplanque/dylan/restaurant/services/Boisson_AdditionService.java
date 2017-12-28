@@ -35,6 +35,7 @@ public class Boisson_AdditionService implements IBoisson_AdditionService {
 			listBoisson.add(listeBoissonA.get(i).getBoisson());
 		}
 		table.getAddition().setBoissons(listBoisson);
+		table.getAdditionProvisoire().setBoissons(this.getBoissonsProvisoire(idTable).getAdditionProvisoire().getBoissons());
 		return table;
 	}
 
@@ -45,6 +46,7 @@ public class Boisson_AdditionService implements IBoisson_AdditionService {
 		Boisson boisson = boissonRepository.findByIdBoisson(idBoisson);
 		boissonAdditionRepository.saveAndFlush(new Boisson_Addition(addition, boisson));
 		getBoissonsAddition(idTable);
+		getBoissonsProvisoire(idTable);
 		return table;
 	}
 
@@ -58,6 +60,7 @@ public class Boisson_AdditionService implements IBoisson_AdditionService {
 			boissonAdditionRepository.delete(ba.get(ba.size() - 1).getId());
 		}
 		getBoissonsAddition(idTable);
+		getBoissonsProvisoire(idTable);
 		return table;
 	}
 
@@ -73,6 +76,7 @@ public class Boisson_AdditionService implements IBoisson_AdditionService {
 			boissonAdditionRepository.delete(ba.get(ba.size() - 1).getId());
 		}
 		getBoissonsAddition(idTable);
+		getBoissonsProvisoire(idTable);
 		return table;
 	}
 
@@ -87,6 +91,7 @@ public class Boisson_AdditionService implements IBoisson_AdditionService {
 			boissonAdditionRepository.delete(ba.get(ba.size() - 1).getId());
 		}
 		getBoissonsAddition(idTable);
+		getBoissonsProvisoire(idTable);
 		return table;
 	}
 
@@ -98,7 +103,7 @@ public class Boisson_AdditionService implements IBoisson_AdditionService {
 		for (int i = 0; i < listeBoissonA.size(); i++) {
 			listBoisson.add(listeBoissonA.get(i).getBoisson());
 		}
-		table.getAddition().setBoissons(listBoisson);
+		table.getAdditionProvisoire().setBoissons(listBoisson);
 		return table;
 	}
 }

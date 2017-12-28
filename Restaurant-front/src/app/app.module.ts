@@ -17,6 +17,7 @@ import {SallesService} from './salles/salles.service';
 import {TableService} from './table/table.service';
 import { CalculatriceComponent } from './calculatrice/calculatrice.component';
 import { PayerSeparementComponent } from './payer-separement/payer-separement.component';
+import {PayerSeparementService} from './payer-separement/payer-separement.service';
 
 
 @NgModule({
@@ -38,7 +39,7 @@ import { PayerSeparementComponent } from './payer-separement/payer-separement.co
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [TablesService, SallesService, TableService],
+  providers: [TablesService, SallesService, TableService, PayerSeparementService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

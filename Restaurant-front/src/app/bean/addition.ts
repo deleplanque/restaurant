@@ -6,6 +6,8 @@ export class Addition {
     public idAddition: number,
     public montantTotal: number,
     public boissons: Boisson[],
-    public plats: Plat[]
+    public plats: Plat[],
+    public tabBoissons: any,
+    public tabPlats: any
   ) {  }
 }
