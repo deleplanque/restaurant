@@ -56,7 +56,7 @@
         <td>{{boisson[0].libelleBoisson}}</td>
         <td>{{boisson[1]}}</td>
         <td>{{boisson[0].prix}}</td>
-        <td><button (click)="ajouterBoisson(boisson[0].idBoisson)"  class="btn btn-xs btn-success">+</button> </td>
+        <td><button (click)="addBoissonToAddition(boisson[0].idBoisson)"  class="btn btn-xs btn-danger">-</button> </td>
       </tr>
       <tr *ngFor="let plat of tabPlatsProvisoire">
         <td>{{plat[0].libellePlat}}</td>

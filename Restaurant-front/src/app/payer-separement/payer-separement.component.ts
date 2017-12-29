@@ -41,6 +41,16 @@ export class PayerSeparementComponent implements OnInit {
   }
 
 
+  addBoissonToAddition(idBoisson: number) {
+    this.payerSeparementService.addBoissonToAddition(this.table.idTable, idBoisson).subscribe(data => {
+      sessionStorage.setItem('table', JSON.stringify(data));
+      this.getBoissonsAddition();
+    }, error => {
+      console.log(error);
+    });
+  }
+
+
   getMontantTotal(addition: Addition) {
     addition.montantTotal = 0;
     if (this.boissonsAddition != null) {
@@ -77,13 +87,8 @@ export class PayerSeparementComponent implements OnInit {
         this.tabBoissons = Array.from(this.boissonMap);
         this.table.addition.tabBoissons = this.tabBoissons;
         this.table.addition.montantTotal = this.getMontantTotal(this.table.addition);
-
-
-
         this.boissonMap.clear();
-        console.log(data);
         this.boissonsAddition = data.additionProvisoire.boissons;
-        console.log(this.boissonsAddition);
         for (let i = 0; i < this.boissonsAddition.length; i++) {
           if (this.mapBoissonContainKey(this.boissonsAddition[i].libelleBoisson)) {
             const  b = this.getKeyBoisson(this.boissonsAddition[i].libelleBoisson);
@@ -124,13 +129,5 @@ export class PayerSeparementComponent implements OnInit {
     return null;
   }
 
-
-  addBoissonToAddition(idBoisson: number) {
-    this.payerSeparementService.addBoissonToAddition(this.table.idTable, idBoisson).subscribe(data => {
-      sessionStorage.setItem('table', JSON.stringify(data));
-    }, error => {
-      console.log(error);
-    });
-  }
 
 }

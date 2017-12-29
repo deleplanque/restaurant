@@ -190,6 +190,8 @@ export class TableComponent implements OnInit {
     });
   }
 
-
+  /*payer(typePaiement: string): void{
+    
+  }*/
 
 }

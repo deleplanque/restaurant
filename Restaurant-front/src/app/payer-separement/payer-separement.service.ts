@@ -20,5 +20,4 @@ export class PayerSeparementService {
     const url = `${this.addBoissonToAdditionUrl}/${idTable}/${idBoisson}`;
     return this._http.get<Table>(url);
   }
-
 }

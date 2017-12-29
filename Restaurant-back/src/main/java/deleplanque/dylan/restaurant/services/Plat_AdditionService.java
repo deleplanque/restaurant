@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import deleplanque.dylan.restaurant.entity.Addition;
 import deleplanque.dylan.restaurant.entity.Plat;
+import deleplanque.dylan.restaurant.entity.Boisson_Addition;
+import deleplanque.dylan.restaurant.entity.Plat;
 import deleplanque.dylan.restaurant.entity.Plat_Addition;
 import deleplanque.dylan.restaurant.entity.Tables;
 import deleplanque.dylan.restaurant.repository.IPlatRepository;
@@ -62,6 +64,48 @@ public class Plat_AdditionService implements IPlat_additionService {
 		return table;
 	}
 
+	
+	@Override
+	public Tables addPlatAdditionToAdditionProvisoire(int idTable, int idPlat) {
+		Tables table = tableRepository.findByIdTable(idTable);
+		Plat plat = platRepository.findByIdPlat(idPlat);
+		platAdditionRepository.saveAndFlush(new Plat_Addition(table.getAdditionProvisoire(), plat));
+		List<Plat_Addition> pa = platAdditionRepository
+				.findByAdditionIdAdditionAndPlatIdPlat(table.getAddition().getIdAddition(), idPlat);
+		if (pa.size() > 0) {
+			platAdditionRepository.delete(pa.get(pa.size() - 1).getId());
+		}
+		getPlatsAddition(idTable);
+		getPlatsProvisoire(idTable);
+		return table;
+	}
+
+	@Override
+	public Tables addPlatAdditionProvisoireToAddition(int idTable, int idPlat) {
+		Tables table = tableRepository.findByIdTable(idPlat);
+		Plat plat = platRepository.findByIdPlat(idPlat);
+		platAdditionRepository.saveAndFlush(new Plat_Addition(table.getAddition(), plat));
+		List<Plat_Addition> pa = platAdditionRepository
+				.findByAdditionIdAdditionAndPlatIdPlat(table.getAdditionProvisoire().getIdAddition(), idPlat);
+		if (pa.size() > 0) {
+			platAdditionRepository.delete(pa.get(pa.size() - 1).getId());
+		}
+		getPlatsAddition(idTable);
+		getPlatsProvisoire(idTable);
+		return table;
+	}
+
+	@Override
+	public Tables getPlatsProvisoire(int idTable) {
+		Tables table = tableRepository.findByIdTable(idTable);
+		List<Plat_Addition> listePlatA = platAdditionRepository.findByAdditionIdAddition(table.getAdditionProvisoire().getIdAddition());
+		List<Plat> listPlat = new ArrayList<Plat>();
+		for (int i = 0; i < listePlatA.size(); i++) {
+			listPlat.add(listePlatA.get(i).getPlat());
+		}
+		table.getAdditionProvisoire().setPlats(listPlat);
+		return table;
+	}
 
 	
 }

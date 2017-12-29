@@ -10,4 +10,10 @@ public interface IPlat_additionService {
 
 	Tables getPlatsAddition(int idTable);
 
+	Tables addPlatAdditionToAdditionProvisoire(int idTable, int idPlat);
+
+	Tables getPlatsProvisoire(int idTable);
+
+	Tables addPlatAdditionProvisoireToAddition(int idTable, int idPlat);
+
 }
