@@ -30,6 +30,7 @@ export class PayerSeparementComponent implements OnInit {
       this.table.additionProvisoire.listBoissons = data.additionProvisoire.listBoissons;
       this.tableComponent.transformArrayBoissonInMap(this.table.additionProvisoire.listBoissons, this.table, 'provisoire');
       sessionStorage.setItem('table', JSON.stringify(this.table));
+      console.log(this.table.additionProvisoire);
     }, error => {
       console.log(error);
     });
@@ -70,6 +71,12 @@ export class PayerSeparementComponent implements OnInit {
       sessionStorage.setItem('table', JSON.stringify(this.table));
     }, error => {
       console.log(error);
+    });
+  }
+
+  payerAdditionProvisoire(moyen: string) {
+    this.payerSeparementService.payerAdditionProvisoire(moyen, this.table.additionProvisoire).subscribe(data => {
+      console.log(data);
     });
   }
 }

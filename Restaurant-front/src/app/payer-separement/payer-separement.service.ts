@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {Table} from '../bean/table';
+import {Addition} from '../bean/addition';
 
 @Injectable()
 export class PayerSeparementService {
@@ -10,6 +11,9 @@ export class PayerSeparementService {
   private addBoissonToAdditionUrl = 'api/addBoissonAdditionProvisoireToAddition';
   private addPlatToProvisoireUrl = 'api/addPlatAdditionToAdditionProvisoire';
   private addPlatToAdditionUrl = 'api/addPlatAdditionProvisoireToAddition';
+  private helloUrl = 'apiHistorique/helloWorld';
+
+  private payerAdditionProvisoireUrl = 'apiHistorique/ajouterAddition';
 
   constructor(private _http: HttpClient) { }
 
@@ -31,5 +35,10 @@ export class PayerSeparementService {
   addPlatToAddition(idTable: number, idPlat: number): Observable<Table> {
     const url = `${this.addPlatToAdditionUrl}/${idTable}/${idPlat}`;
     return this._http.get<Table>(url);
+  }
+
+  payerAdditionProvisoire(moyen: string, additionProvisoire: Addition) {
+    const url = `${this.payerAdditionProvisoireUrl}/${moyen}`;
+   return this._http.post(url, additionProvisoire);
   }
 }

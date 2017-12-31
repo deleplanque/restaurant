@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Table} from '../bean/table';
-import {TablesService} from './tables.service';
 import {TableService} from '../table/table.service';
 import {Router} from '@angular/router';
 import {AppComponent} from '../app.component';
-import {$} from 'jquery';
 
 
 @Component({
@@ -14,14 +12,13 @@ import {$} from 'jquery';
 })
 export class TablesComponent implements OnInit {
 
-  constructor(private tablesService: TablesService, private  tableService: TableService, private router: Router, private app: AppComponent) { }
+  constructor(private  tableService: TableService, private router: Router, private app: AppComponent) { }
 
   tables: Table[];
 
 
   ngOnInit() {
     this.tables = JSON.parse(sessionStorage.getItem('tables'));
-    $( '#draggable' ).draggable();
   }
 
 
