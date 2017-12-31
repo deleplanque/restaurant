@@ -4,8 +4,8 @@ import {TablesService} from './tables.service';
 import {TableService} from '../table/table.service';
 import {Router} from '@angular/router';
 import {AppComponent} from '../app.component';
-import {Boisson} from '../bean/boisson';
-import {Plat} from '../bean/plat';
+import {$} from 'jquery';
+
 
 @Component({
   selector: 'app-tables',
@@ -18,10 +18,13 @@ export class TablesComponent implements OnInit {
 
   tables: Table[];
 
-  ngOnInit() {
 
+  ngOnInit() {
     this.tables = JSON.parse(sessionStorage.getItem('tables'));
+    $( '#draggable' ).draggable();
   }
+
+
 
   getTable(id: number): void {
     this.tableService.getTable(id)

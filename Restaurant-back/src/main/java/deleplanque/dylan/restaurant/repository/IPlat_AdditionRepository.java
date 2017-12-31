@@ -8,7 +8,7 @@ import deleplanque.dylan.restaurant.entity.Plat_Addition;
 
 public interface IPlat_AdditionRepository extends JpaRepository<Plat_Addition, Long>{
 
-	List<Plat_Addition> findByAdditionIdAddition(int idTable);
+	List<Plat_Addition> findByAdditionIdAddition(int idAddition);
 
 	List<Plat_Addition> findByAdditionIdAdditionAndPlatIdPlat(int idAddition, int idPlat);
 

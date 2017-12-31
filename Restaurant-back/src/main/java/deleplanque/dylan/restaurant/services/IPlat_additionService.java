@@ -1,18 +1,21 @@
 package deleplanque.dylan.restaurant.services;
 
+import java.util.List;
+
+import deleplanque.dylan.restaurant.entity.Plat_Addition;
 import deleplanque.dylan.restaurant.entity.Tables;
 
 public interface IPlat_additionService {
 
-	Tables addPlat(int idTable, int idPlat);
+	List<Plat_Addition> addPlat(int idTable, int idPlat);
 
-	Tables removePlat(int idTable, int idPlat);
+	List<Plat_Addition> removePlat(int idTable, int idPlat);
 
-	Tables getPlatsAddition(int idTable);
+	List<Plat_Addition> getPlatsAddition(int idTable);
 
 	Tables addPlatAdditionToAdditionProvisoire(int idTable, int idPlat);
 
-	Tables getPlatsProvisoire(int idTable);
+	List<Plat_Addition> getPlatsProvisoire(int idAddition);
 
 	Tables addPlatAdditionProvisoireToAddition(int idTable, int idPlat);
 

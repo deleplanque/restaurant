@@ -31,7 +31,7 @@ public class Boisson_Addition implements Serializable{
 
 	public Boisson_Addition() {
 	}
-	
+
 	public Boisson_Addition(Addition addition, Boisson boisson) {
 		this.addition = addition;
 		this.boisson = boisson;

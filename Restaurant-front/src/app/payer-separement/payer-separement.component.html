@@ -20,11 +20,11 @@
         <td>{{boisson[0].prix}}</td>
         <td><button (click)="addBoissonToProvisoire(boisson[0].idBoisson)"  class="btn btn-xs btn-success">+</button> </td>
       </tr>
-      <tr *ngFor="let plat of tabPlats">
+      <tr *ngFor="let plat of table.addition.tabPlats">
         <td>{{plat[0].libellePlat}}</td>
         <td>{{plat[1]}}</td>
         <td>{{plat[0].prix}}</td>
-        <td><button (click)="ajouterPlat(plat[0].idPlat)"  class="btn btn-xs btn-success">+</button> </td>
+        <td><button (click)="addPlatToProvisoire(plat[0].idPlat)"  class="btn btn-xs btn-success">+</button> </td>
       </tr>
       </tbody>
     </table>
@@ -58,11 +58,11 @@
         <td>{{boisson[0].prix}}</td>
         <td><button (click)="addBoissonToAddition(boisson[0].idBoisson)"  class="btn btn-xs btn-danger">-</button> </td>
       </tr>
-      <tr *ngFor="let plat of tabPlatsProvisoire">
+      <tr *ngFor="let plat of table.additionProvisoire.tabPlats">
         <td>{{plat[0].libellePlat}}</td>
         <td>{{plat[1]}}</td>
         <td>{{plat[0].prix}}</td>
-        <td><button (click)="ajouterPlat(plat[0].idPlat)"  class="btn btn-xs btn-success">+</button> </td>
+        <td><button (click)="addPlatToAddition(plat[0].idPlat)"  class="btn btn-xs btn-danger">-</button> </td>
       </tr>
       </tbody>
     </table>

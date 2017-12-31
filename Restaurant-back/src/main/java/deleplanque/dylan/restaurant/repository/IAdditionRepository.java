@@ -6,4 +6,6 @@ import deleplanque.dylan.restaurant.entity.Addition;
 
 public interface IAdditionRepository extends JpaRepository<Addition, Long>{
 
+	Addition findByIdAddition(int idAddition);
+
 }

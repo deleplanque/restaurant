@@ -4,6 +4,8 @@ import {Table} from '../bean/table';
 import {HttpClient} from '@angular/common/http';
 import {Boisson} from '../bean/boisson';
 import {Plat} from '../bean/plat';
+import {BoissonAddition} from '../bean/boissonAddition';
+import {PlatAddition} from '../bean/platAddition';
 
 @Injectable()
 export class TableService {
@@ -31,34 +33,34 @@ export class TableService {
     return this._http.get<Plat[]>(this.platsUrl);
   }
 
-  getBoissonsAddition(id: number): Observable<Table> {
+  getBoissonsAddition(id: number): Observable<BoissonAddition[]> {
     const url = `${this.boissonsUrl}/${id}`;
-    return this._http.get<Table>(url);
+    return this._http.get<BoissonAddition[]>(url);
   }
 
-  getPlatsAddition(id: number): Observable<Table> {
+  getPlatsAddition(id: number): Observable<PlatAddition[]> {
     const url = `${this.platsUrl}/${id}`;
-    return this._http.get<Table>(url);
+    return this._http.get<PlatAddition[]>(url);
   }
 
 
-  addBoisson(idTable: number, id: number): Observable<Table> {
-    const url = `${this.addBoissonsUrl}/${idTable}/${id}`;
-    return this._http.get<Table>(url);
+  addBoisson(idAddition: number, id: number): Observable<BoissonAddition[]> {
+    const url = `${this.addBoissonsUrl}/${idAddition}/${id}`;
+    return this._http.get<BoissonAddition[]>(url);
   }
 
-  removeBoisson(idTable: number, id: number): Observable<Table> {
-    const url = `${this.removeBoissonsUrl}/${idTable}/${id}`;
-    return this._http.get<Table>(url);
+  removeBoisson(idAddition: number, id: number): Observable<BoissonAddition[]> {
+    const url = `${this.removeBoissonsUrl}/${idAddition}/${id}`;
+    return this._http.get<BoissonAddition[]>(url);
   }
 
-  addPlat(idTable: number, id: number): Observable<Table> {
-    const url = `${this.addPlatUrl}/${idTable}/${id}`;
-    return this._http.get<Table>(url);
+  addPlat(idAddition: number, id: number): Observable<PlatAddition[]> {
+    const url = `${this.addPlatUrl}/${idAddition}/${id}`;
+    return this._http.get<PlatAddition[]>(url);
   }
 
-  removePlat(idTable: number, id: number): Observable<Table> {
-    const url = `${this.removePlatUrl}/${idTable}/${id}`;
-    return this._http.get<Table>(url);
+  removePlat(idAddition: number, id: number): Observable<PlatAddition[]> {
+    const url = `${this.removePlatUrl}/${idAddition}/${id}`;
+    return this._http.get<PlatAddition[]>(url);
   }
 }

@@ -5,6 +5,8 @@ import {Boisson} from '../bean/boisson';
 import {Plat} from '../bean/plat';
 import {AppComponent} from '../app.component';
 import {Addition} from '../bean/addition';
+import {BoissonAddition} from '../bean/boissonAddition';
+import {PlatAddition} from '../bean/platAddition';
 
 @Component({
   selector: 'app-table',
@@ -14,13 +16,6 @@ import {Addition} from '../bean/addition';
 export class TableComponent implements OnInit {
 
   table: Table;
-  boissonsAddition: Boisson[];
-  platsAddition: Plat[];
-  boissonMap: Map<Boisson, number> = new Map<Boisson, number>();
-  platMap: Map<Plat, number> = new Map<Plat, number>();
-  tabBoissons: any;
-  tabPlats: any;
-
 
   constructor(private tableService: TableService, private app: AppComponent) { }
 
@@ -38,8 +33,8 @@ export class TableComponent implements OnInit {
   ppates= this.app.ppates;
 
 
-  ngOnInit() {
 
+  ngOnInit() {
     this.table = JSON.parse(sessionStorage.getItem('table'));
     this.app.numTable = this.table.numero;
     this.getBoissonsAddition();
@@ -47,78 +42,99 @@ export class TableComponent implements OnInit {
   }
 
   getMontantTotal(addition: Addition) {
-    addition.montantTotal = 0;
-    if (this.boissonsAddition != null) {
-      for (let i = 0; i < this.boissonsAddition.length; i++) {
-        addition.montantTotal = addition.montantTotal + this.boissonsAddition[i].prix;
+    let montantTotal = 0;
+
+    if (addition.tabBoissons != null) {
+      for (const [boisson, quantite] of addition.tabBoissons) {
+        montantTotal = montantTotal + (boisson.prix * quantite);
       }
     }
 
-    if (this.platsAddition != null) {
-      for (let i = 0; i < this.platsAddition.length; i++) {
-        addition.montantTotal = addition.montantTotal + this.platsAddition[i].prix;
+    if (addition.tabPlats != null) {
+      for (const [plat, quantite] of addition.tabPlats) {
+        montantTotal = montantTotal + (plat.prix * quantite);
       }
     }
-    return addition.montantTotal;
+
+    return montantTotal;
   }
 
 
   getBoissonsAddition(): void {
     this.table = JSON.parse(sessionStorage.getItem('table'));
-    this.tableService.getBoissonsAddition(this.table.idTable)
+    this.tableService.getBoissonsAddition(this.table.addition.idAddition)
       .subscribe(data => {
-        this.boissonMap.clear();
-      this.boissonsAddition = data.addition.boissons;
-        for (let i = 0; i < this.boissonsAddition.length; i++) {
-          if (this.mapBoissonContainKey(this.boissonsAddition[i].libelleBoisson)) {
-            const  b = this.getKeyBoisson(this.boissonsAddition[i].libelleBoisson);
-            let quantite: number;
-            quantite = this.boissonMap.get(b);
-            this.boissonMap.set(b, ++quantite);
-          }else {
-           this.boissonMap.set(this.boissonsAddition[i], 1);
-          }
-        }
-      this.tabBoissons = Array.from(this.boissonMap);
-      this.table.addition.tabBoissons = this.tabBoissons;
-      this.table.addition.montantTotal = this.getMontantTotal(this.table.addition);
-      sessionStorage.setItem('table', JSON.stringify(this.table));
+        this.transformArrayBoissonInMap(data, this.table, 'addition');
     }, error => {
       console.log(error);
     });
   }
 
-
-
   getPlatsAddition(): void {
     this.table = JSON.parse(sessionStorage.getItem('table'));
-    this.tableService.getPlatsAddition(this.table.idTable)
+    this.tableService.getPlatsAddition(this.table.addition.idAddition)
       .subscribe(data => {
-        this.table.addition.montantTotal = data.addition.montantTotal;
-        this.platMap.clear();
-        this.platsAddition = data.addition.plats;
-        for (let i = 0; i < this.platsAddition.length; i++) {
-          if (this.mapPlatContainKey(this.platsAddition[i].libellePlat)) {
-            const  p = this.getKeyPlat(this.platsAddition[i].libellePlat);
-            let quantite: number;
-            quantite = this.platMap.get(p);
-            this.platMap.set(p, ++quantite);
-          }else {
-            this.platMap.set(this.platsAddition[i], 1);
-          }
-        }
-        this.tabPlats = Array.from(this.platMap);
-        this.table.addition.tabPlats = this.tabPlats;
-        this.table.addition.montantTotal = this.getMontantTotal(this.table.addition);
-        sessionStorage.setItem('table', JSON.stringify(this.table));
+        this.transformArrayPlatInMap(data, this.table, 'addition');
       }, error => {
         console.log(error);
       });
   }
 
+  transformArrayBoissonInMap(boissonsAddition: BoissonAddition[], table: Table, addition: string): void  {
+    const boissonMap: Map<Boisson, number> = new Map<Boisson, number>();
+    for (let i = 0; i < boissonsAddition.length; i++) {
+      if (this.mapBoissonContainKey(boissonsAddition[i].boisson.libelleBoisson, boissonMap)) {
+        const  b = this.getKeyBoisson(boissonsAddition[i].boisson.libelleBoisson, boissonMap);
+        let quantite: number;
+        quantite = boissonMap.get(b);
+        boissonMap.set(b, ++quantite);
+      }else {
+        boissonMap.set(boissonsAddition[i].boisson, 1);
+      }
+    }
+    switch (addition) {
+      case 'addition':
+        table.addition.tabBoissons =  Array.from(boissonMap);
+        table.addition.montantTotal = this.getMontantTotal(table.addition);
+        break;
+      case 'provisoire':
+        table.additionProvisoire.tabBoissons = Array.from(boissonMap);
+        table.additionProvisoire.montantTotal = this.getMontantTotal(table.additionProvisoire);
+        break;
+    }
+    sessionStorage.setItem('table', JSON.stringify(this.table));
+  }
 
-  mapBoissonContainKey(libelle: string): boolean {
-    const listKey = Array.from(this.boissonMap.keys())
+  transformArrayPlatInMap(platsAddition: PlatAddition[], table: Table, addition: string): void  {
+    const platMap: Map<Plat, number> = new Map<Plat, number>();
+    for (let i = 0; i < platsAddition.length; i++) {
+      if (this.mapPlatContainKey(platsAddition[i].plat.libellePlat, platMap)) {
+        const  b = this.getKeyPlat(platsAddition[i].plat.libellePlat, platMap);
+        let quantite: number;
+        quantite = platMap.get(b);
+        platMap.set(b, ++quantite);
+      }else {
+        platMap.set(platsAddition[i].plat, 1);
+      }
+    }
+    switch (addition) {
+      case 'addition':
+        table.addition.tabPlats =  Array.from(platMap);
+        table.addition.montantTotal = this.getMontantTotal(table.addition);
+        break;
+      case 'provisoire':
+        table.additionProvisoire.tabPlats = Array.from(platMap);
+        table.additionProvisoire.montantTotal = this.getMontantTotal(table.additionProvisoire);
+        break;
+    }
+    sessionStorage.setItem('table', JSON.stringify(this.table));
+  }
+
+
+
+
+  mapBoissonContainKey(libelle: string, boissonMap: Map<Boisson, number>): boolean {
+    const listKey = Array.from(boissonMap.keys())
     for (let i = 0; i < listKey.length; i++) {
       if (listKey[i].libelleBoisson ===  libelle) {
         return true;
@@ -127,8 +143,8 @@ export class TableComponent implements OnInit {
     return false;
   }
 
-  mapPlatContainKey(libelle: string): boolean {
-    const listKey = Array.from(this.platMap.keys())
+  mapPlatContainKey(libelle: string, platMap: Map<Plat, number>): boolean {
+    const listKey = Array.from(platMap.keys())
     for (let i = 0; i < listKey.length; i++) {
       if (listKey[i].libellePlat ===  libelle) {
         return true;
@@ -137,8 +153,8 @@ export class TableComponent implements OnInit {
     return false;
   }
 
-  getKeyPlat(libelle: string): Plat {
-    const listKey = Array.from(this.platMap.keys())
+  getKeyPlat(libelle: string,  platMap: Map<Plat, number>): Plat {
+    const listKey = Array.from(platMap.keys())
     for (let i = 0; i < listKey.length; i++) {
       if (listKey[i].libellePlat === libelle) {
         return listKey[i];
@@ -147,8 +163,8 @@ export class TableComponent implements OnInit {
     return null;
   }
 
-  getKeyBoisson(libelle: string): Boisson {
-    const listKey = Array.from(this.boissonMap.keys())
+  getKeyBoisson(libelle: string, boissonMap: Map<Boisson, number>): Boisson {
+    const listKey = Array.from(boissonMap.keys())
     for (let i = 0; i < listKey.length; i++) {
       if (listKey[i].libelleBoisson === libelle) {
         return listKey[i];
@@ -158,16 +174,16 @@ export class TableComponent implements OnInit {
   }
 
   ajouterBoisson(id: number): void {
-    this.tableService.addBoisson(this.table.idTable, id).subscribe(data => {
-      this.getBoissonsAddition();
+    this.tableService.addBoisson(this.table.addition.idAddition, id).subscribe(data => {
+      this.transformArrayBoissonInMap(data, this.table, 'addition');
     }, error => {
       console.log(error);
     });
   }
 
   supprimerBoisson(id: number): void {
-    this.tableService.removeBoisson(this.table.idTable, id).subscribe(data => {
-      this.getBoissonsAddition();
+    this.tableService.removeBoisson(this.table.addition.idAddition, id).subscribe(data => {
+      this.transformArrayBoissonInMap(data, this.table, 'addition');
     }, error => {
       console.log(error);
     });
@@ -175,23 +191,23 @@ export class TableComponent implements OnInit {
 
 
   ajouterPlat(id: number): void {
-    this.tableService.addPlat(this.table.idTable, id).subscribe(data => {
-      this.getPlatsAddition();
+    this.tableService.addPlat(this.table.addition.idAddition, id).subscribe(data => {
+      this.transformArrayPlatInMap(data, this.table, 'addition');
     }, error => {
       console.log(error);
     });
   }
 
   supprimerPlat(id: number): void {
-    this.tableService.removePlat(this.table.idTable, id).subscribe(data => {
-      this.getPlatsAddition();
+    this.tableService.removePlat(this.table.addition.idAddition, id).subscribe(data => {
+      this.transformArrayPlatInMap(data, this.table, 'addition');
     }, error => {
       console.log(error);
     });
   }
 
   /*payer(typePaiement: string): void{
-    
+
   }*/
 
 }

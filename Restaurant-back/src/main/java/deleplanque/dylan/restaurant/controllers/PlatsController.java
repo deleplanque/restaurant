@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import deleplanque.dylan.restaurant.entity.Plat;
+import deleplanque.dylan.restaurant.entity.Plat_Addition;
 import deleplanque.dylan.restaurant.entity.Tables;
 import deleplanque.dylan.restaurant.services.IPlatService;
 import deleplanque.dylan.restaurant.services.IPlat_additionService;
@@ -32,19 +33,35 @@ public class PlatsController {
 		return new ResponseEntity<List<Plat>>(platService.getPlats(), HttpStatus.OK);
 	}
 
-	@RequestMapping(value="/addPlat/{idTable}/{idPlat}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Tables> addPlat(@PathVariable("idTable") int idTable ,@PathVariable("idPlat") int idPlat){
-		return new ResponseEntity<Tables>(platAdditionService.addPlat(idTable, idPlat), HttpStatus.OK);
+	@RequestMapping(value="/addPlat/{idAddition}/{idPlat}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Plat_Addition>> addPlat(@PathVariable("idAddition") int idAddition ,@PathVariable("idPlat") int idPlat){
+		return new ResponseEntity<List<Plat_Addition>>(platAdditionService.addPlat(idAddition, idPlat), HttpStatus.OK);
 	}
 
-	@RequestMapping(value="/removePlat/{idTable}/{idPlat}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Tables> removePlat(@PathVariable("idTable") int idTable ,@PathVariable("idPlat") int idPlat){
-		return new ResponseEntity<Tables>(platAdditionService.removePlat(idTable, idPlat), HttpStatus.OK);
+	@RequestMapping(value="/removePlat/{idAddition}/{idPlat}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Plat_Addition>> removePlat(@PathVariable("idAddition") int idAddition ,@PathVariable("idPlat") int idPlat){
+		return new ResponseEntity<List<Plat_Addition>>(platAdditionService.removePlat(idAddition, idPlat), HttpStatus.OK);
 	}
 
 	
-	@RequestMapping(value="/getPlats/{idTable}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Tables> getPlatsAddition(@PathVariable("idTable") int idTable){
-		return new ResponseEntity<Tables>(platAdditionService.getPlatsAddition(idTable), HttpStatus.OK);
+	@RequestMapping(value="/getPlats/{idAddition}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Plat_Addition>> getPlatsAddition(@PathVariable("idAddition") int idAddition){
+		return new ResponseEntity<List<Plat_Addition>>(platAdditionService.getPlatsAddition(idAddition), HttpStatus.OK);
 	}
+	
+	@RequestMapping(value="/addPlatAdditionToAdditionProvisoire/{idTable}/{idPlat}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Tables> addPlatAdditionToAdditionProvisoire(@PathVariable("idTable") int idTable ,@PathVariable("idPlat") int idPlat){
+		return new ResponseEntity<Tables>(platAdditionService.addPlatAdditionToAdditionProvisoire(idTable, idPlat), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/addPlatAdditionProvisoireToAddition/{idTable}/{idPlat}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Tables> addPlatAdditionProvisoireToAddition(@PathVariable("idTable") int idTable ,@PathVariable("idPlat") int idPlat){
+		return new ResponseEntity<Tables>(platAdditionService.addPlatAdditionProvisoireToAddition(idTable, idPlat), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/getPlatsProvisoire/{idAddition}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Plat_Addition>> getsPlatProvisoire(@PathVariable("idAddition") int idAddition){
+		return new ResponseEntity<List<Plat_Addition>>(platAdditionService.getPlatsProvisoire(idAddition), HttpStatus.OK);
+	}
+	
 }

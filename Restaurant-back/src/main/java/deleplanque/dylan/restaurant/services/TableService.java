@@ -33,8 +33,6 @@ public class TableService implements ITableService{
 	@Override
 	public Tables getTablesById(int id) {
 		Tables table = tableRepository.findByIdTable(id);
-		boissonAdditionService.getBoissonsAddition(id);
-		platAdditionService.getPlatsAddition(id);
 		return table;
 	}
 

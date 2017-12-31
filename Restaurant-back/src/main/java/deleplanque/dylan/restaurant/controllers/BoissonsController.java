@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import deleplanque.dylan.restaurant.entity.Boisson;
+import deleplanque.dylan.restaurant.entity.Boisson_Addition;
 import deleplanque.dylan.restaurant.entity.Tables;
 import deleplanque.dylan.restaurant.services.IBoissonService;
 import deleplanque.dylan.restaurant.services.IBoisson_AdditionService;
@@ -32,25 +33,25 @@ public class BoissonsController {
 	}
 
 	
-	@RequestMapping(value="/addBoisson/{idTable}/{idBoisson}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Tables> addBoisson(@PathVariable("idTable") int idTable ,@PathVariable("idBoisson") int idBoisson){
-		return new ResponseEntity<Tables>(boisson_addition.addBoisson(idTable, idBoisson), HttpStatus.OK);
+	@RequestMapping(value="/addBoisson/{idAddition}/{idBoisson}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Boisson_Addition>> addBoisson(@PathVariable("idAddition") int idAddition ,@PathVariable("idBoisson") int idBoisson){
+		return new ResponseEntity<List<Boisson_Addition>>(boisson_addition.addBoisson(idAddition, idBoisson), HttpStatus.OK);
 	}
 
-	@RequestMapping(value="/removeBoisson/{idTable}/{idBoisson}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Tables> removeBoisson(@PathVariable("idTable") int idTable ,@PathVariable("idBoisson") int idBoisson){
-		return new ResponseEntity<Tables>(boisson_addition.removeBoisson(idTable, idBoisson), HttpStatus.OK);
+	@RequestMapping(value="/removeBoisson/{idAddition}/{idBoisson}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Boisson_Addition>> removeBoisson(@PathVariable("idAddition") int idAddition ,@PathVariable("idBoisson") int idBoisson){
+		return new ResponseEntity<List<Boisson_Addition>>(boisson_addition.removeBoisson(idAddition, idBoisson), HttpStatus.OK);
 	}
 
 	
-	@RequestMapping(value="/getBoissons/{idTable}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Tables> getBoissonsAddition(@PathVariable("idTable") int idTable){
-		return new ResponseEntity<Tables>(boisson_addition.getBoissonsAddition(idTable), HttpStatus.OK);
+	@RequestMapping(value="/getBoissons/{idAddition}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Boisson_Addition>> getBoissonsAddition(@PathVariable("idAddition") int idAddition){
+		return new ResponseEntity<List<Boisson_Addition>>(boisson_addition.getBoissonsAddition(idAddition), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/getBoissonsProvisoire/{idTable}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Tables> getBoissonsProvisoire(@PathVariable("idTable") int idTable){
-		return new ResponseEntity<Tables>(boisson_addition.getBoissonsProvisoire(idTable), HttpStatus.OK);
+	@RequestMapping(value="/getBoissonsProvisoire/{idAddition}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Boisson_Addition>> getBoissonsProvisoire(@PathVariable("idAddition") int idAddition){
+		return new ResponseEntity<List<Boisson_Addition>>(boisson_addition.getBoissonsProvisoire(idAddition), HttpStatus.OK);
 	}
 	
 	@RequestMapping(value="/setNomBoisson/{idBoisson}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

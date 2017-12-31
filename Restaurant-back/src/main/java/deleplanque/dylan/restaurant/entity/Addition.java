@@ -1,7 +1,6 @@
 package deleplanque.dylan.restaurant.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -11,9 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.Transient;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Addition implements Serializable{
@@ -28,25 +24,20 @@ public class Addition implements Serializable{
 	private int idAddition;
 	private float montantTotal;
 	
-	@Transient
-	private List<Boisson> boissons;
-	
-	@Transient 
-	List<Plat> plats;
-	
+	public float getMontantTotal() {
+		return montantTotal;
+	}
+
 	@OneToMany(mappedBy="addition", cascade=CascadeType.ALL)
-	@JsonIgnore
 	private List<Boisson_Addition> listBoissons;
 	
 	@OneToMany(mappedBy="addition", cascade=CascadeType.ALL)
-	@JsonIgnore
 	private List<Plat_Addition> listPlats;
 	
 	@OneToOne(mappedBy="addition")
 	private Tables table;
 	
 	@OneToOne(mappedBy="additionProvisoire")
-	@JsonIgnore
 	private Tables tableProvisoire;
 	
 	private String paiement;
@@ -54,34 +45,14 @@ public class Addition implements Serializable{
 	public Addition() {
 		this.montantTotal = 0;
 	}
+	
+	
 
 	
 	public void setMontantTotal(float montantTotal) {
 		this.montantTotal = montantTotal;
 	}
 
-
-	public List<Plat> getPlats() {
-		if(this.plats == null) {
-			this.plats = new ArrayList<Plat>();
-		}
-		return plats;
-	}
-
-	public void setPlats(List<Plat> plats) {
-		this.plats = plats;
-	}
-
-	public List<Boisson> getBoissons() {
-		if (this.boissons == null) {
-			this.boissons = new ArrayList<Boisson>();
-		}
-		return boissons;
-	}
-
-	public void setBoissons(List<Boisson> boissons) {
-		this.boissons = boissons;
-	}
 
 	public List<Boisson_Addition> getListBoissons() {
 		return listBoissons;
@@ -105,6 +76,16 @@ public class Addition implements Serializable{
 
 	public void setPaiement(String paiement) {
 		this.paiement = paiement;
+	}
+
+
+	public List<Plat_Addition> getListPlats() {
+		return listPlats;
+	}
+
+
+	public void setListPlats(List<Plat_Addition> listPlats) {
+		this.listPlats = listPlats;
 	}
 		
 

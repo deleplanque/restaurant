@@ -12,4 +12,8 @@ public interface ITableRepository extends JpaRepository<Tables, Long>{
 
 	Tables findByIdTable(int id);
 
+	Tables findByAdditionIdAddition(int idAddition);
+
+	Tables findByAdditionProvisoireIdAddition(int idAddition);
+
 }
