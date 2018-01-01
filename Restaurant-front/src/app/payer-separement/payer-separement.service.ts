@@ -11,8 +11,7 @@ export class PayerSeparementService {
   private addBoissonToAdditionUrl = 'api/addBoissonAdditionProvisoireToAddition';
   private addPlatToProvisoireUrl = 'api/addPlatAdditionToAdditionProvisoire';
   private addPlatToAdditionUrl = 'api/addPlatAdditionProvisoireToAddition';
-  private helloUrl = 'apiHistorique/helloWorld';
-
+  private resetAdditionProvisoireUrl = 'api/resetAdditionProvisoire';
   private payerAdditionProvisoireUrl = 'apiHistorique/ajouterAddition';
 
   constructor(private _http: HttpClient) { }
@@ -37,8 +36,13 @@ export class PayerSeparementService {
     return this._http.get<Table>(url);
   }
 
-  payerAdditionProvisoire(moyen: string, additionProvisoire: Addition) {
+  payerAdditionProvisoire(moyen: string, additionProvisoire: Addition): Observable<Table> {
     const url = `${this.payerAdditionProvisoireUrl}/${moyen}`;
-   return this._http.post(url, additionProvisoire);
+   return this._http.post<Table>(url, additionProvisoire);
+  }
+
+  resetAdditionProvisoire(idTable: number): Observable<Table> {
+    const url = `${this.resetAdditionProvisoireUrl}/${idTable}`;
+    return this._http.get<Table>(url);
   }
 }

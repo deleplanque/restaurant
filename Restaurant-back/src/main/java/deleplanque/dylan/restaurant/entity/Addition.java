@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Addition implements Serializable{
 
@@ -40,14 +42,13 @@ public class Addition implements Serializable{
 	@OneToOne(mappedBy="additionProvisoire")
 	private Tables tableProvisoire;
 	
+	@JsonIgnore
 	private String paiement;
 	
 	public Addition() {
 		this.montantTotal = 0;
 	}
 	
-	
-
 	
 	public void setMontantTotal(float montantTotal) {
 		this.montantTotal = montantTotal;

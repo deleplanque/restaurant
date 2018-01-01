@@ -7,16 +7,16 @@ import deleplanque.dylan.restaurant.entity.Tables;
 
 public interface IPlat_additionService {
 
-	List<Plat_Addition> addPlat(int idTable, int idPlat);
+	List<Plat_Addition> addPlat(int idAddition, int idPlat);
 
-	List<Plat_Addition> removePlat(int idTable, int idPlat);
+	List<Plat_Addition> removePlat(int idAddition, int idPlat);
 
-	List<Plat_Addition> getPlatsAddition(int idTable);
+	List<Plat_Addition> getPlatsAddition(int idAddition);
 
-	Tables addPlatAdditionToAdditionProvisoire(int idTable, int idPlat);
+	Tables addPlatAdditionToAdditionProvisoire(int idAddition, int idPlat);
 
 	List<Plat_Addition> getPlatsProvisoire(int idAddition);
 
-	Tables addPlatAdditionProvisoireToAddition(int idTable, int idPlat);
+	Tables addPlatAdditionProvisoireToAddition(int idAddition, int idPlat);
 
 }

@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Table} from '../bean/table';
 import {PayerSeparementService} from './payer-separement.service';
-import {Boisson} from '../bean/boisson';
-import {Plat} from '../bean/plat';
-import {TableService} from '../table/table.service';
 import {TableComponent} from '../table/table.component';
 
 @Component({
@@ -30,7 +27,6 @@ export class PayerSeparementComponent implements OnInit {
       this.table.additionProvisoire.listBoissons = data.additionProvisoire.listBoissons;
       this.tableComponent.transformArrayBoissonInMap(this.table.additionProvisoire.listBoissons, this.table, 'provisoire');
       sessionStorage.setItem('table', JSON.stringify(this.table));
-      console.log(this.table.additionProvisoire);
     }, error => {
       console.log(error);
     });
@@ -76,7 +72,18 @@ export class PayerSeparementComponent implements OnInit {
 
   payerAdditionProvisoire(moyen: string) {
     this.payerSeparementService.payerAdditionProvisoire(moyen, this.table.additionProvisoire).subscribe(data => {
-      console.log(data);
+      this.payerSeparementService.resetAdditionProvisoire(this.table.idTable).subscribe(data2 => {
+        this.table.additionProvisoire.listBoissons = data2.additionProvisoire.listBoissons;
+        this.tableComponent.transformArrayBoissonInMap(this.table.additionProvisoire.listBoissons, this.table, 'provisoire');
+        this.table.additionProvisoire.listPlats = data2.additionProvisoire.listPlats;
+        this.tableComponent.transformArrayPlatInMap(this.table.additionProvisoire.listPlats, this.table, 'provisoire');
+        sessionStorage.setItem('table', JSON.stringify(this.table));
+      }, error => {
+        console.log(error);
+      });
+    }, error => {
+      console.log(error);
     });
   }
+
 }

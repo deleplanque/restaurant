@@ -6,6 +6,7 @@ import {Boisson} from '../bean/boisson';
 import {Plat} from '../bean/plat';
 import {BoissonAddition} from '../bean/boissonAddition';
 import {PlatAddition} from '../bean/platAddition';
+import {Addition} from '../bean/addition';
 
 @Injectable()
 export class TableService {
@@ -17,6 +18,8 @@ export class TableService {
   private removeBoissonsUrl = 'api/removeBoisson';
   private addPlatUrl = 'api/addPlat';
   private removePlatUrl = 'api/removePlat';
+  private resetAdditionUrl = 'api/resetAddition';
+  private payerAdditionUrl = 'apiHistorique/ajouterAddition';
 
   constructor(private _http: HttpClient) { }
 
@@ -62,5 +65,15 @@ export class TableService {
   removePlat(idAddition: number, id: number): Observable<PlatAddition[]> {
     const url = `${this.removePlatUrl}/${idAddition}/${id}`;
     return this._http.get<PlatAddition[]>(url);
+  }
+
+  payerAddition(moyen: string, addition: Addition): Observable<Table> {
+    const url = `${this.payerAdditionUrl}/${moyen}`;
+    return this._http.post<Table>(url, addition);
+  }
+
+  resetAddition(idTable: number): Observable<Table> {
+    const url = `${this.resetAdditionUrl}/${idTable}`;
+    return this._http.get<Table>(url);
   }
 }

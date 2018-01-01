@@ -37,8 +37,7 @@ export class TableComponent implements OnInit {
   ngOnInit() {
     this.table = JSON.parse(sessionStorage.getItem('table'));
     this.app.numTable = this.table.numero;
-    this.getBoissonsAddition();
-    this.getPlatsAddition();
+    this.getTable();
   }
 
   getMontantTotal(addition: Addition) {
@@ -59,8 +58,21 @@ export class TableComponent implements OnInit {
     return montantTotal;
   }
 
+  getTable(): void {
+    this.table = JSON.parse(sessionStorage.getItem('table'));
+    this.tableService.getTable(this.table.idTable)
+      .subscribe(data => {
+        this.transformArrayBoissonInMap(data.addition.listBoissons, this.table, 'addition');
+        this.transformArrayPlatInMap(data.addition.listPlats, this.table, 'addition');
+        this.transformArrayBoissonInMap(data.additionProvisoire.listBoissons, this.table, 'provisoire');
+        this.transformArrayPlatInMap(data.additionProvisoire.listPlats, this.table, 'provisoire');
+        sessionStorage.setItem('table', JSON.stringify(this.table));
+      }, error => {
+        console.log(error);
+      });
+  }
 
-  getBoissonsAddition(): void {
+  /*getBoissonsAddition(): void {
     this.table = JSON.parse(sessionStorage.getItem('table'));
     this.tableService.getBoissonsAddition(this.table.addition.idAddition)
       .subscribe(data => {
@@ -78,7 +90,7 @@ export class TableComponent implements OnInit {
       }, error => {
         console.log(error);
       });
-  }
+  }*/
 
   transformArrayBoissonInMap(boissonsAddition: BoissonAddition[], table: Table, addition: string): void  {
     const boissonMap: Map<Boisson, number> = new Map<Boisson, number>();
@@ -206,8 +218,21 @@ export class TableComponent implements OnInit {
     });
   }
 
-  /*payer(typePaiement: string): void{
 
-  }*/
+  payerAddition(moyen: string) {
+    this.tableService.payerAddition(moyen, this.table.addition).subscribe(data => {
+      this.tableService.resetAddition(this.table.idTable).subscribe(data2 => {
+        this.table.addition.listBoissons = data2.addition.listBoissons;
+        this.transformArrayBoissonInMap(this.table.addition.listBoissons, this.table, 'addition');
+        this.table.addition.listPlats = data2.addition.listPlats;
+        this.transformArrayPlatInMap(this.table.addition.listPlats, this.table, 'addition');
+        sessionStorage.setItem('table', JSON.stringify(this.table));
+      }, error => {
+        console.log(error);
+      });
+    }, error => {
+      console.log(error);
+    });
+  }
 
 }
