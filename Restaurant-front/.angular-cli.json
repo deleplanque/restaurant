@@ -20,11 +20,13 @@
       "prefix": "app",
       "styles": [
         "jquery-ui-1.12.1.custom/jquery-ui.css",
+        "../node_modules/materialize-css/dist/css/materialize.css",
         "styles.css"
       ],
       "scripts": [
         "jquery-ui-1.12.1.custom/external/jquery/jquery.js",
-        "jquery-ui-1.12.1.custom/jquery-ui.js"
+        "jquery-ui-1.12.1.custom/jquery-ui.js",
+        "../node_modules/materialize-css/dist/js/materialize.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

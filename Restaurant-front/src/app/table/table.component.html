@@ -1,3 +1,127 @@
+
+<div class="row">
+  <div class="col s6">
+      <ul class="tabs tabs-fixed-width">
+        <li class="tab col s6"><a class="active" href="#boissons">Boissons</a></li>
+        <li class="tab col s6"><a  href="#plats">Plats</a></li>
+      </ul>
+      <div id="boissons" class="row">
+        <ul class="tabs">
+          <li class="tab col s2"><a href="#softs">Softs</a></li>
+          <li class="tab col s2"><a href="#bieres">Bières</a></li>
+          <li class="tab col s2"><a href="#vins">Vins</a></li>
+          <li class="tab col s2"><a href="#aperitifs">Apéritifs</a></li>
+          <li class="tab col s2"><a href="#chaudes">Chaudes</a></li>
+          <li class="tab col s2"><a href="#digestifs">Digestifs</a></li>
+        </ul>
+        <div id="softs">
+          <div class="col s2"
+               style="margin-top: 15px; text-align: center;" *ngFor="let boisson of softs">
+            <a (click)="ajouterBoisson(boisson.idBoisson)">
+              <img class="responsive-img img-thumbnail"
+                   src="./../../assets/Boisson/soft/{{boisson.logo}}">
+            </a>
+            <div class="col s12 item">
+              <span>{{boisson.libelleBoisson}}</span>
+            </div>
+          </div>
+        </div>
+        <div id="bieres">
+          <div class="col s2"
+               style="margin-top: 15px; text-align: center;" *ngFor="let boisson of bieres">
+            <a (click)="ajouterBoisson(boisson.idBoisson)">
+              <img class="responsive-img img-thumbnail"
+                   src="./../../assets/Boisson/biere/{{boisson.logo}}">
+            </a>
+            <div class="col-md-12 item">
+              <span>{{boisson.libelleBoisson}}</span>
+            </div>
+          </div>
+        </div>
+        <div id="vins">
+          <div class="col s2"
+               style="margin-top: 15px; text-align: center;" *ngFor="let boisson of vins">
+            <a (click)="ajouterBoisson(boisson.idBoisson)">
+              <img class="responsive-img img-thumbnail"
+                   src="./../../assets/Boisson/vin/{{boisson.logo}}">
+            </a>
+            <div class="col-md-12 item">
+              <span>{{boisson.libelleBoisson}}</span>
+            </div>
+          </div>
+        </div>
+        <div id="aperitifs">
+          <div class="col s2"
+               style="margin-top: 15px; text-align: center;" *ngFor="let boisson of aperitifs">
+            <a (click)="ajouterBoisson(boisson.idBoisson)">
+              <img class="responsive-img img-thumbnail"
+                   src="./../../assets/Boisson/aperitif/{{boisson.logo}}">
+            </a>
+            <div class="col-md-12 item">
+              <span>{{boisson.libelleBoisson}}</span>
+            </div>
+          </div>
+        </div>
+        <div id="chaudes">
+          <div class="col s2"
+               style="margin-top: 15px; text-align: center;" *ngFor="let boisson of chaudes">
+            <a (click)="ajouterBoisson(boisson.idBoisson)">
+              <img class="responsive-img img-thumbnail"
+                   src="./../../assets/Boisson/chaude/{{boisson.logo}}">
+            </a>
+            <div class="col-md-12 item">
+              <span>{{boisson.libelleBoisson}}</span>
+            </div>
+          </div>
+        </div>
+        <div id="digestifs">
+          <div class="col s2"
+               style="margin-top: 15px; text-align: center;" *ngFor="let boisson of digestifs">
+            <a (click)="ajouterBoisson(boisson.idBoisson)">
+              <img class="responsive-img img-thumbnail"
+                   src="./../../assets/Boisson/digestif/{{boisson.logo}}">
+            </a>
+            <div class="col-md-12 item">
+              <span>{{boisson.libelleBoisson}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="plats" class="col s12">Test 2</div>
+  </div>
+
+  <div class="col s6">
+    <table class="table striped responsive-table">
+      <thead>
+      <tr>
+        <th
+          style="text-align: left; width: 30%; border-radius: 10px 0px 0px 0px">Libelle</th>
+        <th style="width: 15%;">Quantité</th>
+        <th style="width: 15%;">P/U</th>
+        <th style="width: 15%;">Ajouter</th>
+        <th style="width: 15%; border-radius: 0px 10px 0px 0px">Retirer</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let boisson of table.addition.tabBoissons">
+        <td>{{boisson[0].libelleBoisson}}</td>
+        <td>{{boisson[1]}}</td>
+        <td>{{boisson[0].prix}}</td>
+        <td><button (click)="ajouterBoisson(boisson[0].idBoisson)"  class="btn btn-xs btn-success">+</button> </td>
+        <td><button (click)="supprimerBoisson(boisson[0].idBoisson)" class="btn btn-xs btn-danger">-</button> </td>
+      </tr>
+      <tr *ngFor="let plat of table.addition.tabPlats">
+        <td>{{plat[0].libellePlat}}</td>
+        <td>{{plat[1]}}</td>
+        <td>{{plat[0].prix}}</td>
+        <td><button (click)="ajouterPlat(plat[0].idPlat)"  class="btn btn-xs btn-success">+</button> </td>
+        <td><button (click)="supprimerPlat(plat[0].idPlat)" class="btn btn-xs btn-danger">-</button> </td>
+      </tr>
+      </tbody>
+    </table>
+</div>
+
+<!--
 <div class="col-md-6">
   <ul class="nav nav-tabs">
     <li class="active" id="nav-boissons"><a data-toggle="tab" href="#boissons">Boissons</a></li>
@@ -256,6 +380,6 @@
 </div>
 <app-calculatrice></app-calculatrice>
 
-
+-->
 
 
