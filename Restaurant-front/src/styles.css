@@ -8,6 +8,20 @@ body {
   color: #FCDD44;
 }
 
+#plan-restaurant{
+  background: url(./assets/plan2.png);
+  height: 467px;
+  width: 940px;
+}
+
+#rang1{
+  margin-top: 20px;
+}
+
+#rang2{
+  margin-top: 80px;
+}
+
 /* body{ */
 /* 	background: #1687A6; */
 /* 	color: #FCDD44; */

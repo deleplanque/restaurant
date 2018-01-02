@@ -1,8 +1,45 @@
-<ul>
+<!--<ul>
   <li *ngFor="let table of tables"><a (click)="getTable(table.idTable)">{{table.numero}}</a></li>
 </ul>
 
-
 <div id="draggable" class="draggable">
   <p>Drag me around</p>
+</div>-->
+
+<div class="col-md-12 text-center">
+  <h1>Salle principale</h1>
+</div>
+<div class="col-md-8 col-md-offset-3" id="plan-restaurant">
+  <div class="col-md-offset-4 col-md-8" id="rang1">
+    <div class="col-md-4">
+      <img *ngIf="!editer" (click)="getTable(1)" src="./../../assets/table4.png" class="draggable img-responsive">
+      <img *ngIf="editer" src="./../../assets/table4.png" class="draggable img-responsive">
+    </div>
+    <div class="col-md-4">
+      <img *ngIf="!editer" (click)="getTable(2)" src="./../../assets/table2.png" class="draggable img-responsive">
+      <img *ngIf="editer" src="./../../assets/table2.png" class="draggable img-responsive">
+    </div>
+    <div class="col-md-4">
+      <img *ngIf="!editer" (click)="getTable(3)" src="./../../assets/table4.png" class="draggable img-responsive">
+      <img *ngIf="editer" src="./../../assets/table4.png" class="draggable img-responsive">
+    </div>
+  </div>
+  <div class="col-md-offset-6 col-md-8" id="rang2">
+    <div class="col-md-3">
+      <img *ngIf="!editer" (click)="getTable(4)" src="./../../assets/table2.png" class="draggable img-responsive">
+      <img *ngIf="editer" src="./../../assets/table2.png" class="draggable img-responsive">
+    </div>
+    <div class="col-md-3">
+      <img *ngIf="!editer" (click)="getTable(5)" src="./../../assets/table2.png" class="draggable img-responsive">
+      <img *ngIf="editer" src="./../../assets/table2.png" class="draggable img-responsive">
+    </div>
+    <div class="col-md-3">
+      <img *ngIf="!editer" (click)="getTable(6)" src="./../../assets/table2.png" class="draggable img-responsive">
+      <img *ngIf="editer" src="./../../assets/table2.png" class="draggable img-responsive">
+    </div>
+  </div>
+</div>
+<div class="col-md-12">
+  <button *ngIf="!editer" class="btn btn-default" (click)="editerSalle(true)">Editer la salle</button>
+  <button *ngIf="editer" class="btn btn-default" (click)="editerSalle(false)">Valider les modification</button>
 </div>

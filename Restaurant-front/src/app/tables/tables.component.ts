@@ -15,13 +15,16 @@ export class TablesComponent implements OnInit {
   constructor(private  tableService: TableService, private router: Router, private app: AppComponent) { }
 
   tables: Table[];
-
+  editer= false;
 
   ngOnInit() {
     this.tables = JSON.parse(sessionStorage.getItem('tables'));
     $( '.draggable' ).draggable();
   }
 
+  editerSalle(edit) {
+    this.editer = edit;
+  }
 
   getTable(id: number): void {
     this.tableService.getTable(id)
