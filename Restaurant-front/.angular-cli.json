@@ -19,12 +19,11 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "jquery-ui-1.12.1.custom/external/jquery/jquery.js",
         "jquery-ui-1.12.1.custom/jquery-ui.css",
         "styles.css"
       ],
       "scripts": [
-        "../node_modules/jquery/dist/jquery.min.js",
+        "jquery-ui-1.12.1.custom/external/jquery/jquery.js",
         "jquery-ui-1.12.1.custom/jquery-ui.js"
       ],
       "environmentSource": "environments/environment.ts",
