@@ -1,6 +1,6 @@
 
 <div class="row">
-  <div class="col s6 menu">
+  <div class="col s7 menu">
       <ul class="tabs tabs-fixed-width">
         <li  class="tab col s6"><a class="active" id="tabBoisson" href="#boissons">Boissons</a></li>
         <li  class="tab col s6"><a id="tabPlat" href="#plats">Plats</a></li>
@@ -22,7 +22,7 @@
                    src="./../../assets/Boisson/soft/{{boisson.logo}}">
             </a>
             <div class="col s12 item">
-              <span>{{boisson.libelleBoisson}}</span>
+              <span (click)="ajouterBoisson(boisson.idBoisson)">{{boisson.libelleBoisson}}</span>
             </div>
           </div>
         </div>
@@ -90,16 +90,15 @@
       <div id="plats" class="col s12">Test 2</div>
   </div>
 
-  <div class="col s6">
+  <div class="col s5 note">
     <table class="table striped responsive-table">
       <thead>
       <tr>
-        <th
-          style="text-align: left; width: 30%; border-radius: 10px 0px 0px 0px">Libelle</th>
-        <th style="width: 15%;">Quantité</th>
-        <th style="width: 15%;">P/U</th>
-        <th style="width: 15%;">Ajouter</th>
-        <th style="width: 15%; border-radius: 0px 10px 0px 0px">Retirer</th>
+        <th>Libelle</th>
+        <th >Quantité</th>
+        <th>P/U</th>
+        <th>Ajouter</th>
+        <th>Retirer</th>
       </tr>
       </thead>
       <tbody>
@@ -107,15 +106,15 @@
         <td>{{boisson[0].libelleBoisson}}</td>
         <td>{{boisson[1]}}</td>
         <td>{{boisson[0].prix}}</td>
-        <td><button (click)="ajouterBoisson(boisson[0].idBoisson)"  class="btn btn-xs btn-success">+</button> </td>
-        <td><button (click)="supprimerBoisson(boisson[0].idBoisson)" class="btn btn-xs btn-danger">-</button> </td>
+        <td><button (click)="ajouterBoisson(boisson[0].idBoisson)"  class="btn waves-effect waves-green">+</button> </td>
+        <td><button (click)="supprimerBoisson(boisson[0].idBoisson)" class="btn waves-effect waves-red">-</button> </td>
       </tr>
       <tr *ngFor="let plat of table.addition.tabPlats">
         <td>{{plat[0].libellePlat}}</td>
         <td>{{plat[1]}}</td>
         <td>{{plat[0].prix}}</td>
-        <td><button (click)="ajouterPlat(plat[0].idPlat)"  class="btn btn-xs btn-success">+</button> </td>
-        <td><button (click)="supprimerPlat(plat[0].idPlat)" class="btn btn-xs btn-danger">-</button> </td>
+        <td><button (click)="ajouterPlat(plat[0].idPlat)"  class="btn waves-effect waves-green">+</button> </td>
+        <td><button (click)="supprimerPlat(plat[0].idPlat)" class="btn waves-effect waves-red">-</button> </td>
       </tr>
       </tbody>
     </table>

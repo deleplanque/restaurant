@@ -6,7 +6,16 @@ body {
   -webkit-background-size: cover;
   background-size: cover;
   color: white;*/
+  background-color: #eee;
+}
+
+#boissons{
   background-color: white;
+}
+
+.note{
+  background-color: white;
+  margin-top: 20px;
 }
 
 #plan-restaurant{
@@ -23,11 +32,26 @@ body {
   margin-top: 80px;
 }
 
-/* body{ */
-/* 	background: #1687A6; */
-/* 	color: #FCDD44; */
+table.striped > tbody > tr:nth-child(odd) {
+  background-image: linear-gradient(to right, #b0caee 0%, #d7e4f6 100%, #b0caee 100%);
+}
 
-/* } */
+td{
+  font-weight: 500;
+}
+
+.btn, .btn-large, .btn-flat {
+  border: none;
+  border-radius: 2px;
+  display: inline-block;
+  line-height: 1px;
+  width: 20px;
+  height: 20px;
+  padding: 7px;
+  text-transform: uppercase;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+}
 
 span{
   font-size:10px; font-weight:bolder;
@@ -135,7 +159,7 @@ nav {
 }
 
 .breadcrumb:before {
-  content: '>';
+  content: '/';
   color: rgba(255, 255, 255, 0.7);
   vertical-align: top;
   display: inline-block;
@@ -157,6 +181,14 @@ nav {
 
 #tabPlat{
   border-radius: 0px 10px 0px 0px;
+}
+
+td {
+  padding: 0px;
+  display: table-cell;
+  text-align: left;
+  vertical-align: middle;
+  border-radius: 2px;
 }
 
 /**Breadcrumb
