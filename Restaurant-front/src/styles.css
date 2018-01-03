@@ -6,7 +6,7 @@ body {
   -webkit-background-size: cover;
   background-size: cover;
   color: white;*/
-  background-color: #eee;
+  background-color: white;
 }
 
 #plan-restaurant{
@@ -56,8 +56,8 @@ h1{
 }
 
 .tabs .tab a {
-  color: white;
-  background-color: #4285F4 ;
+  color: black;
+  background-color: white;
   display: block;
   width: 100%;
   height: 100%;
@@ -67,18 +67,27 @@ h1{
   overflow: hidden;
   transition: color .28s ease;
   font-weight: bolder;
+  border: 1px solid #eee;
 }
 
-.tabs .tab a:hover, .tabs .tab a.active {
-  background-color: white;
-  color: #4285F4;
+.tabs .tab a.active {
+  /*background-color: #3a7bd5;*/
+  background-image: linear-gradient(to right, #3a7bd5 0%, #75a2e1 100%, #3a7bd5 100%);
+  color: white;
 }
+
+.tabs .tab a:hover {
+  background-image: linear-gradient(to right, #b0caee 0%, #d7e4f6 100%, #b0caee 100%);
+  color: white;
+}
+
+
 
 .tabs .indicator {
   position: absolute;
   bottom: 0;
-  height: 3px;
-  background-color: #4285F4;
+  height: 0px;
+  background-color: white;
   will-change: left, right;
 }
 
@@ -106,14 +115,20 @@ h1{
 .item{
   margin-top: -7px;
   border-radius: 0px 0px 4px 4px;
-  color: black;
-  background-color: white;
-  border-top: 2px solid #2bbbad;
+  color: white;
+  font-weight: bold;
+  background-image: linear-gradient(to right, #3a7bd5 0%, #75a2e1 100%, #3a7bd5 100%);
+  box-shadow: 0px 1px 7px grey;
+}
+
+
+img{
+  box-shadow: 0px 0px 12px grey;
 }
 
 nav {
   color: #fff;
-  background-color: #4285F4;
+  background-image: linear-gradient(to right, #3a7bd5 0%, #75a2e1 100%, #3a7bd5 100%);
   width: 100%;
   height: 56px;
   line-height: 56px;
@@ -132,6 +147,17 @@ nav {
   -webkit-font-smoothing: antialiased;
 }
 
+.z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-floating, .dropdown-content, .collapsible, .side-nav {
+  box-shadow: 0 3px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+#tabBoisson{
+  border-radius: 10px 0px 0px 0px;
+}
+
+#tabPlat{
+  border-radius: 0px 10px 0px 0px;
+}
 
 /**Breadcrumb
 

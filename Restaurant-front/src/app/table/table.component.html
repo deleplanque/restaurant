@@ -2,8 +2,8 @@
 <div class="row">
   <div class="col s6 menu">
       <ul class="tabs tabs-fixed-width">
-        <li class="tab col s6"><a class="active" href="#boissons">Boissons</a></li>
-        <li class="tab col s6"><a  href="#plats">Plats</a></li>
+        <li  class="tab col s6"><a class="active" id="tabBoisson" href="#boissons">Boissons</a></li>
+        <li  class="tab col s6"><a id="tabPlat" href="#plats">Plats</a></li>
       </ul>
       <div id="boissons" class="row">
         <ul class="tabs">
@@ -15,7 +15,7 @@
           <li class="tab col s2"><a href="#digestifs">Digestifs</a></li>
         </ul>
         <div id="softs">
-          <div class="col s2"
+          <div class="col s2 article"
                style="margin-top: 15px; text-align: center;" *ngFor="let boisson of softs">
             <a (click)="ajouterBoisson(boisson.idBoisson)">
               <img class="responsive-img img-thumbnail"
