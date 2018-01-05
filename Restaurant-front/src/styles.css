@@ -9,6 +9,15 @@ body {
   background-color: #eee;
 }
 
+#listDesBoissons{
+  padding: 10px;
+  border-right: 3px solid #3a7bd5;
+}
+
+
+#listDesPlats{
+  border-bottom: 3px solid #3a7bd5;
+}
 #boissons{
   background-color: white;
 }
