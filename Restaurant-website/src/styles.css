@@ -224,3 +224,15 @@ nav .brand-logo {
   color: lightgray;
   font-style: italic;
 }
+
+
+.itemPlat{
+  text-align: left;
+  color: white;
+}
+
+
+.libelle{
+  font-weight: bolder !important;
+  font-style: normal !important;
+}

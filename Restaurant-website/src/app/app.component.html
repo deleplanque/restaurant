@@ -50,14 +50,22 @@
  </div>
   <div class="row" id="menu">
     <div class="entete">
-       <h3>Di Salvo Pizzeria</h3>
-       <h2 class="">NOTRE MENU</h2>
-      <div class="col m4 offset-m4">
-        <span>A consommer sur place ou à emporter, nos pizzas sont élaborées dans le respect de la tradition Italienne. Nous travaillons avec des produits frais, et notre pâte est faite sur place chaque jour...</span>
+      <div class="col m12">
+         <h3>Di Salvo Pizzeria</h3>
+         <h2 class="">NOTRE MENU</h2>
+        <div class="col m4 offset-m4">
+          <span>A consommer sur place ou à emporter, nos pizzas sont élaborées dans le respect de la tradition Italienne. Nous travaillons avec des produits frais, et notre pâte est faite sur place chaque jour...</span>
+        </div>
       </div>
       <div class="row">
-        <div class="col m2" *ngFor="let plat of gpizzas">
-          <p>{{plat.libellePlat}}</p>
+        <div class="col m4 itemPlat" *ngFor="let plat of gpizzas">
+          <span class="col m2"><img src="./../assets/Plat/plat/pizza/{{plat.photo}}" class="circle responsive-img "></span>
+          <div class="col m8">
+            <span class="libelle">{{plat.libellePlat}}</span><br>
+            <span class="" *ngFor="let ingredient of plat.listeIngredients">{{ingredient.indredient.libelleIngredient}} </span>
+
+          </div>
+          <p class="col m2">{{plat.prix}}€</p>
         </div>
       </div>
       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

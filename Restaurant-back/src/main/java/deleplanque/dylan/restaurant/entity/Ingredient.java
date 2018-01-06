@@ -1,12 +1,14 @@
 package deleplanque.dylan.restaurant.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -24,11 +26,12 @@ public class Ingredient implements Serializable{
 	
 	public String libelleIngredient;
 	
-	public float prix;
+	public double prix;
 	
-	@ManyToOne
+
+	@OneToMany(mappedBy="ingredient", cascade=CascadeType.ALL)
 	@JsonIgnore
-	private Plat plat;
+	private List<Plat_Indredient> listPlats;
 	
 	public Ingredient() {}
 	
@@ -43,5 +46,31 @@ public class Ingredient implements Serializable{
 	public void setLibelleIngredient(String libelleIngredient) {
 		this.libelleIngredient = libelleIngredient;
 	}
+
+	public int getIdIngredient() {
+		return idIngredient;
+	}
+
+	public void setIdIngredient(int idIngredient) {
+		this.idIngredient = idIngredient;
+	}
+
+	public double getPrix() {
+		return prix;
+	}
+
+	public void setPrix(double prix) {
+		this.prix = prix;
+	}
+
+	public List<Plat_Indredient> getListPlats() {
+		return listPlats;
+	}
+
+	public void setListPlats(List<Plat_Indredient> listPlats) {
+		this.listPlats = listPlats;
+	}
+	
+	
 	
 }

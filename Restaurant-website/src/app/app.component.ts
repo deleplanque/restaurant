@@ -42,6 +42,7 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     this.getBoissons();
     this.getPlats();
+    console.log(this.gpizzas)
     $(".button-collapse").sideNav();
 
     $(document).ready(function(){
@@ -92,6 +93,7 @@ export class AppComponent implements OnInit{
   getPlats(): void {
     this.appService.getPlats()
       .subscribe(data => {
+        console.log(data);
         this.plats = data;
         for (let i = 0; i < this.plats.length; i++) {
           switch (this.plats[i].categorie) {
