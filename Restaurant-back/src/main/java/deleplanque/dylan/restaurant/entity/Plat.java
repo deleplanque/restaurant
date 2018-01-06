@@ -28,9 +28,11 @@ public class Plat implements Serializable{
 	private float prix;
 	private String categorie;
 	private String sousCategorie;
-	@Transient
+	
+	@OneToMany(mappedBy="plat")
 	@JsonIgnore
-	private ArrayList<Ingredient> listeIngredients;
+	private List<Ingredient> listeIngredients;
+	
 	@Transient
 	@JsonIgnore
 	private ArrayList<Supplement> listeSupplements;
@@ -76,11 +78,11 @@ public class Plat implements Serializable{
 		this.prix = prix;
 	}
 
-	public ArrayList<Ingredient> getListeIngredients() {
+	public List<Ingredient> getListeIngredients() {
 		return listeIngredients;
 	}
 
-	public void setListeIngredients(ArrayList<Ingredient> listeIngredients) {
+	public void setListeIngredients(List<Ingredient> listeIngredients) {
 		this.listeIngredients = listeIngredients;
 	}
 

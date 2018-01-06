@@ -1,0 +1,67 @@
+<nav>
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo"><img src="./../assets/logo.png"></a>
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">MENU</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="">A PROPOS</a></li>
+      <li>-</li>
+      <li><a href="#menu">MENU</a></li>
+      <li>-</li>
+      <li><a href="">CONTACT</a></li>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <li><a href="">A PROPOS</a></li>
+      <li><a href="">MENU</a></li>
+      <li><a href="">CONTACT</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="slider fullscreen">
+  <ul class="slides">
+    <li>
+      <img src="./assets/background.jpg">
+      <div class="caption center-align">
+        <h3>Bienvenue chez</h3>
+        <h2 class="">Di Salvo Pizzeria</h2>
+        <span> 85 Route Nationale, 62670 Mazingarbe</span>
+        <div class="arrow arrow--home"></div>
+        <a href="" class="button button--home">MENU</a>
+      </div>
+    </li>
+  </ul>
+</div>
+<div id="content">
+ <div class="row ouverture">
+   <div class="entete">
+     <h3>Vous êtes les bienvenues</h3>
+     <h2>AUX HEURES D'OUVERTURE</h2>
+     <div class="col m8 offset-m2 houverture">
+       <div class="col m8 imgRestaurant">
+          <img id="imageRestaurant" src="./../assets/restaurant.png" class="responsive-img img-thumbnail">
+       </div>
+       <div class="col m4 horraire">
+          <p class="jours">Mardi au Jeudi</p>
+         <p class="heures">11h30-14h30 et de 18h-21h45</p>
+         <p class="jours">Vendredi - Samedi</p>
+         <p class="heures">11h30-14h30 et de 18h-22h30</p>
+       </div>
+     </div>
+   </div>
+ </div>
+  <div class="row" id="menu">
+    <div class="entete">
+       <h3>Di Salvo Pizzeria</h3>
+       <h2 class="">NOTRE MENU</h2>
+      <div class="col m4 offset-m4">
+        <span>A consommer sur place ou à emporter, nos pizzas sont élaborées dans le respect de la tradition Italienne. Nous travaillons avec des produits frais, et notre pâte est faite sur place chaque jour...</span>
+      </div>
+      <div class="row">
+        <div class="col m2" *ngFor="let plat of gpizzas">
+          <p>{{plat.libellePlat}}</p>
+        </div>
+      </div>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+  </div>
+</div>
+

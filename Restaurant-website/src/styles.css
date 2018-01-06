@@ -1,0 +1,226 @@
+
+/*** NAV ***/
+nav {
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 3;
+}
+
+
+nav ul a {
+  font-weight: 500;
+  font-size: 1.3em;
+}
+
+nav ul a:hover {
+  color: #81c784;
+}
+
+nav .right {
+  margin-right: 10%;
+}
+
+nav .brand-logo {
+  margin-left: 5%;
+}
+
+
+/*** SLIDER ***/
+
+.slider.fullscreen ul.indicators {
+  z-index: 2;
+  visibility: hidden;
+  bottom: 30px;
+}
+
+.caption h3{
+  font-family: wildYouth, "Brush Script MT", cursive;
+  font-size: 5em;
+  font-weight: 400;
+  margin-bottom: 0px;
+  color: #81c784 ;
+}
+
+.caption h2 {
+  font-family: Average, "Times New Roman", Times, serif;
+  font-size: 5em;
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #fff;
+  white-space: nowrap;
+  margin: 0px;
+}
+
+.caption span {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-size: 1.2em;
+  line-height: 1.2;
+  font-weight: 200;
+  color: lightgray;
+}
+
+.slider .slides li .caption {
+  color: #fff;
+  position: absolute;
+  top: 25%;
+  left: 15%;
+  width: 70%;
+  opacity: 0;
+}
+
+.arrow--home, .button--home {
+  margin-top: 43px;
+}
+
+.arrow {
+  width: 70px;
+  height: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  background: url(./assets/arrow.png) no-repeat center;
+  background-size: cover;
+}
+
+.button {
+  position: relative;
+  display: inline-block;
+  width: 172px;
+  height: 50px;
+  line-height: 50px;
+  white-space: nowrap;
+  text-align: center;
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  text-transform: uppercase;
+  background-color: #e57373;
+  color: white;
+}
+
+
+.ouverture {
+  background: url(./assets/Background2.png) no-repeat center;
+  background-size: cover;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.ouverture h3{
+  font-family: wildYouth, "Brush Script MT", cursive;
+  font-size: 4em;
+  font-weight: 400;
+  margin-bottom: 0px;
+  color: #e57373 ;
+}
+
+.ouverture h2 {
+  font-family: Average, "Times New Roman", Times, serif;
+  font-size: 4em;
+  letter-spacing: normal;
+  text-transform: none;
+  color: black;
+  white-space: nowrap;
+  margin: 0px;
+}
+
+.ouverture span {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-size: 1.2em;
+  line-height: 1.2;
+  font-weight: 200;
+  color: lightgray;
+}
+
+.entete {
+  padding-top: 15px;
+}
+
+@media only screen and (max-width:1000px) {
+.brand-logo{
+  visibility: hidden;
+}
+}
+
+.img-thumbnail {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  padding: 4px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px 4px 0px 0px;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.horraire{
+  border: 2px solid #81c784;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.houverture{
+  background-color: white;
+  padding-left: 0px !important;
+  margin-top: 50px;
+  margin-bottom: 70px;
+}
+
+.imgRestaurant{
+  padding-left: 0px !important;
+}
+
+
+.jours{
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 150%;
+  margin-bottom: 0px;
+}
+
+.heures{
+  color: dimgrey;
+  font-weight: 400;
+  font-size: 100%;
+  margin-top: 0px;
+}
+
+
+#menu {
+  background: url(./assets/background3.jpg) no-repeat center;
+  background-size: cover;
+  text-align: center;
+}
+
+#menu h3{
+  font-family: wildYouth, "Brush Script MT", cursive;
+  font-size: 5em;
+  font-weight: 400;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  color: #81c784 ;
+}
+
+#menu h2 {
+  font-family: Average, "Times New Roman", Times, serif;
+  font-size: 5em;
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #fff;
+  white-space: nowrap;
+  margin: 0px;
+}
+
+#menu span {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-size: 1.2em;
+  line-height: 1.2;
+  font-weight: 200;
+  color: lightgray;
+  font-style: italic;
+}
