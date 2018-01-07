@@ -1,0 +1,119 @@
+.side-nav{
+  background: linear-gradient(45deg, #00AEFF 50%, #3369E6 100%) !important;
+}
+
+#slide-out .brand-sidebar {
+  background: linear-gradient(45deg, #1691f5 0%, #3369E6 100%) !important;
+  box-shadow: none;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+.brand-sidebar .logo-wrapper a.brand-logo {
+  color: #fff;
+}
+
+
+.layout-semi-dark h1 span.logo-text {
+  padding-left: 0px;
+}
+
+
+.layout-semi-dark h1 span.logo-text {
+  padding-left: 0px;
+}
+
+h1 span.logo-text {
+  font-size: 26px;
+  padding-left: 8px;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.2s linear;
+}
+
+
+.side-nav li > a {
+  color: white;
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  height: 48px;
+  line-height: 48px;
+  padding: 0 32px;
+}
+
+.item{
+  border: 1px solid lightgray;
+  padding: 10px;
+  box-shadow: 0px 1px 7px grey;
+  height: 100px;
+}
+
+
+@media only screen and (min-width: 601px){
+  .row .col.m4 {
+    width: 31.3333333333%;
+    left: auto;
+    right: auto;
+    margin-left: 1%;
+  }
+}
+
+
+.libelle{
+  font-weight: bolder;
+  color: #3a7bd5;
+  font-size: 20px;
+}
+
+.ingredients{
+  font-style: italic;
+  color: dimgrey;
+  font-weight: 500;
+}
+
+.prix{
+  font-weight: bolder;
+  color: #3a7bd5;
+  font-size: 20px;
+  float: right;
+}
+
+.card .card-content {
+  padding-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  border-radius: 0 0 2px 2px;
+}
+
+.card .horizontal{
+  margin: 0px;
+}
+.card {
+  box-shadow: 0px 1px 7px grey;
+  height: 130px;
+}
+
+.card-action{
+  padding-left: 0px;
+}
+
+.card-action a{
+  cursor: pointer;
+}
+.card .card-action{
+  padding: 10px;
+}
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
+  color: #81c784 ;
+  margin-right: 24px;
+  transition: color .3s ease;
+  text-transform: uppercase;
+  font-weight: 500;
+  float: right;
+}
+
+.supprimerItem{
+  color: #e57373 !important;
+}

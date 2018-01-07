@@ -1,0 +1,19 @@
+<div class="col m10 offset-m2">
+  <div class="row">
+    <div class="col m4" *ngFor="let plat of gpizzas">
+      <div class="card horizontal">
+        <div class="card-stacked">
+          <div class="card-content">
+            <span class="libelle">{{plat.libellePlat}}</span><span class="prix">{{plat.prix}}€</span> <br>
+            <span class="ingredients" *ngFor="let ingredient of plat.listeIngredients">{{ingredient.indredient.libelleIngredient}} </span>
+          </div>
+          <div class="card-action">
+            <a class="supprimerItem">Supprimer</a>
+            <a (click)="openModal(plat)">Modifier</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-modal-edition></app-modal-edition>
