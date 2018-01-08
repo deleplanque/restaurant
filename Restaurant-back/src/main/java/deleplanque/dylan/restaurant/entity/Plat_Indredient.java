@@ -27,6 +27,11 @@ public class Plat_Indredient {
 		
 	}
 
+	public Plat_Indredient(Plat plat, Ingredient ingredient) {
+		this.plat = plat;
+		this.ingredient =ingredient;
+	}
+
 	public Long getId() {
 		return id;
 	}

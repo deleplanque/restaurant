@@ -119,3 +119,16 @@ h1 span.logo-text {
 .supprimerItem{
   color: #e57373 !important;
 }
+
+.btn, .btn:hover{
+  background-color: white;
+  color: black;
+}
+
+.waves-red{
+  color: #e57373 !important;
+}
+
+.waves-green{
+  color: #81c784 ;
+}

@@ -1,4 +1,34 @@
-<h1 mat-dialog-title>{{data.plat.libellePlat}}</h1>
+<h1 mat-dialog-title>Modification</h1>
 <div mat-dialog-content>
-
+  <div class="row">
+    <form>
+      <div class="input-field col s6">
+        <input id="libelle" type="text" value="{{data.plat.libellePlat}}" class="validate">
+        <label class="active" for="libelle">Libellé</label>
+      </div>
+      <div class="input-field col s6">
+        <input id="prix" type="text" value="{{data.plat.prix}}" class="validate">
+        <label class="active" for="prix">Prix</label>
+      </div>
+      <div class="input-field col s6">
+        <input id="categorie" type="text" value="{{data.plat.categorie}}" class="validate">
+        <label class="active" for="categorie">Catégorie</label>
+      </div>
+      <div class="input-field col s6">
+        <input id="taille" type="text" value="{{data.plat.sousCategorie}}" class="validate">
+        <label class="active" for="taille">Taille</label>
+      </div>
+      <div class="col s12">
+        <h1 mat-dialog-title>Liste des ingrédients</h1>
+        <div class="chips">
+          <div *ngFor="let ingredient of data.plat.listeIngredients" class="chip">
+          </div>
+        </div>
+      </div>
+     <div class="col m12">
+       <a (click)="modifierPlat(data.plat)" class="waves-effect waves-green btn secondary-content">Valider</a>
+       <a class="waves-effect waves-red btn secondary-content">Annuler</a>
+     </div>
+    </form>
+  </div>
 </div>

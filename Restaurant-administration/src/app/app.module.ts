@@ -13,6 +13,7 @@ import {StatistiquesService} from './statistiques/statistiques.service';
 import { ModalEditionComponent } from './plat/modal-edition/modal-edition.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import {ModelEditionService} from './plat/modal-edition/model-edition.service';
 
 
 @NgModule({
@@ -32,7 +33,7 @@ import { MaterialModule } from './material.module';
   ],
   entryComponents: [ModalEditionComponent],
   exports: [MaterialModule],
-  providers: [AppService, PlatService, BoissonService, StatistiquesService],
+  providers: [AppService, PlatService, BoissonService, StatistiquesService, ModelEditionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
