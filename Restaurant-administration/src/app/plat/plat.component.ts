@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Plat} from '../bean/plat';
 import {PlatService} from './plat.service';
 import {ModalEditionComponent} from './modal-edition/modal-edition.component';
+import {MatDialog} from "@angular/material";
 declare var $: any;
 
 @Component({
@@ -20,15 +21,22 @@ export class PlatComponent implements OnInit {
   gpizzas: Plat[] = [];
   ppizzas: Plat[] = [];
 
-  constructor(private platService: PlatService, private  modalPlatComponent: ModalEditionComponent) { }
+  constructor(private platService: PlatService, public dialog: MatDialog) { }
 
-  ngOnInit() {
-    this.getPlats();
+  openDialog(plat: Plat): void {
+    const dialogRef = this.dialog.open(ModalEditionComponent, {
+      width: '40%',
+      data: { plat: plat }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
 
-  openModal(plat: Plat): void {
-    this.modalPlatComponent.setDatatModal(plat);
+  ngOnInit() {
+    this.getPlats();
   }
 
   getPlats(): void {

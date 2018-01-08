@@ -1,26 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import {Plat} from '../../bean/plat';
-declare var $: any;
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+
+
 @Component({
   selector: 'app-modal-edition',
   templateUrl: './modal-edition.component.html',
   styleUrls: ['./modal-edition.component.css']
 })
-export class ModalEditionComponent implements OnInit {
+export class ModalEditionComponent {
 
-  constructor() { }
-  plat: Plat;
+  constructor(
+    public dialogRef: MatDialogRef<ModalEditionComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
 
-  ngOnInit() {
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
-  closeModal(): void {
-    $('#modal1').modal('close');
-  }
-
-  setDatatModal(plat: Plat): void {
-    this.plat = plat;
-    $('.modal').modal();
-    $('#modal1').modal('open');
-  }
 }
