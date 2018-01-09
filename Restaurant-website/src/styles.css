@@ -15,7 +15,7 @@ nav ul a {
 }
 
 nav ul a:hover {
-  color: #81c784;
+  color: #e4bb7a;
 }
 
 nav .right {
@@ -40,7 +40,7 @@ nav .brand-logo {
   font-size: 5em;
   font-weight: 400;
   margin-bottom: 0px;
-  color: #81c784 ;
+  color: #e4bb7a ;
 }
 
 .caption h2 {
@@ -80,7 +80,7 @@ nav .brand-logo {
   height: 10px;
   margin-right: auto;
   margin-left: auto;
-  background: url(./assets/arrow.png) no-repeat center;
+  background: url(./assets/arrowGold.png) no-repeat center;
   background-size: cover;
 }
 
@@ -95,7 +95,7 @@ nav .brand-logo {
   font-family: Montserrat, Arial, Helvetica, sans-serif;
   font-size: 15px;
   text-transform: uppercase;
-  background-color: #e57373;
+  background-color: #e4bb7a;
   color: white;
 }
 
@@ -112,7 +112,7 @@ nav .brand-logo {
   font-size: 4em;
   font-weight: 400;
   margin-bottom: 0px;
-  color: #e57373 ;
+  color: #e4bb7a ;
 }
 
 .ouverture h2 {
@@ -158,7 +158,7 @@ nav .brand-logo {
 }
 
 .horraire{
-  border: 2px solid #81c784;
+  border: 2px solid #e4bb7a;
   border-radius: 4px;
   margin-top: 10px;
 }
@@ -194,6 +194,7 @@ nav .brand-logo {
   background: url(./assets/background3.jpg) no-repeat center;
   background-size: cover;
   text-align: center;
+  margin-bottom: 0px;
 }
 
 #menu h3{
@@ -202,7 +203,7 @@ nav .brand-logo {
   font-weight: 400;
   margin-bottom: 0px;
   margin-top: 0px;
-  color: #81c784 ;
+  color: #e4bb7a ;
 }
 
 #menu h2 {
@@ -229,10 +230,122 @@ nav .brand-logo {
 .itemPlat{
   text-align: left;
   color: white;
+  height: 100px;
 }
 
 
 .libelle{
   font-weight: bolder !important;
   font-style: normal !important;
+}
+
+
+.tabs {
+  background-color: rgba(255, 255, 255,0.3);
+  border-top: 2px solid #e4bb7a;
+}
+
+.tabs .tab a {
+  color: white;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0 24px;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  transition: color .28s ease;
+  font-weight: bold;
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+  background-color: transparent;
+  color: #e4bb7a;
+}
+
+.tabs .indicator {
+  position: absolute;
+  bottom: 0;
+  height: 1px;
+  background-color: #eee;
+  will-change: left, right;
+}
+
+
+
+.menu__name, .menu__price {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-size: .8em;
+  font-weight: bolder !important;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-style: normal !important;
+  color: white !important;
+}
+
+.menu__price {
+  float: right;
+}
+
+.menu__desc {
+  margin-top: 10px;
+  font-size: 15px;
+  color: #e4bb7a !important;
+}
+
+.traitUnion {
+  color: #e4bb7a;
+}
+
+::-webkit-scrollbar
+{
+  width: 12px;  /* for vertical scrollbars */
+  height: 12px; /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track
+{
+  background: black ;
+}
+
+::-webkit-scrollbar-thumb
+{
+  background: #e4bb7a;
+}
+
+@media only screen and (min-width:1000px) {
+  .social-icons {
+    position: fixed;
+    top: 300px;
+    left: 0px;
+    max-width: 980px;
+    margin: 0 auto;
+    z-index: 100000000;
+    background-color: #3b5998;
+    border-radius: 0 10px 10px 0;
+  }
+}
+
+
+.contact {
+  background: url(./assets/background4.jpg) no-repeat center;
+  background-size: cover;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.contact h3{
+  font-family: wildYouth, "Brush Script MT", cursive;
+  font-size: 5em;
+  font-weight: 400;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  color: #e4bb7a ;
+}
+
+
+.telephone{
+  margin-top: 50px !important;
+  color: #e4bb7a !important;
+  font-weight: bold;
 }

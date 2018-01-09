@@ -8,6 +8,8 @@ import {Addition} from '../bean/addition';
 import {BoissonAddition} from '../bean/boissonAddition';
 import {PlatAddition} from '../bean/platAddition';
 
+declare var $: any;
+
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -38,7 +40,11 @@ export class TableComponent implements OnInit {
     this.table = JSON.parse(sessionStorage.getItem('table'));
     this.app.numTable = this.table.numero;
     this.getTable();
-  }
+
+    $('#menu').css('height', $(window).height() - ($('.nav-wrapper').height() + 40) + 'px');
+    $('#note').css('height', $(window).height() - ($('.nav-wrapper').height() + 40) + 'px');
+    $('#note').css('max-height', $(window).height() - ($('.nav-wrapper').height() + 40) + 'px');
+    }
 
   getMontantTotal(addition: Addition) {
     let montantTotal = 0;
@@ -120,8 +126,8 @@ export class TableComponent implements OnInit {
   transformArrayPlatInMap(platsAddition: PlatAddition[], table: Table, addition: string): void  {
     const platMap: Map<Plat, number> = new Map<Plat, number>();
     for (let i = 0; i < platsAddition.length; i++) {
-      if (this.mapPlatContainKey(platsAddition[i].plat.libellePlat, platMap)) {
-        const  b = this.getKeyPlat(platsAddition[i].plat.libellePlat, platMap);
+      if (this.mapPlatContainKey(platsAddition[i].plat, platMap)) {
+        const  b = this.getKeyPlat(platsAddition[i].plat, platMap);
         let quantite: number;
         quantite = platMap.get(b);
         platMap.set(b, ++quantite);
@@ -155,20 +161,20 @@ export class TableComponent implements OnInit {
     return false;
   }
 
-  mapPlatContainKey(libelle: string, platMap: Map<Plat, number>): boolean {
+  mapPlatContainKey(plat: Plat, platMap: Map<Plat, number>): boolean {
     const listKey = Array.from(platMap.keys())
     for (let i = 0; i < listKey.length; i++) {
-      if (listKey[i].libellePlat ===  libelle) {
+      if (listKey[i].idPlat ===  plat.idPlat) {
         return true;
       }
     }
     return false;
   }
 
-  getKeyPlat(libelle: string,  platMap: Map<Plat, number>): Plat {
+  getKeyPlat(plat: Plat,  platMap: Map<Plat, number>): Plat {
     const listKey = Array.from(platMap.keys())
     for (let i = 0; i < listKey.length; i++) {
-      if (listKey[i].libellePlat === libelle) {
+      if (listKey[i].idPlat === plat.idPlat) {
         return listKey[i];
       }
     }

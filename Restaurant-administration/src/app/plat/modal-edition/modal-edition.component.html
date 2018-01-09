@@ -3,26 +3,24 @@
   <div class="row">
     <form>
       <div class="input-field col s6">
-        <input id="libelle" type="text" value="{{data.plat.libellePlat}}" class="validate">
+        <input [(ngModel)]="libelle" name="libelle" id="libelle" type="text" class="validate">
         <label class="active" for="libelle">Libellé</label>
       </div>
       <div class="input-field col s6">
-        <input id="prix" type="text" value="{{data.plat.prix}}" class="validate">
+        <input [(ngModel)]="prix" name="prix" id="prix" type="text" class="validate">
         <label class="active" for="prix">Prix</label>
       </div>
       <div class="input-field col s6">
-        <input id="categorie" type="text" value="{{data.plat.categorie}}" class="validate">
+        <input [(ngModel)]="categorie" name="categorie" id="categorie" type="text" class="validate">
         <label class="active" for="categorie">Catégorie</label>
       </div>
       <div class="input-field col s6">
-        <input id="taille" type="text" value="{{data.plat.sousCategorie}}" class="validate">
+        <input [(ngModel)]="sousCategorie" name="sousCategorie" id="taille" type="text" class="validate">
         <label class="active" for="taille">Taille</label>
       </div>
       <div class="col s12">
         <h1 mat-dialog-title>Liste des ingrédients</h1>
         <div class="chips">
-          <div *ngFor="let ingredient of data.plat.listeIngredients" class="chip">
-          </div>
         </div>
       </div>
      <div class="col m12">

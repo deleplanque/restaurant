@@ -1,62 +1,6 @@
 
 <div class="row">
-  <div class="col s7 menu">
-      <div class="col s12"id="listDesPlats">
-        <div class="col s2">
-        </div>
-        <div class="col s2">
-          <img src="./../../assets/Plat/cPizzas.png" class="responsive-img img-thumbnail">
-        </div>
-        <div class="col s2">
-          <img src="./../../assets/Plat/cPizzas.png" class="responsive-img img-thumbnail">
-        </div>
-        <div class="col s2 ">
-          <img src="./../../assets/Plat/cPates.png" class="responsive-img img-thumbnail">
-        </div>
-        <div class="col s2">
-          <img src="./../../assets/Plat/cPates.png" class="responsive-img img-thumbnail">
-        </div>
-        <div class="col s2">
-          <img src="./../../assets/Plat/cDesserts.png" class="responsive-img img-thumbnail">
-        </div>
-      </div>
-
-      <div class="col s2" id="listDesBoissons">
-        <div class="row categorieBoisson">
-          <img src="./../../assets/Boisson/cSofts.png" class="responsive-img img-thumbnail">
-        </div>
-        <div class="row categorieBoisson">
-          <img src="./../../assets/Boisson/cBieres.png" class="responsive-img img-thumbnail">
-        </div>
-        <div class="row categorieBoisson">
-          <img src="./../../assets/Boisson/cVins.png" class="responsive-img img-thumbnail">
-        </div>
-        <div class="row categorieBoisson">
-          <img src="./../../assets/Boisson/cAperitifs.png" class="responsive-img img-thumbnail">
-        </div>
-        <div class="row categorieBoisson">
-          <img src="./../../assets/Boisson/cChaudes.png" class="responsive-img img-thumbnail">
-        </div>
-        <div class="row categorieBoisson">
-          <img src="./../../assets/Boisson/cBieres.png" class="responsive-img img-thumbnail">
-        </div>
-      </div>
-    <div class="col s10">
-      <div class="col s2"
-           style="margin-top: 15px; text-align: center;" *ngFor="let boisson of bieres">
-        <a (click)="ajouterBoisson(boisson.idBoisson)">
-          <img class="responsive-img img-thumbnail"
-               src="./../../assets/Boisson/biere/{{boisson.logo}}">
-        </a>
-        <div class="col-md-12 item">
-          <span>{{boisson.libelleBoisson}}</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
- <!-- <div class="col s7 menu">
+ <div class="col s7 menu" id="menu">
       <ul class="tabs tabs-fixed-width">
         <li  class="tab col s6"><a class="active" id="tabBoisson" href="#boissons">Boissons</a></li>
         <li  class="tab col s6"><a id="tabPlat" href="#plats">Plats</a></li>
@@ -143,10 +87,71 @@
           </div>
         </div>
       </div>
-      <div id="plats" class="col s12">Test 2</div>
+      <div id="plats" class="row">
+        <ul class="tabs">
+          <li class="tab col s2"><a href="#gpizzas">Pizzas 33cm</a></li>
+          <li class="tab col s2"><a href="#ppizzas">Pizzas 29cm</a></li>
+          <li class="tab col s2"><a href="#pates">Pâtes</a></li>
+          <li class="tab col s2"><a href="#patesEnfant">Pâtes enfant</a></li>
+          <li class="tab col s2"><a href="#entrees">Entrées</a></li>
+          <li class="tab col s2"><a href="#desserts">Desserts</a></li>
+        </ul>
+        <div id="gpizzas">
+          <div class="col s2 article"
+               style="margin-top: 15px; text-align: center;" *ngFor="let plat of gpizzas">
+            <a (click)="ajouterPlat(plat.idPlat)">
+              <img class="responsive-img img-thumbnail"
+                   src="./../../assets/Plat/plat/pizza/{{plat.photo}}">
+            </a>
+            <div class="col s12 item">
+              <span (click)="ajouterPlat(plat.idPlat)">{{plat.libellePlat}}</span>
+            </div>
+          </div>
+        </div>
+        <div id="ppizzas">
+          <div class="col s2 article"
+               style="margin-top: 15px; text-align: center;" *ngFor="let plat of ppizzas">
+            <a (click)="ajouterPlat(plat.idPlat)">
+              <img class="responsive-img img-thumbnail"
+                   src="./../../assets/Plat/plat/pizza/{{plat.photo}}">
+            </a>
+            <div class="col s12 item">
+              <span (click)="ajouterPlat(plat.idPlat)">{{plat.libellePlat}}</span>
+            </div>
+          </div>
+        </div>
+        <div id="pates">
+
+        </div>
+        <div id="entrees">
+          <div class="col s2 article"
+               style="margin-top: 15px; text-align: center;" *ngFor="let plat of entrees">
+            <a (click)="ajouterPlat(plat.idPlat)">
+              <img class="responsive-img img-thumbnail"
+                   src="./../../assets/Plat/entree/chaude/{{plat.photo}}">
+            </a>
+            <div class="col s12 item">
+              <span (click)="ajouterPlat(plat.idPlat)">{{plat.libellePlat}}</span>
+            </div>
+          </div>
+      </div>
+        <div id="desserts">
+          <div class="col s2 article"
+               style="margin-top: 15px; text-align: center;" *ngFor="let plat of desserts">
+            <a (click)="ajouterPlat(plat.idPlat)">
+              <img class="responsive-img img-thumbnail"
+                   src="./../../assets/Plat/dessert/{{plat.photo}}">
+            </a>
+            <div class="col s12 item">
+              <span (click)="ajouterPlat(plat.idPlat)">{{plat.libellePlat}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
   </div>
--->
-  <div class="col s5 note">
+  <div class="col s5 note" >
+    <div id="note">
     <table class="table striped responsive-table">
       <thead>
       <tr>
@@ -174,6 +179,35 @@
       </tr>
       </tbody>
     </table>
+    </div>
+    <div id="gestionPaiement">
+      <div class="col m12 montant">
+
+    <span class="total"> Total: {{table.addition.montantTotal}}
+			</span>
+      </div>
+      <!--<div class="col m12 center">
+        <div>
+          <img
+            alt="" (click)="payerAddition('espece')"
+            src="./../../assets/paiement/espece.jpg"
+            class="responsive-img img-thumbnail">
+          <img (click)="payerAddition('cb')"
+               alt="" src="./../../assets/paiement/Logo_CB.png"
+               class="responsive-img img-thumbnail">
+          <img
+            alt="" (click)="payerAddition('tr')" src="./../../assets/paiement/tr.png"
+            class="responsive-img  img-thumbnail">
+
+          <button class="btn" data-toggle="modal"
+                  data-target="#paiement">Payer</button>
+
+          <a href="" routerLink="/payer"><button
+            class="btn">Diviser addition</button></a>
+        </div>
+
+      </div>-->
+    </div>
 </div>
 
 <!--

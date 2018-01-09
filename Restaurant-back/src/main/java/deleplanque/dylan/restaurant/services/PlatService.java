@@ -35,6 +35,7 @@ public class PlatService implements IPlatService{
 
 	@Override
 	public List<Plat> modifierPlat(UpdatePlatForm platForm) {
+		platRepository.save(platForm.getPlat());
 		platIngredientService.removePlatIngredient(platForm.getPlat().getIdPlat());
 		List<Ingredient> listIngre = new ArrayList<>();
 		for (int i=0; i<platForm.getListIngredients().size();i++) {

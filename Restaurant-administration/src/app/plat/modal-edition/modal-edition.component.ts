@@ -12,6 +12,10 @@ declare var $: any;
 })
 export class ModalEditionComponent implements OnInit {
 
+  libelle = this.data.plat.libellePlat;
+  prix = this.data.plat.prix;
+  categorie = this.data.plat.categorie;
+  sousCategorie = this.data.plat.sousCategorie;
 
   constructor(public dialogRef: MatDialogRef<ModalEditionComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any, private modalEditionService: ModelEditionService) {
@@ -35,12 +39,10 @@ export class ModalEditionComponent implements OnInit {
           tag['tag'] = element.indredient.libelleIngredient;
           authData.push(tag);
         });
-
         const dataIngredients = {};
         data.forEach(function (element) {
           dataIngredients[element.libelleIngredient] = null;
         });
-        console.log(dataIngredients);
         $('.chips').material_chip({
           placeholder: 'Ingredient',
           secondaryPlaceholder: '+ingrédient',
@@ -69,13 +71,15 @@ export class ModalEditionComponent implements OnInit {
           prix: 0
         });
     });
+    plat.libellePlat = this.libelle;
+    plat.prix = this.prix;
+    plat.categorie = this.categorie;
+    plat.sousCategorie = this.sousCategorie;
     this.modalEditionService.modifierPlat(plat, listIngredients)
       .subscribe(data => {
-        console.log(data);
       }, error => {
         console.log(error);
       });
     this.dialogRef.close();
   }
-  
 }

@@ -14,6 +14,7 @@ import { ModalEditionComponent } from './plat/modal-edition/modal-edition.compon
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import {ModelEditionService} from './plat/modal-edition/model-edition.service';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {ModelEditionService} from './plat/modal-edition/model-edition.service';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   entryComponents: [ModalEditionComponent],
   exports: [MaterialModule],
