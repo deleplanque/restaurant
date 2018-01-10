@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Table} from '../bean/table';
 import {PayerSeparementService} from './payer-separement.service';
 import {TableComponent} from '../table/table.component';
+declare var $: any;
 
 @Component({
   selector: 'app-payer-separement',
@@ -17,6 +18,8 @@ export class PayerSeparementComponent implements OnInit {
 
   ngOnInit() {
     this.table = JSON.parse(sessionStorage.getItem('table'));
+    $('#note').css('height', $(window).height() - ($('.nav-wrapper').height() + 40 ) + 'px');
+    $('#noteProvisoire').css('height', $(window).height() - ($('.nav-wrapper').height() + 55 + $('.montant').height()) + 'px');
   }
 
 

@@ -13,7 +13,7 @@ declare var $: any;
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+  styleUrls: ['./table.component.css'],
 })
 export class TableComponent implements OnInit {
 
@@ -35,15 +35,15 @@ export class TableComponent implements OnInit {
   ppates= this.app.ppates;
 
 
-
   ngOnInit() {
     this.table = JSON.parse(sessionStorage.getItem('table'));
     this.app.numTable = this.table.numero;
     this.getTable();
 
     $('#menu').css('height', $(window).height() - ($('.nav-wrapper').height() + 40) + 'px');
-    $('#note').css('height', $(window).height() - ($('.nav-wrapper').height() + 40) + 'px');
-    $('#note').css('max-height', $(window).height() - ($('.nav-wrapper').height() + 40) + 'px');
+    $('#menu').css('max-height', $(window).height() - ($('.nav-wrapper').height() + 40) + 'px');
+    $('#note').css('height', $(window).height() - ($('.nav-wrapper').height() + 40 + $('.montant').height()) + 'px');
+    $('#note').css('max-height', $(window).height() - ($('.nav-wrapper').height() + 55 + $('.montant').height()) + 'px');
     }
 
   getMontantTotal(addition: Addition) {

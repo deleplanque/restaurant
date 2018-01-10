@@ -18,6 +18,7 @@ import {TableService} from './table/table.service';
 import { CalculatriceComponent } from './calculatrice/calculatrice.component';
 import { PayerSeparementComponent } from './payer-separement/payer-separement.component';
 import {PayerSeparementService} from './payer-separement/payer-separement.service';
+import { ModalCommandeComponent } from './emporter/modal-commande/modal-commande.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {PayerSeparementService} from './payer-separement/payer-separement.servic
     TablesComponent,
     TableComponent,
     CalculatriceComponent,
-    PayerSeparementComponent
+    PayerSeparementComponent,
+    ModalCommandeComponent
   ],
   imports: [
     BrowserModule,

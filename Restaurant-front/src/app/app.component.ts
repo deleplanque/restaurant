@@ -14,8 +14,8 @@ export class AppComponent implements OnInit {
   hasTable = false;
   nomSalle = '';
   numTable: number;
-  boissons: Boisson[];
-  plats: Plat[];
+  boissons: Boisson[] = [];
+  plats: Plat[] = [];
   softs: Boisson[] = [];
   chaudes: Boisson[] = [];
   aperitifs: Boisson[] = [];
@@ -41,26 +41,25 @@ export class AppComponent implements OnInit {
   getBoissons(): void {
     this.tableService.getBoissons()
       .subscribe(data => {
-        this.boissons = data;
-        for (let i = 0; i < this.boissons.length; i++) {
-          switch (this.boissons[i].categorie) {
+        for (let i = 0; i < data.length; i++) {
+          switch (data[i].categorie) {
             case 'soft':
-              this.softs.push(this.boissons[i]);
+              this.softs.push(data[i]);
               break;
             case 'biere':
-              this.bieres.push(this.boissons[i]);
+              this.bieres.push(data[i]);
               break;
             case 'aperitif':
-              this.aperitifs.push(this.boissons[i]);
+              this.aperitifs.push(data[i]);
               break;
             case 'vin':
-              this.vins.push(this.boissons[i]);
+              this.vins.push(data[i]);
               break;
             case 'digestif':
-              this.digestifs.push(this.boissons[i]);
+              this.digestifs.push(data[i]);
               break;
             case 'chaude':
-              this.chaudes.push(this.boissons[i]);
+              this.chaudes.push(data[i]);
               break;
           }
         }
@@ -102,5 +101,9 @@ export class AppComponent implements OnInit {
       }, error => {
         console.log(error);
       });
+  }
+
+  getListBoissons(): Boisson[] {
+    return this.boissons;
   }
 }
