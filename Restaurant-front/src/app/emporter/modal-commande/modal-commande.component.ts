@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Plat} from '../../bean/plat';
 import {Boisson} from '../../bean/boisson';
 import {TableService} from '../../table/table.service';
+import {ModelCommandeService} from './modal-commande.service';
 declare var $: any;
 @Component({
   selector: 'app-modal-commande',
@@ -15,7 +16,7 @@ export class ModalCommandeComponent implements OnInit {
   heure;
   commentaire;
 
-  constructor(private tableService: TableService) {}
+  constructor(private tableService: TableService, private modalCommandeService: ModelCommandeService) {}
 
   ngOnInit() {
     this.tableService.getPlats()
@@ -58,4 +59,41 @@ export class ModalCommandeComponent implements OnInit {
         console.log(error);
       });
   }
+
+   validerCommande(): void {
+     const plats = $('#plat').material_chip('data');
+     const listeplats = [];
+     plats.forEach(function (element) {
+       const libellePlat = element['tag'];
+       listeplats.push(
+         {
+           idPlat: null,
+           libellePlat: libellePlat,
+           prix: 0,
+           categorie: null,
+           sousCategorie: null,
+           photo: null
+         });
+     });
+
+     const boissons = $('#boisson').material_chip('data');
+     const listeBoissons = [];
+     boissons.forEach(function (element) {
+       const libelleBoisson = element['tag'];
+       listeBoissons.push(
+         {
+           idBoisson: null,
+           libelleBoisson: libelleBoisson,
+           prix: 0,
+           categorie: null,
+           sousCategorie: null,
+           logo: null
+         });
+     });
+     this.modalCommandeService.validerCommande(this.nom, this.heure, listeplats, listeBoissons, this.commentaire)
+       .subscribe(data => {
+       }, error => {
+         console.log(error);
+       });
+   }
 }
