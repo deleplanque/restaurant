@@ -28,6 +28,7 @@ public class Commande implements Serializable{
 	private boolean estTermine;
 	private String heure;
 	private boolean estEmporter;
+	private String commentaire;
 	
 	public Commande() {
 		addition = new Addition();
@@ -83,9 +84,14 @@ public class Commande implements Serializable{
 	public void setEstEmporter(boolean estEmporter) {
 		this.estEmporter = estEmporter;
 	}
-	
-	
-	
-	
-}
 
+
+	public String getCommentaire() {
+		return commentaire;
+	}
+
+
+	public void setCommentaire(String commentaire) {
+		this.commentaire = commentaire;
+	}	
+}
