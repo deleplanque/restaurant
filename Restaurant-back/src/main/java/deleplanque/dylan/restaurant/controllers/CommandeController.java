@@ -26,4 +26,9 @@ public class CommandeController {
 	public ResponseEntity<List<Commande>> creerCommande(@RequestBody CreateCommandeForm creerCommandeForm) {
 		return new ResponseEntity<List<Commande>>(commandeService.creerCommande(creerCommandeForm), HttpStatus.OK);
 	}
+	
+	@RequestMapping(value="/getCommandes", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Commande>> getCommandes(){
+		return new ResponseEntity<List<Commande>>(commandeService.getCommandes(), HttpStatus.OK);
+	}
 }

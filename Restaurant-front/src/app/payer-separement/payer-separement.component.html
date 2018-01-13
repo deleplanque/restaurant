@@ -57,7 +57,7 @@
     </div>
     <div class="col m12 montant">
       <div class="col m12">
-        <span class="total"> Total: {{table.addition.montantTotal}} €   </span>
+        <span class="total"> Total: {{table.additionProvisoire.montantTotal}} €   </span>
       </div>
       <hr>
       <div class="col m2">
@@ -77,107 +77,13 @@
           class="img-responsive  img-thumbnail">
       </div>
       <div class="col m3">
-        <button class="boutton btn-primary btn-lg" data-toggle="modal"
-                data-target="#paiement">Calculatrice</button>
+        <button class="btn bouttonBW" data-toggle="modal"
+                data-target="#paiement">Calc</button>
       </div>
       <div class="col m3">
         <a href="" routerLink="/table"><button
-          class="boutton btn-default btn-lg">Retour</button></a>
+          class="btn bouttonWB">Retour</button></a>
       </div>
     </div>
   </div>
-
 </div>
-
-<!--<div class="col-md-4 col-md-offset-1" style="padding: 0px;">
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th
-        style="text-align: left; width: 30%; border-radius: 10px 0px 0px 0px">Libelle</th>
-      <th style="width: 15%;">Quantité</th>
-      <th style="width: 15%;">P/U</th>
-      <th style="width: 15%;">Ajouter</th>
-    </tr>
-    </thead>
-  </table>
-
-  <div class="col-md-12 note">
-    <table class="table table-striped table-condensed">
-      <tbody>
-      <tr *ngFor="let boisson of table.addition.tabBoissons">
-        <td>{{boisson[0].libelleBoisson}}</td>
-        <td>{{boisson[1]}}</td>
-        <td>{{boisson[0].prix}}</td>
-        <td><button (click)="addBoissonToProvisoire(boisson[0].idBoisson)"  class="btn btn-xs btn-success">+</button> </td>
-      </tr>
-      <tr *ngFor="let plat of table.addition.tabPlats">
-        <td>{{plat[0].libellePlat}}</td>
-        <td>{{plat[1]}}</td>
-        <td>{{plat[0].prix}}</td>
-        <td><button (click)="addPlatToProvisoire(plat[0].idPlat)"  class="btn btn-xs btn-success">+</button> </td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="col-md-12 montant">
-
-    <span class="total"> Total: {{table.addition.montantTotal}}
-			</span>
-  </div>
-
-</div>
-<div class="col-md-4 col-md-offset-2" style="padding: 0px;">
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th
-        style="text-align: left; width: 30%; border-radius: 10px 0px 0px 0px">Libelle</th>
-      <th style="width: 15%;">Quantité</th>
-      <th style="width: 15%;">P/U</th>
-      <th style="width: 15%;">Ajouter</th>
-    </tr>
-    </thead>
-  </table>
-
-  <div class="col-md-12 note">
-    <table class="table table-striped table-condensed">
-      <tbody>
-      <tr *ngFor="let boisson of table.additionProvisoire.tabBoissons">
-        <td>{{boisson[0].libelleBoisson}}</td>
-        <td>{{boisson[1]}}</td>
-        <td>{{boisson[0].prix}}</td>
-        <td><button (click)="addBoissonToAddition(boisson[0].idBoisson)"  class="btn btn-xs btn-danger">-</button> </td>
-      </tr>
-      <tr *ngFor="let plat of table.additionProvisoire.tabPlats">
-        <td>{{plat[0].libellePlat}}</td>
-        <td>{{plat[1]}}</td>
-        <td>{{plat[0].prix}}</td>
-        <td><button (click)="addPlatToAddition(plat[0].idPlat)"  class="btn btn-xs btn-danger">-</button> </td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="col-md-12 montant">
-
-    <span class="total"> Total: {{table.additionProvisoire.montantTotal}}
-			</span>
-  </div>
-  <div class="col-md-12 center">
-    <div>
-      <img
-         alt="" (click)="payerAdditionProvisoire('espece')"
-        src="./../../assets/paiement/espece.jpg"
-        class="img-responsive img-thumbnail">
-      <img (click)="payerAdditionProvisoire('cb')"
-      alt="" src="./../../assets/paiement/Logo_CB.png"
-      class="img-responsive img-thumbnail">
-      <img
-      alt="" (click)="payerAdditionProvisoire('tr')" src="./../../assets/paiement/tr.png"
-      class="img-responsive  img-thumbnail">
-    </div>
-
-  </div>
-</div>
--->

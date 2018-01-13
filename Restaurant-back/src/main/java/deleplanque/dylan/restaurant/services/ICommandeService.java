@@ -9,4 +9,6 @@ public interface ICommandeService {
 
 	List<Commande> creerCommande(CreateCommandeForm creerCommandeForm);
 
+	List<Commande> getCommandes();
+
 }

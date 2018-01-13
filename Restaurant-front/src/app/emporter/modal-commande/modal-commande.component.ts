@@ -92,6 +92,7 @@ export class ModalCommandeComponent implements OnInit {
      });
      this.modalCommandeService.validerCommande(this.nom, this.heure, listeplats, listeBoissons, this.commentaire)
        .subscribe(data => {
+         $('#modal1').modal('close');
        }, error => {
          console.log(error);
        });

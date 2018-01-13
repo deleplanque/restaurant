@@ -18,9 +18,6 @@ declare var $: any;
 export class TableComponent implements OnInit {
 
   table: Table;
-
-  constructor(private tableService: TableService, private app: AppComponent) { }
-
   softs = this.app.softs;
   chaudes= this.app.chaudes;
   aperitifs= this.app.aperitifs;
@@ -34,8 +31,11 @@ export class TableComponent implements OnInit {
   gpates= this.app.gpates;
   ppates= this.app.ppates;
 
+  constructor(private tableService: TableService, private app: AppComponent) { }
+
 
   ngOnInit() {
+    $('ul.tabs').tabs();
     this.table = JSON.parse(sessionStorage.getItem('table'));
     this.app.numTable = this.table.numero;
     this.getTable();
@@ -44,7 +44,7 @@ export class TableComponent implements OnInit {
     $('#menu').css('max-height', $(window).height() - ($('.nav-wrapper').height() + 40) + 'px');
     $('#note').css('height', $(window).height() - ($('.nav-wrapper').height() + 40 + $('.montant').height()) + 'px');
     $('#note').css('max-height', $(window).height() - ($('.nav-wrapper').height() + 55 + $('.montant').height()) + 'px');
-    }
+  }
 
   getMontantTotal(addition: Addition) {
     let montantTotal = 0;
@@ -239,6 +239,10 @@ export class TableComponent implements OnInit {
     }, error => {
       console.log(error);
     });
+  }
+
+  openCalc(): void {
+    $('#paiement').modal('open');
   }
 
 }

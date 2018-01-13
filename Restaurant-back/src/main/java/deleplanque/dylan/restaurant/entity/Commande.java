@@ -29,6 +29,8 @@ public class Commande implements Serializable{
 	private String heure;
 	private boolean estEmporter;
 	private String commentaire;
+	private String nom;
+	
 	
 	public Commande() {
 		addition = new Addition();
@@ -66,6 +68,17 @@ public class Commande implements Serializable{
 	}
 
 
+	public String getNom() {
+		return nom;
+	}
+
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+
+	
 	public int getIdCommmande() {
 		return idCommmande;
 	}
@@ -84,6 +97,7 @@ public class Commande implements Serializable{
 	public void setEstEmporter(boolean estEmporter) {
 		this.estEmporter = estEmporter;
 	}
+
 
 
 	public String getCommentaire() {

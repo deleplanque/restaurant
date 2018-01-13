@@ -8,7 +8,7 @@ import {Boisson} from '../../bean/boisson';
 @Injectable()
 export class ModelCommandeService {
 
-  private validerCommandeUrl = 'api/validerCommande';
+  private validerCommandeUrl = 'api/creerCommande';
   constructor(private _http: HttpClient) { }
 
 

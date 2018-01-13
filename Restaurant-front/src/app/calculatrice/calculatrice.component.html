@@ -1,58 +1,42 @@
-<div class="modal fade" id="paiement" role="dialog">
-  <div class="modal-dialog modal-md">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-        <span class="montant total"> Reste à  payer: &euro;
-					</span>
-      </div>
-      <div class="modal-body">
-        <div id="container">
-          <div id="calculator">
-            <div id="header">
-              <input type="text" id="number" value="0" autocomplete="off"
-                     disabled />
-            </div>
-            <div id="body">
-              <div class="buttons" style="visibility: hidden;"></div>
-              <div class="buttons">CE</div>
-              <div class="buttons">%</div>
-              <div class="buttons">/</div>
-              <div class="buttons">7</div>
-              <div class="buttons">8</div>
-              <div class="buttons">9</div>
-              <div class="buttons">-</div>
-              <div class="buttons">4</div>
-              <div class="buttons">5</div>
-              <div class="buttons">6</div>
-              <div class="buttons">*</div>
-              <div class="buttons">1</div>
-              <div class="buttons">2</div>
-              <div class="buttons">3</div>
-              <div class="buttons">+</div>
-              <div class="buttons">0</div>
-              <div class="buttons">+/-</div>
-              <div class="buttons">.</div>
-              <div class="buttons">=</div>
-            </div>
+<div id="paiement" class="modal modal-fixed-footer">
+  <div class="row">
+    <div id="calculator">
+        <div class="volume-button-lg"></div>
+        <div class="mini-screen">{{history}}</div>
+        <div class="bouttonsCalc">
+          <div class="row" >
+            <span class="btn btnCalcOperator" href="#" (click)="onClickClear()">C</span>
+            <span class="btn btnCalcOperator" href="#" (click)="removeLast()"><</span>
+            <span class="btn btnCalcOperator" href="#" (click)="calculate('/')">/</span>
+            <span class="btn btnCalcOperator" href="#" (click)="calculate('+')">+</span>
+          </div>
+          <div class="row" >
+            <span class="btn btnCalcNum" href="#" (click)="addToCalculation(7)">7</span>
+            <span class="btn btnCalcNum" href="#" (click)="addToCalculation(8)">8</span>
+            <span class="btn btnCalcNum" href="#" (click)="addToCalculation(9)">9</span>
+            <span class="btn btnCalcOperator" href="#" (click)="calculate('-')">-</span>
+          </div>
+          <div class="row">
+            <span class="btn btnCalcNum" href="#" (click)="addToCalculation(4)">4</span>
+            <span class="btn btnCalcNum" href="#" (click)="addToCalculation(5)">5</span>
+            <span class="btn btnCalcNum" href="#" (click)="addToCalculation(6)">6</span>
+            <span class="btn btnCalcOperator" href="#" (click)="calculate('*')">*</span>
+          </div>
+          <div class="row" >
+            <span class="btn btnCalcNum" href="#" (click)="addToCalculation(1)">1</span>
+            <span class="btn btnCalcNum" href="#" (click)="addToCalculation(2)">2</span>
+            <span class="btn btnCalcNum" href="#" (click)="addToCalculation(3)">3</span>
+            <span class="btn btnCalcOperator" href="#" (click)="getTotal()">=</span>
+          </div>
+          <div class="row" >
+            <span class="btn btnCalcNum" href="#"  (click)="addToCalculation('.')">.</span>
+            <span class="btn btnCalcNum" href="#" (click)="addToCalculation(0)">0</span>
           </div>
         </div>
-
-        <div class="paiement">
-          <img onclick="payer('espece')" alt=""
-               src="./../../assets/paiement/espece.jpg" class="img-thumbnail">
-          <img onclick="payer('cb')" alt=""
-               src="./../../assets/paiement/Logo_CB.png" class="img-thumbnail">
-          <img onclick="payer('tr')" alt="" src="./../../assets/paiement/tr.png"
-               class="img-thumbnail">
-        </div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-      </div>
     </div>
+  </div>
+  <div class="modal-footer">
+    <a (click)="validerCommande()" class="modal-action modal-close waves-effect waves-green btn-flat ">Valider</a>
   </div>
 </div>
 

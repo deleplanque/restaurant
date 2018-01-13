@@ -6,7 +6,7 @@
         <li  class="tab col s6"><a id="tabPlat" href="#plats">Plats</a></li>
       </ul>
       <div id="boissons" class="row">
-        <ul class="tabs">
+        <ul class="tabs" id="listSousCategorie">
           <li class="tab col s2"><a href="#softs">Softs</a></li>
           <li class="tab col s2"><a href="#bieres">Bières</a></li>
           <li class="tab col s2"><a href="#vins">Vins</a></li>
@@ -203,15 +203,13 @@
           class="responsive-img  img-thumbnail">
       </div>
       <div class="col m3">
-        <button class="boutton btn-primary btn-lg" data-toggle="modal"
-                data-target="#paiement">Calculatrice</button>
+        <button class="btn bouttonBW" (click)="openCalc()">Calc</button>
       </div>
       <div class="col m3">
         <a href="" routerLink="/payer"><button
-          class="boutton btn-default btn-lg">Diviser</button></a>
+          class="btn bouttonWB">Diviser</button></a>
       </div>
     </div>
 </div>
 </div>
-
-
+<app-calculatrice></app-calculatrice>

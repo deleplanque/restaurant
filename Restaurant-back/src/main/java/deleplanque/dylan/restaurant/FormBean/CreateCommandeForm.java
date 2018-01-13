@@ -1,6 +1,5 @@
 package deleplanque.dylan.restaurant.FormBean;
 
-import java.util.Date;
 import java.util.List;
 
 import deleplanque.dylan.restaurant.entity.Boisson;

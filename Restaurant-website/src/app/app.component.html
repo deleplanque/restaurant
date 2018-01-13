@@ -81,18 +81,19 @@
 
               </div>
             </div>
-
-          <!--  <div class="col m6 itemPlat" *ngFor="let plat of gpizzas">
-              <div class="col m10">
-                <span class="libelle">{{plat.libellePlat}}</span><br>
-                <span class="" *ngFor="let ingredient of plat.listeIngredients">{{ingredient.indredient.libelleIngredient}} </span>
-
-              </div>
-              <p class="col m2">{{plat.prix}}€</p>
-            </div>-->
           </div>
         </div>
-        <div id="test2" class="col s12">Test 2</div>
+        <div id="test2" class="col s10 offset-s1">
+          <div class="row">
+            <div class="col m6 s12 itemPlat" *ngFor="let plat of pates">
+              <div class="col s12 m10">
+                <span class="menu__name">{{plat.libellePlat}}</span><span class="menu__price">{{plat.prix}}€</span><br>
+                <span class="menu__desc" *ngFor="let ingredient of plat.listeIngredients">{{ingredient.indredient.libelleIngredient}} </span>
+
+              </div>
+            </div>
+          </div>
+        </div>
         <div id="test3" class="col s12">Test 3</div>
         <div id="test4" class="col s12">Test 4</div>
       </div>

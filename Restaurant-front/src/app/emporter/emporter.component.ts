@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {EmporterService} from './emporter.service';
+import {Commande} from '../bean/commande';
 declare var $: any;
 @Component({
   selector: 'app-emporter',
@@ -7,9 +9,12 @@ declare var $: any;
 })
 export class EmporterComponent implements OnInit {
 
-  constructor() { }
+  commandes: Commande[] = [];
+
+  constructor(private emporterService: EmporterService) { }
 
   ngOnInit() {
+    this.getCommandes();
     $('.modal').modal({
       dismissible: true, // Modal can be dismissed by clicking outside of the modal
       opacity: .5, // Opacity of modal background
@@ -22,6 +27,15 @@ export class EmporterComponent implements OnInit {
 
   showModal(): void {
     $('#modal1').modal('open');
+  }
+
+  getCommandes(): void {
+      this.emporterService.getCommandes()
+      .subscribe(data => {
+        this.commandes = data;
+      }, error => {
+        console.log(error);
+      });
   }
 
 }

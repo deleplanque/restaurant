@@ -1,6 +1,45 @@
 <div class="row">
-  <div class="col m12">
+  <div class="col m12 ajouterCommandeIcon">
     <a (click)="showModal()" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+  </div>
+  <div class="col m4" *ngFor="let commande of commandes">
+    <div class="card horizontal">
+      <div class="card-stacked">
+        <div class="card-header">
+         <div class="col m4">Nom: {{commande.nom}}</div>
+          <div class="col m4 heure">Heure: {{commande.heure}}</div>
+          <div class="col m4 prixCommande">Prix: {{commande.addition.montantTotal}}€</div>
+        </div>
+        <div class="card-content">
+          <table class="table responsive-table">
+            <thead>
+            <tr>
+              <th class="libelle">Libelle</th>
+              <th>Prix</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let boisson of commande.addition.listBoissons">
+              <td class="libelle">{{boisson.boisson.libelleBoisson}}</td>
+              <td>{{boisson.boisson.prix}}€</td>
+            </tr>
+            <tr *ngFor="let plat of commande.addition.listPlats">
+              <td class="libelle">{{plat.plat.libellePlat}}</td>
+              <td>{{plat.plat.prix}}€</td>
+            </tr>
+            </tbody>
+          </table>
+          <hr>
+          <div class="row commentaireCommande">
+            Commentaire: {{commande.commentaire}}
+          </div>
+        </div>
+        <div class="card-action">
+          <button class="btn bouttonWB">Modifier</button>
+          <button class="btn bouttonBW">Terminer !</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <app-modal-commande></app-modal-commande>

@@ -103,7 +103,4 @@ export class AppComponent implements OnInit {
       });
   }
 
-  getListBoissons(): Boisson[] {
-    return this.boissons;
-  }
 }

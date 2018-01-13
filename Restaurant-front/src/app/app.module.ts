@@ -19,6 +19,8 @@ import { CalculatriceComponent } from './calculatrice/calculatrice.component';
 import { PayerSeparementComponent } from './payer-separement/payer-separement.component';
 import {PayerSeparementService} from './payer-separement/payer-separement.service';
 import { ModalCommandeComponent } from './emporter/modal-commande/modal-commande.component';
+import {ModelCommandeService} from './emporter/modal-commande/modal-commande.service';
+import {EmporterService} from './emporter/emporter.service';
 
 
 @NgModule({
@@ -41,7 +43,7 @@ import { ModalCommandeComponent } from './emporter/modal-commande/modal-commande
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [TablesService, SallesService, TableService, PayerSeparementService],
+  providers: [TablesService, SallesService, TableService, PayerSeparementService, ModelCommandeService, EmporterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

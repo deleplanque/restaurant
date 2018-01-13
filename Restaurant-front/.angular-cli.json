@@ -26,7 +26,8 @@
       "scripts": [
         "jquery-ui-1.12.1.custom/external/jquery/jquery.js",
         "jquery-ui-1.12.1.custom/jquery-ui.js",
-        "../node_modules/materialize-css/dist/js/materialize.js"
+        "../node_modules/materialize-css/dist/js/materialize.js",
+        "calculatrice.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
