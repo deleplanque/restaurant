@@ -43,7 +43,7 @@ export class ModalEditionComponent implements OnInit {
         data.forEach(function (element) {
           dataIngredients[element.libelleIngredient] = null;
         });
-        $('.chips').material_chip({
+        $('#edition').material_chip({
           placeholder: 'Ingredient',
           secondaryPlaceholder: '+ingrédient',
           data: authData,

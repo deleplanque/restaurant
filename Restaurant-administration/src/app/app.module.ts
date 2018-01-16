@@ -14,7 +14,8 @@ import { ModalEditionComponent } from './plat/modal-edition/modal-edition.compon
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import {ModelEditionService} from './plat/modal-edition/model-edition.service';
-import {FormsModule} from "@angular/forms";
+import {FormsModule} from '@angular/forms';
+import { ModalCreationPlatComponent } from './plat/modal-creation-plat/modal-creation-plat.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {FormsModule} from "@angular/forms";
     PlatComponent,
     BoissonComponent,
     StatistiquesComponent,
-    ModalEditionComponent
+    ModalEditionComponent,
+    ModalCreationPlatComponent
   ],
   imports: [
     BrowserModule,

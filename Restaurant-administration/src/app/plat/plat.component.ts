@@ -36,8 +36,15 @@ export class PlatComponent implements OnInit {
 
 
   ngOnInit() {
+    $('.modal').modal();
+    $('#modalCreation').modal();
     this.getPlats();
   }
+
+  showModal(): void {
+    $('#modalCreation').modal('open');
+  }
+
 
   getPlats(): void {
     this.platService.getPlats()

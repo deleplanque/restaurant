@@ -40,6 +40,7 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    $('ul.tabs').tabs();
     this.getBoissons();
     this.getPlats();
     console.log(this.gpizzas)

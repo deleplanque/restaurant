@@ -1,7 +1,5 @@
 <div class="row">
-  <div class="col m12 ajouterCommandeIcon">
-    <a (click)="showModal()" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
-  </div>
+  <a id="btnAddCommandeEmporter" (click)="showModal()" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
   <div class="col m4" *ngFor="let commande of commandes">
     <div class="card horizontal">
       <div class="card-stacked">

@@ -115,6 +115,15 @@ nav .brand-logo {
   color: #e4bb7a ;
 }
 
+.categorieBoissons{
+  font-family: wildYouth, "Brush Script MT", cursive;
+  font-size: 3em;
+  font-weight: 400;
+  margin-bottom: 0px;
+  color: #e4bb7a ;
+  text-align: left;
+}
+
 .ouverture h2 {
   font-family: Average, "Times New Roman", Times, serif;
   font-size: 4em;
@@ -241,8 +250,9 @@ nav .brand-logo {
 
 
 .tabs {
-  background-color: rgba(255, 255, 255,0.3);
-  border-top: 2px solid #e4bb7a;
+  background-color: rgba(255, 255, 255,0);
+  //border-top: 2px solid #e4bb7a;
+  box-shadow: 0px 1px 7px #e4bb7a;
 }
 
 .tabs .tab a {
@@ -267,7 +277,7 @@ nav .brand-logo {
   position: absolute;
   bottom: 0;
   height: 1px;
-  background-color: #eee;
+  background-color: #e4bb7a;
   will-change: left, right;
 }
 
@@ -348,4 +358,21 @@ nav .brand-logo {
   margin-top: 50px !important;
   color: #e4bb7a !important;
   font-weight: bold;
+}
+
+
+.itemBoisson{
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.categorieBoissons{
+  margin-bottom: 15px;
+  margin-top: 0px;
+}
+
+.itemBoisson .menu__name{
+  margin-bottom: 15px;
+  margin-top: 0px;
+  text-transform: none;
 }

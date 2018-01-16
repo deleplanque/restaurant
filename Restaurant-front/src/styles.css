@@ -351,13 +351,6 @@ h6{
   font-weight: 500;
 }
 
-.btn-floating.btn-large i {
-  line-height: 56px;
-  background-color: white;
-  color: #3a7bd5;
-  font-weight: bold;
-}
-
 
 .bouttonBW {
   background: #4d90fe;
@@ -390,4 +383,10 @@ h6{
 
 #listSousCategorie {
   border-bottom: 1px solid #3079ed;
+}
+
+#btnAddCommandeEmporter{
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
 }
