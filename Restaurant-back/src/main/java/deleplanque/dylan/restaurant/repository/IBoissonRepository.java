@@ -8,4 +8,6 @@ public interface IBoissonRepository extends JpaRepository<Boisson, Long>{
 
 	Boisson findByIdBoisson(int idBoisson);
 
+	Boisson findByLibelleBoisson(String libelleBoisson);
+
 }

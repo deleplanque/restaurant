@@ -1,30 +1,275 @@
 /* You can add global styles to this file, and also import other style files */
 @CHARSET "UTF-8";
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 
 body {
   background: url(./assets/background.jpg) no-repeat center fixed;
   -webkit-background-size: cover;
   background-size: cover;
-  color: #FCDD44;
+  color: white;
+ /* background-color: #eee;*/
 }
 
-element.style {
+#listDesBoissons{
+  padding: 10px;
+  border-right: 3px solid #3a7bd5;
 }
 
-.btn-primary:hover {
-  color: #fff;
-  background-color: #286090;
-  border-color: #204d74;
+
+#listDesPlats{
+  border-bottom: 3px solid #3a7bd5;
 }
 
-.btn.focus, .btn:focus, .btn:hover {
-  color: #333;
-  text-decoration: none;
+#note, #noteProvisoire{
+  overflow-y: scroll;
 }
 
-.btn {
+.note{
+  border-radius: 10px 10px 0 0 ;
+  background-color: #EFEFEF;
+  margin-top: 20px;
+}
+
+.categorieBoisson{
+  margin-bottom: 5px;
+}
+#plan-restaurant{
+  background: url(./assets/plan2.png);
+  height: 467px;
+  width: 940px;
+}
+
+#rang1{
+  margin-top: 20px;
+}
+
+#rang2{
+  margin-top: 80px;
+}
+
+table.striped > tbody > tr:nth-child(odd) {
+  background-color: #4d90fe;
+ /* background-image: linear-gradient(to right, #3a7bd5 0%, #75a2e1 100%, #3a7bd5 100%);*/
+}
+
+table.striped > tbody > tr:nth-child(odd) td{
+  color: white !important;
+}
+
+td{
+  font-weight: 500;
+  color: #3D3D3D;
+  padding: 2px !important;
+  text-align: center !important;
+}
+
+th{
+  color: #3D3D3D;
+  text-align: center !important;
+}
+
+tr{background-color: white;}
+
+thead {
+  background-color: white;
+}
+
+.libelle{
+  text-align: left !important;
+}
+
+
+.total {
+  font-size: 25px;
+  float: right;
+  color: #d43f3a;
+  margin-right: 30px;
+}
+
+span{
+  font-size:10px; font-weight:bolder;
+}
+
+h1{
+  margin:5px;
+}
+
+#boissons{
+
+}
+
+
+#listeItems {
+  overflow-y: scroll;
+}
+
+.menu {
+  margin-top: 20px;
+  padding: 0px !important;
+  margin-left: 10px !important;
+  margin-right: 10px;
+  background-color: #F5F5F5;
+  border-radius: 10px 10px 0 0;
+  overflow-y: scroll;
+}
+
+.row .col.s7 {
+  width: 56.3333333333%;
+  margin-left: auto;
+  left: auto;
+  right: auto;
+}
+
+.tabs{
+  background-color: transparent;
+}
+
+.img-thumbnail {
   display: inline-block;
-  padding: 6px 12px;
+  max-width: 100%;
+  height: auto;
+  padding: 4px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px 4px 0px 0px;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+
+.tabs .tab a {
+  color: #4d90fe;
+  background-color: rgba(255,255,255,1) !important;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0 24px;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  transition: color .28s ease;
+  font-weight: bold;
+  border: 1px solid #eee;
+}
+
+.tabs .tab a.active {
+  background-color: #4d90fe !important;
+  /*background-image: linear-gradient(to right, #3a7bd5 0%, #75a2e1 100%, #3a7bd5 100%);*/
+  color: white;
+  font-weight: 500
+}
+
+.tabs .tab a:hover {
+  background-color: #b0caee !important;
+ /* background-image: linear-gradient(to right, #b0caee 0%, #d7e4f6 100%, #b0caee 100%);*/
+  color: white;
+}
+
+
+
+.tabs .indicator {
+  position: absolute;
+  bottom: 0;
+  height: 0px;
+  background-color: white;
+  will-change: left, right;
+}
+
+.tabs {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 40px;
+  width: 100%;
+  margin: 0 auto;
+  white-space: nowrap;
+}
+
+.tabs .tab {
+  display: inline-block;
+  text-align: center;
+  line-height: 40px;
+  height: 40px;
+  padding: 0;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+
+.item{
+  margin-top: -7px;
+  border-radius: 0px 0px 4px 4px;
+  color: white;
+  font-weight: bold;
+  /*background-image: linear-gradient(to right, #3a7bd5 0%, #75a2e1 100%, #3a7bd5 100%);*/
+  background-color: #4d90fe;
+  box-shadow: 0px 1px 7px grey;
+}
+
+
+img{
+  box-shadow: 0px 0px 12px grey;
+}
+
+nav {
+  color: #fff;
+  /*background-image: linear-gradient(to right, #3a7bd5 0%, #75a2e1 100%, #3a7bd5 100%);*/
+  background-color: #3079ed;
+  width: 100%;
+  height: 56px;
+  line-height: 56px;
+}
+.breadcrumb {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 500;
+}
+.breadcrumb:before {
+  content: '/';
+  color: rgba(255, 255, 255, 0.7);
+  vertical-align: top;
+  display: inline-block;
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 25px;
+  margin: 0 10px 0 8px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-floating, .dropdown-content, .collapsible, .side-nav {
+  box-shadow: 0 3px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+#tabBoisson{
+  border-radius: 10px 0px 0px 0px;
+}
+
+#tabPlat{
+  border-radius: 0px 10px 0px 0px;
+}
+
+td {
+  padding: 0px;
+  display: table-cell;
+  text-align: left;
+  vertical-align: middle;
+  border-radius: 2px;
+}
+
+
+.card {
+  overflow: hidden;
+}
+
+h6{
+  line-height: 70px;
+}
+
+.boutton {
+  display: inline-block;
   margin-bottom: 0;
   font-size: 14px;
   font-weight: 400;
@@ -43,302 +288,105 @@ element.style {
   border: 1px solid transparent;
   border-radius: 4px;
 }
-.btn-group-xs>.btn, .btn-xs {
-  padding: 1px 5px;
-  font-size: 12px;
-  line-height: 1.5;
-  border-radius: 3px;
+
+.btn-success {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
 }
 
-#plan-restaurant{
-  background: url(./assets/plan2.png);
-  height: 467px;
-  width: 940px;
+.btn-danger {
+  color: #fff;
+  background-color: #d9534f;
+  border-color: #d43f3a;
 }
 
-#rang1{
-  margin-top: 20px;
+.btn-primary {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
 }
 
-#rang2{
-  margin-top: 80px;
+.btn-default {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
 }
 
-/* body{ */
-/* 	background: #1687A6; */
-/* 	color: #FCDD44; */
-
-/* } */
-
-span{
-  font-size:10px; font-weight:bolder;
+.btn-group-lg>.btn, .btn-lg {
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
 }
 
-h1{
-  margin:5px;
+.card-header {
+ background-color: #3079ed;
+  font-weight: 500;
+  padding: 10px;
 }
 
-.commande{
-  padding: 0px;
-  border: 1px solid;
-  border-bottom: none;
+.card .card-content {
+  padding: 0px 24px 24px 24px;
+  border-radius: 0 0 2px 2px;
 }
 
-.lieu{
-  text-align: center;
-}
-
-
-.montant{
+.prixCommande{
   text-align: right;
-  color: #bd1522;
-  font-weight: bolder;
-  border: 1px solid #fcdd44;
-  border-radius: 0px 0px 10px 10px;
-  border-top: none;
-  margin-bottom: 20px;
 }
 
-.footer{
-  margin-top:30px;
-}
-
-
-
-.total{
-  font-size: 35px;
-}
-
-
-.note{
-  min-height: 67%;
-  max-height: 67%;
-  padding: 0px;
-  border: 1px solid;
-  border-bottom: none;
-
-}
-
-.paiement{
+.heure{
   text-align: center;
-  margin:10px;
-  margin-top: 20px;
-  padding:0px;
 }
 
-.menu{
-  min-height: 91%;
-  max-height: 91%;
-  overflow-y:overlay;
+.ajouterCommandeIcon{
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
-.table-striped>tbody>tr:nth-of-type(odd) {
-  background-color: rgba(252,221,68,0.8);
-}
-.table-striped>tbody>tr:nth-of-type(odd) td{
-  color: black;
-}
-
-td{
-  font-weight: bolder;
+.commentaireCommande{
+  margin-bottom: 0px;
+  margin-top: 10px;
+  color: #3D3D3D;
+  font-weight: 500;
 }
 
 
-.item{
-  background: #FCDD44;
-  color: #34495E;
-  border-radius: 0px 0px 4px 4px;
-  padding: 2px;
-  font-weight: bolder;
-  text-transform: uppercase;
-}
-
-td{
-  color: white;
-}
-
-/**Breadcrumb*/
-
-.breadcrumb {
-  /*centering*/
-  display: inline-block;
-  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.35);
-  overflow: hidden;
-  border-radius: 5px;
-  /*Lets add the numbers for each link using CSS counters. flag is the name of the counter. to be defined using counter-reset in the parent element of the links*/
-  counter-reset: flag;
-  padding: 0px;
-}
-
-.breadcrumb a {
-  text-decoration: none;
-  outline: none;
-  display: block;
-  float: left;
-  font-size: 12px;
-  line-height: 36px;
-  color: white;
-  /*need more margin on the left of links to accomodate the numbers*/
-  padding: 0 10px 0 60px;
-  background: #666;
-  background: linear-gradient(#666, #333);
-  position: relative;
-}
-/*since the first link does not have a triangle before it we can reduce the left padding to make it look consistent with other links*/
-.breadcrumb a:first-child {
-  padding-left: 46px;
-  border-radius: 5px 0 0 5px; /*to match with the parent's radius*/
-}
-.breadcrumb a:first-child:before {
-  left: 14px;
-}
-.breadcrumb a:last-child {
-  border-radius: 0 5px 5px 0; /*this was to prevent glitches on hover*/
-  padding-right: 20px;
-}
-
-/*hover/active styles*/
-.breadcrumb a.active, .breadcrumb a:hover{
-  background: #333;
-  background: linear-gradient(#333, #000);
-}
-.breadcrumb a.active:after, .breadcrumb a:hover:after {
-  background: #333;
-  background: linear-gradient(135deg, #333, #000);
-}
-
-/*adding the arrows for the breadcrumbs using rotated pseudo elements*/
-.breadcrumb a:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: -18px; /*half of square's length*/
-  /*same dimension as the line-height of .breadcrumb a */
-  width: 36px;
-  height: 36px;
-  /*as you see the rotated square takes a larger height. which makes it tough to position it properly. So we are going to scale it down so that the diagonals become equal to the line-height of the link. We scale it to 70.7% because if square's:
-    length = 1; diagonal = (1^2 + 1^2)^0.5 = 1.414 (pythagoras theorem)
-    if diagonal required = 1; length = 1/1.414 = 0.707*/
-  transform: scale(0.707) rotate(45deg);
-  /*we need to prevent the arrows from getting buried under the next link*/
-  z-index: 1;
-  /*background same as links but the gradient will be rotated to compensate with the transform applied*/
-  background: #666;
-  background: linear-gradient(135deg, #666, #333);
-  /*stylish arrow design using box shadow*/
-  box-shadow:
-    2px -2px 0 2px rgba(0, 0, 0, 0.4),
-    3px -3px 0 2px rgba(255, 255, 255, 0.1);
-  /*
-        5px - for rounded arrows and
-        50px - to prevent hover glitches on the border created using shadows*/
-  border-radius: 0 5px 0 50px;
-}
-/*we dont need an arrow after the last link*/
-.breadcrumb a:last-child:after {
-  content: none;
-}
-/*we will use the :before element to show numbers*/
-.breadcrumb a:before {
-  content: counter(flag);
-  counter-increment: flag;
-  /*some styles now*/
-  border-radius: 100%;
-  width: 20px;
-  height: 20px;
-  line-height: 20px;
-  margin: 8px 0;
-  position: absolute;
-  top: 0;
-  left: 30px;
-  background: #444;
-  background: linear-gradient(#444, #222);
+.bouttonBW {
+  background: #4d90fe;
+  border-color: #3079ed;
   font-weight: bold;
+  margin: 10px 0 0 0;
 }
 
+.bouttonBW:hover, .bouttonBW:visited, .bouttonBW:focus {
+  background: #3079ed;
+  border-color: #3079ed;
+}
 
-.flat a, .flat a:after {
+.bouttonWB {
   background: white;
-  color: black;
-  transition: all 0.5s;
+  border-color: white;
+  font-weight: bold;
+  margin: 10px 0 0 0;
+  color: #3079ed;
 }
-.flat a:before {
+
+.bouttonWB:hover, .bouttonWB:visited, .bouttonWB:focus {
   background: white;
-  box-shadow: 0 0 0 1px #ccc;
-}
-.flat a:hover, .flat a.active,
-.flat a:hover:after, .flat a.active:after{
-  background: #9EEB62;
+  border-color: white;
 }
 
-/* Class style text */
-.text-center{
-  text-align: center;
+.card-action{
+  text-align: right;
 }
 
-.titre {
-  font-weight: bold;
-  color: white;
+#listSousCategorie {
+  border-bottom: 1px solid #3079ed;
 }
 
-#btn-emporter{
-  margin: 0;
-  float: right;
-}
-
-#nav-boissons, #nav-plats {
-  width: 50%;
-}
-
-#nav-boissons > a {
-  border-top-right-radius: 0px;
-}
-
-#nav-plats > a{
-  border-top-left-radius: 0px;
-}
-
-#boissons a {
-  border-radius: 0px;
-}
-
-#plats a {
-  border-radius: 0px;
-}
-
-.nav-tabs>li>a, .nav-tabs>li>a:hover {
-  border: 0px;
-  background-color: rgba(0,0,0,0.3);
-  text-align: center;
-}
-
-
-.categoriesBoissons {
-  width: 16.66%;
-}
-
-.categoriesPlats{
-  width: 25%;
-}
-
-.categoriesPizzas, categoriesPates{
-  width: 50%;
-}
-#boissons{
-  padding: 0px;
-}
-
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
-  color: black;
-  font-weight: bold;
-  background-color: #FCDD44;
-  border: 1px solid #FCDD44;
-}
-
-ul li a, ul li a:hover {
-  color: white;
-}
-
-.img-thumbnail{
-  border-radius: 4px 4px 0px 0px;
+#btnAddCommandeEmporter{
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
 }

@@ -28,20 +28,22 @@ public class Plat implements Serializable{
 	private float prix;
 	private String categorie;
 	private String sousCategorie;
-	@Transient
-	@JsonIgnore
-	private ArrayList<Ingredient> listeIngredients;
+	
+	@OneToMany(mappedBy="plat")
+	private List<Plat_Indredient> listeIngredients;
+	
 	@Transient
 	@JsonIgnore
 	private ArrayList<Supplement> listeSupplements;
 	private String photo;	
+	
 	@OneToMany(mappedBy="plat", cascade=CascadeType.ALL)
 	@JsonIgnore
 	private List<Plat_Addition> plats;
 	
 	public Plat() {}
 	
-	public Plat(int idPlat, String libellePlat, float prix, String categorie, String sousCategorie, ArrayList<Ingredient> listeIngredients, ArrayList<Supplement> listeSupplements, String photo) {
+	public Plat(int idPlat, String libellePlat, float prix, String categorie, String sousCategorie, ArrayList<Plat_Indredient> listeIngredients, ArrayList<Supplement> listeSupplements, String photo) {
 		this.setIdPlat(idPlat);
 		this.libellePlat = libellePlat;
 		this.prix = prix;
@@ -76,11 +78,11 @@ public class Plat implements Serializable{
 		this.prix = prix;
 	}
 
-	public ArrayList<Ingredient> getListeIngredients() {
+	public List<Plat_Indredient> getListeIngredients() {
 		return listeIngredients;
 	}
 
-	public void setListeIngredients(ArrayList<Ingredient> listeIngredients) {
+	public void setListeIngredients(List<Plat_Indredient> listeIngredients) {
 		this.listeIngredients = listeIngredients;
 	}
 

@@ -8,4 +8,6 @@ public interface IPlatRepository extends JpaRepository<Plat, Long>{
 
 	Plat findByIdPlat(int idPlat);
 
+	Plat findByLibellePlat(String libellePlat);
+
 }

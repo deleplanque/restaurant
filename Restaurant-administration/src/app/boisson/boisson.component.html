@@ -1,0 +1,105 @@
+<div class="col m10 offset-m2">
+  <div class="row">
+    <a id="btnCreerBoisson" (click)="showModal()" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+    <div class="col s12">
+        <ul class="tabs">
+          <li class="tab col s2"><a class="active" href="#softs">Softs</a></li>
+          <li class="tab col s2"><a href="#bieres">Bières</a></li>
+          <li class="tab col s2"><a href="#vins">Vins</a></li>
+          <li class="tab col s2"><a href="#aperitifs">Apéritifs</a></li>
+          <li class="tab col s2"><a href="#digestifs">Digestifs</a></li>
+          <li class="tab col s2"><a href="#chaudes">Chaudes</a></li>
+        </ul>
+      </div>
+      <div id="softs" class="col s12">
+        <div class="col m4" *ngFor="let boisson of softs">
+          <div class="card horizontal">
+            <div class="card-stacked">
+              <div class="card-content">
+                <span class="libelle">{{boisson.libelleBoisson}}</span><span class="prix">{{boisson.prix}}€</span>
+              </div>
+              <div class="card-action">
+                <a class="supprimerItem">Supprimer</a>
+                <a (click)="openDialog(boisson)">Modifier</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="bieres" class="col s12">
+        <div class="col m4" *ngFor="let boisson of bieres">
+          <div class="card horizontal">
+            <div class="card-stacked">
+              <div class="card-content">
+                <span class="libelle">{{boisson.libelleBoisson}}</span><span class="prix">{{boisson.prix}}€</span>
+              </div>
+              <div class="card-action">
+                <a class="supprimerItem">Supprimer</a>
+                <a (click)="openDialog(boisson)">Modifier</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="vins" class="col s12">
+        <div class="col m4" *ngFor="let boisson of vins">
+          <div class="card horizontal">
+            <div class="card-stacked">
+              <div class="card-content">
+                <span class="libelle">{{boisson.libelleBoisson}}</span><span class="prix">{{boisson.prix}}€</span>
+              </div>
+              <div class="card-action">
+                <a class="supprimerItem">Supprimer</a>
+                <a (click)="openDialog(boisson)">Modifier</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="aperitifs" class="col s12">
+        <div class="col m4" *ngFor="let boisson of aperitifs">
+          <div class="card horizontal">
+            <div class="card-stacked">
+              <div class="card-content">
+                <span class="libelle">{{boisson.libelleBoisson}}</span><span class="prix">{{boisson.prix}}€</span>
+              </div>
+              <div class="card-action">
+                <a class="supprimerItem">Supprimer</a>
+                <a (click)="openDialog(boisson)">Modifier</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="digestifs" class="col s12">
+        <div class="col m4" *ngFor="let boisson of digestifs">
+          <div class="card horizontal">
+            <div class="card-stacked">
+              <div class="card-content">
+                <span class="libelle">{{boisson.libelleBoisson}}</span><span class="prix">{{boisson.prix}}€</span>
+              </div>
+              <div class="card-action">
+                <a class="supprimerItem">Supprimer</a>
+                <a (click)="openDialog(boisson)">Modifier</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="chaudes" class="col s12">
+        <div class="col m4" *ngFor="let boisson of chaudes">
+          <div class="card horizontal">
+            <div class="card-stacked">
+              <div class="card-content">
+                <span class="libelle">{{boisson.libelleBoisson}}</span><span class="prix">{{boisson.prix}}€</span>
+              </div>
+              <div class="card-action">
+                <a class="supprimerItem">Supprimer</a>
+                <a (click)="openDialog(boisson)">Modifier</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,176 @@
+<nav>
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo"><img src="./../assets/logo.png"></a>
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">MENU</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="#horraires">HORRAIRES</a></li>
+      <li class="traitUnion">-</li>
+      <li><a href="#menu">MENU</a></li>
+      <li class="traitUnion">-</li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <li><a href="#horraires">HORRAIRES</a></li>
+      <li><a href="#menu">MENU</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="slider fullscreen">
+  <ul class="slides">
+    <li>
+      <img src="./assets/background.jpg">
+      <div class="caption center-align">
+        <h3>Bienvenue chez</h3>
+        <h2 class="">Di Salvo Pizzeria</h2>
+        <span> 85 Route Nationale, 62670 Mazingarbe</span>
+        <div class="arrow arrow--home"></div>
+        <a href="#menu" class="button button--home">MENU</a>
+        <h2 class="telephone">03 21 72 42 55</h2>
+      </div>
+    </li>
+  </ul>
+</div>
+<div id="content">
+ <div class="row ouverture" id="horraires">
+   <div class="entete">
+     <div class="col s12">
+       <h3>Vous êtes les bienvenues</h3>
+       <h2>AUX HEURES D'OUVERTURE</h2>
+     </div>
+     <div class="col m8 offset-m2 houverture">
+       <div class="col m8 imgRestaurant">
+          <img id="imageRestaurant" src="./../assets/restaurant.png" class="responsive-img img-thumbnail">
+       </div>
+       <div class="col m4 horraire">
+          <p class="jours">Mardi au Jeudi</p>
+         <p class="heures">11h30-14h30 et de 18h-21h45</p>
+         <p class="jours">Vendredi - Samedi</p>
+         <p class="heures">11h30-14h30 et de 18h-22h30</p>
+       </div>
+     </div>
+   </div>
+ </div>
+  <div class="row" id="menu">
+    <div class="entete">
+      <div class="col m12">
+         <h3>Di Salvo Pizzeria</h3>
+         <h2 class="">NOTRE MENU</h2>
+        <br>
+        <div class="col m4 offset-m4 s12">
+          <span>A consommer sur place ou à emporter, nos pizzas sont élaborées dans le respect de la tradition Italienne. Nous travaillons avec des produits frais, et notre pâte est faite sur place chaque jour...</span>
+        </div>
+      </div>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <div class="row">
+        <div class="col s10 offset-s1">
+          <ul class="tabs">
+            <li class="tab col s3"><a class="active" href="#pizzas">Pizzas</a></li>
+            <li class="tab col s3"><a href="#pates">Pâtes</a></li>
+            <li class="tab col s3"><a href="#boissons">Boissons</a></li>
+            <li class="tab col s3"><a href="#entreesdesserts">Entrées / Desserts</a></li>
+          </ul>
+        </div>
+        <br><br><br><br>
+        <div id="pizzas" class="col s10 offset-s1">
+          <div class="row">
+            <div class="col m6 s12 itemPlat" *ngFor="let plat of gpizzas">
+              <div class="col s12 m10">
+                <span class="menu__name">{{plat.libellePlat}}</span><span class="menu__price">{{plat.prix}}€</span><br>
+                <span class="menu__desc" *ngFor="let ingredient of plat.listeIngredients">{{ingredient.indredient.libelleIngredient}} </span>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="pates" class="col s10 offset-s1">
+          <div class="row">
+            <div class="col m6 s12 itemPlat" *ngFor="let plat of pates">
+              <div class="col s12 m10">
+                <span class="menu__name">{{plat.libellePlat}}</span><span class="menu__price">{{plat.prix}}€</span><br>
+                <span class="menu__desc" *ngFor="let ingredient of plat.listeIngredients">{{ingredient.indredient.libelleIngredient}} </span>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="boissons" class="col s10 offset-s1">
+          <div class="row">
+            <h4 class="categorieBoissons">Nos softs: </h4>
+            <div class="col m4 s6 itemBoisson" *ngFor="let boisson of softs">
+              <div class="col s12 m10">
+                <span class="menu__name">{{boisson.libelleBoisson}}</span><span class="menu__price">{{boisson.prix}}€</span><br>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <h4 class="categorieBoissons">Nos bières: </h4>
+            <div class="col m4 s6 itemBoisson" *ngFor="let boisson of bieres">
+              <div class="col s12 m10">
+                <span class="menu__name">{{boisson.libelleBoisson}}</span><span class="menu__price">{{boisson.prix}}€</span><br>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <h4 class="categorieBoissons">Nos vins: </h4>
+            <div class="col m4 s6 itemBoisson" *ngFor="let boisson of vins">
+              <div class="col s12 m10">
+                <span class="menu__name">{{boisson.libelleBoisson}}</span><span class="menu__price">{{boisson.prix}}€</span><br>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <h4 class="categorieBoissons">Nos apéritifs: </h4>
+            <div class="col m4 s6 itemBoisson" *ngFor="let boisson of aperitifs">
+              <div class="col s12 m10">
+                <span class="menu__name">{{boisson.libelleBoisson}}</span><span class="menu__price">{{boisson.prix}}€</span><br>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <h4 class="categorieBoissons">Nos digestifs: </h4>
+            <div class="col m4 s6 itemBoisson" *ngFor="let boisson of digestifs">
+              <div class="col s12 m10">
+                <span class="menu__name">{{boisson.libelleBoisson}}</span><span class="menu__price">{{boisson.prix}}€</span><br>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <h4 class="categorieBoissons">Nos boissons chaudes: </h4>
+            <div class="col m4 s6 itemBoisson" *ngFor="let boisson of chaudes">
+              <div class="col s12 m10">
+                <span class="menu__name">{{boisson.libelleBoisson}}</span><span class="menu__price">{{boisson.prix}}€</span><br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="entreesdesserts" class="col s12">Test 4</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row contact" id="contact">
+    <div class="col m12">
+      <div class="col m6">
+        <div class="card col m8 offset-m2">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2120.137409473081!2d2.7541168198452075!3d50.46805309529003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47dd3b2c15358841%3A0x9e6b08953eaaf90c!2sPizzeria+Di+Salvo!5e0!3m2!1sfr!2sfr!4v1515526185656" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+         </div>
+      <div class="col s12 m6">
+        <br><br><br><br>
+        <div class="card col m8 offset-m2">
+          <div class="card-content">
+            <h3>Nous contacter</h3>
+            <p>85 Route Nationale</p>
+            <p>62670 MAZINGARBE</p>
+            <p>Tél : 03.21.72.42.55</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="social-icons">
+  <a href="https://www.facebook.com/DiSalvoPizzeria/" target="_blank"><img src="../assets/facebook-128.png" class="responsive-img"></a>
+</div>

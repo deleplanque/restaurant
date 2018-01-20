@@ -1,0 +1,97 @@
+<div class="col m10 offset-m2">
+  <a id="btnCreerPlat" (click)="showModal()" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+  <div class="row">
+      <div class="col s12">
+        <ul class="tabs">
+          <li class="tab col s2"><a class="active" href="#gpizzas">Pizzas 33cm</a></li>
+          <li class="tab col s2"><a href="#ppizzas">Pizzas 26cm</a></li>
+          <li class="tab col s2"><a href="#gpates">Grandes pâtes</a></li>
+          <li class="tab col s2"><a href="#ppates">Petites pâtes</a></li>
+          <li class="tab col s2"><a href="#entrees">Entrées</a></li>
+          <li class="tab col s2"><a href="#desserts">Desserts</a></li>
+        </ul>
+      </div>
+      <div id="gpizzas" class="col s12">
+        <div class="col m4" *ngFor="let plat of gpizzas">
+          <div class="card horizontal">
+            <div class="card-stacked">
+              <div class="card-content">
+                <span class="libelle">{{plat.libellePlat}}</span><span class="prix">{{plat.prix}}€</span> <br>
+                <span class="ingredients" *ngFor="let ingredient of plat.listeIngredients">{{ingredient.indredient.libelleIngredient}} </span>
+              </div>
+              <div class="card-action">
+                <a class="supprimerItem">Supprimer</a>
+                <a (click)="openDialog(plat)">Modifier</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="ppizzas" class="col s12">
+        <div class="col m4" *ngFor="let plat of ppizzas">
+          <div class="card horizontal">
+            <div class="card-stacked">
+              <div class="card-content">
+                <span class="libelle">{{plat.libellePlat}}</span><span class="prix">{{plat.prix}}€</span> <br>
+                <span class="ingredients" *ngFor="let ingredient of plat.listeIngredients">{{ingredient.indredient.libelleIngredient}} </span>
+              </div>
+              <div class="card-action">
+                <a class="supprimerItem">Supprimer</a>
+                <a (click)="openDialog(plat)">Modifier</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="gpates" class="col s12">
+        <div class="col m4" *ngFor="let plat of pates">
+          <div class="card horizontal">
+            <div class="card-stacked">
+              <div class="card-content">
+                <span class="libelle">{{plat.libellePlat}}</span><span class="prix">{{plat.prix}}€</span> <br>
+                <span class="ingredients" *ngFor="let ingredient of plat.listeIngredients">{{ingredient.indredient.libelleIngredient}} </span>
+              </div>
+              <div class="card-action">
+                <a class="supprimerItem">Supprimer</a>
+                <a (click)="openDialog(plat)">Modifier</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="ppates" class="col s12">Test 4</div>
+      <div id="entrees" class="col s12">
+        <div class="col m4" *ngFor="let plat of entrees">
+          <div class="card horizontal">
+            <div class="card-stacked">
+              <div class="card-content">
+                <span class="libelle">{{plat.libellePlat}}</span><span class="prix">{{plat.prix}}€</span> <br>
+                <span class="ingredients" *ngFor="let ingredient of plat.listeIngredients">{{ingredient.indredient.libelleIngredient}} </span>
+              </div>
+              <div class="card-action">
+                <a class="supprimerItem">Supprimer</a>
+                <a (click)="openDialog(plat)">Modifier</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="desserts" class="col s12">
+        <div class="col m4" *ngFor="let plat of desserts">
+          <div class="card horizontal">
+            <div class="card-stacked">
+              <div class="card-content">
+                <span class="libelle">{{plat.libellePlat}}</span><span class="prix">{{plat.prix}}€</span> <br>
+                <span class="ingredients" *ngFor="let ingredient of plat.listeIngredients">{{ingredient.indredient.libelleIngredient}} </span>
+              </div>
+              <div class="card-action">
+                <a class="supprimerItem">Supprimer</a>
+                <a (click)="openDialog(plat)">Modifier</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+<app-modal-creation-plat></app-modal-creation-plat>

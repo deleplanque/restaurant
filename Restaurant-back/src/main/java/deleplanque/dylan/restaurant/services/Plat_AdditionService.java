@@ -85,6 +85,5 @@ public class Plat_AdditionService implements IPlat_additionService {
 	public  List<Plat_Addition> getPlatsProvisoire(int idAddition) {
 		return additionRepository.findByIdAddition(idAddition).getListPlats();
 	}
-
 	
 }

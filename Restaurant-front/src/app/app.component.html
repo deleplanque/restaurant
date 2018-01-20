@@ -1,9 +1,21 @@
-<div class="col-md-12">
+<!--<div class="col-md-12">
   <div class="breadcrumb flat text-center">
     <a routerLink="/salles" href="" class="active">Salles</a>
     <a routerLink="/tables" *ngIf="hasSalle" href="">salle</a>
     <a routerLink="/table" *ngIf="hasTable" href="">Table</a>
   </div>
  <!-- <button id="btn-emporter" href="" routerLink="/emporter" class="btn btn-md">Emporter</button>-->
-</div>
+<!--</div>-->
+<nav>
+  <div class="nav-wrapper">
+    <div class="col s12">
+      <a routerLink="/salles" href="#!" class="breadcrumb">Salles</a>
+      <a routerLink="/tables" href="#!" class="breadcrumb">salle</a>
+      <a routerLink="/table" href="#!" class="breadcrumb">Table</a>
+
+      <a href="" routerLink="/emporter"><button style="position: fixed; right: 10px" class="btn bouttonWB">Emporter</button></a>
+    </div>
+  </div>
+
+</nav>
 <router-outlet></router-outlet>

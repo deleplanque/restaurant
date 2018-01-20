@@ -1,0 +1,378 @@
+
+/*** NAV ***/
+nav {
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 3;
+}
+
+
+nav ul a {
+  font-weight: 500;
+  font-size: 1.3em;
+}
+
+nav ul a:hover {
+  color: #e4bb7a;
+}
+
+nav .right {
+  margin-right: 10%;
+}
+
+nav .brand-logo {
+  margin-left: 5%;
+}
+
+
+/*** SLIDER ***/
+
+.slider.fullscreen ul.indicators {
+  z-index: 2;
+  visibility: hidden;
+  bottom: 30px;
+}
+
+.caption h3{
+  font-family: wildYouth, "Brush Script MT", cursive;
+  font-size: 5em;
+  font-weight: 400;
+  margin-bottom: 0px;
+  color: #e4bb7a ;
+}
+
+.caption h2 {
+  font-family: Average, "Times New Roman", Times, serif;
+  font-size: 5em;
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #fff;
+  white-space: nowrap;
+  margin: 0px;
+}
+
+.caption span {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-size: 1.2em;
+  line-height: 1.2;
+  font-weight: 200;
+  color: lightgray;
+}
+
+.slider .slides li .caption {
+  color: #fff;
+  position: absolute;
+  top: 25%;
+  left: 15%;
+  width: 70%;
+  opacity: 0;
+}
+
+.arrow--home, .button--home {
+  margin-top: 43px;
+}
+
+.arrow {
+  width: 70px;
+  height: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  background: url(./assets/arrowGold.png) no-repeat center;
+  background-size: cover;
+}
+
+.button {
+  position: relative;
+  display: inline-block;
+  width: 172px;
+  height: 50px;
+  line-height: 50px;
+  white-space: nowrap;
+  text-align: center;
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  text-transform: uppercase;
+  background-color: #e4bb7a;
+  color: white;
+}
+
+
+.ouverture {
+  background: url(./assets/Background2.png) no-repeat center;
+  background-size: cover;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.ouverture h3{
+  font-family: wildYouth, "Brush Script MT", cursive;
+  font-size: 4em;
+  font-weight: 400;
+  margin-bottom: 0px;
+  color: #e4bb7a ;
+}
+
+.categorieBoissons{
+  font-family: wildYouth, "Brush Script MT", cursive;
+  font-size: 3em;
+  font-weight: 400;
+  margin-bottom: 0px;
+  color: #e4bb7a ;
+  text-align: left;
+}
+
+.ouverture h2 {
+  font-family: Average, "Times New Roman", Times, serif;
+  font-size: 4em;
+  letter-spacing: normal;
+  text-transform: none;
+  color: black;
+  white-space: nowrap;
+  margin: 0px;
+}
+
+.ouverture span {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-size: 1.2em;
+  line-height: 1.2;
+  font-weight: 200;
+  color: lightgray;
+}
+
+.entete {
+  padding-top: 15px;
+}
+
+@media only screen and (max-width:1000px) {
+.brand-logo{
+  visibility: hidden;
+}
+}
+
+.img-thumbnail {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  padding: 4px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px 4px 0px 0px;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.horraire{
+  border: 2px solid #e4bb7a;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.houverture{
+  background-color: white;
+  padding-left: 0px !important;
+  margin-top: 50px;
+  margin-bottom: 70px;
+}
+
+.imgRestaurant{
+  padding-left: 0px !important;
+}
+
+
+.jours{
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 150%;
+  margin-bottom: 0px;
+}
+
+.heures{
+  color: dimgrey;
+  font-weight: 400;
+  font-size: 100%;
+  margin-top: 0px;
+}
+
+
+#menu {
+  background: url(./assets/background3.jpg) no-repeat center;
+  background-size: cover;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+#menu h3{
+  font-family: wildYouth, "Brush Script MT", cursive;
+  font-size: 5em;
+  font-weight: 400;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  color: #e4bb7a ;
+}
+
+#menu h2 {
+  font-family: Average, "Times New Roman", Times, serif;
+  font-size: 5em;
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #fff;
+  white-space: nowrap;
+  margin: 0px;
+}
+
+#menu span {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-size: 1.2em;
+  line-height: 1.2;
+  font-weight: 200;
+  color: lightgray;
+  font-style: italic;
+}
+
+
+.itemPlat{
+  text-align: left;
+  color: white;
+  height: 100px;
+}
+
+
+.libelle{
+  font-weight: bolder !important;
+  font-style: normal !important;
+}
+
+
+.tabs {
+  background-color: rgba(255, 255, 255,0);
+  //border-top: 2px solid #e4bb7a;
+  box-shadow: 0px 1px 7px #e4bb7a;
+}
+
+.tabs .tab a {
+  color: white;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0 24px;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  transition: color .28s ease;
+  font-weight: bold;
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+  background-color: transparent;
+  color: #e4bb7a;
+}
+
+.tabs .indicator {
+  position: absolute;
+  bottom: 0;
+  height: 1px;
+  background-color: #e4bb7a;
+  will-change: left, right;
+}
+
+
+
+.menu__name, .menu__price {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-size: .8em;
+  font-weight: bolder !important;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-style: normal !important;
+  color: white !important;
+}
+
+.menu__price {
+  float: right;
+}
+
+.menu__desc {
+  margin-top: 10px;
+  font-size: 15px;
+  color: #e4bb7a !important;
+}
+
+.traitUnion {
+  color: #e4bb7a;
+}
+
+::-webkit-scrollbar
+{
+  width: 12px;  /* for vertical scrollbars */
+  height: 12px; /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track
+{
+  background: black ;
+}
+
+::-webkit-scrollbar-thumb
+{
+  background: #e4bb7a;
+}
+
+@media only screen and (min-width:1000px) {
+  .social-icons {
+    position: fixed;
+    top: 300px;
+    left: 0px;
+    max-width: 980px;
+    margin: 0 auto;
+    z-index: 100000000;
+    background-color: #3b5998;
+    border-radius: 0 10px 10px 0;
+  }
+}
+
+
+.contact {
+  background: url(./assets/background4.jpg) no-repeat center;
+  background-size: cover;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.contact h3{
+  font-family: wildYouth, "Brush Script MT", cursive;
+  font-size: 5em;
+  font-weight: 400;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  color: #e4bb7a ;
+}
+
+
+.telephone{
+  margin-top: 50px !important;
+  color: #e4bb7a !important;
+  font-weight: bold;
+}
+
+
+.itemBoisson{
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.categorieBoissons{
+  margin-bottom: 15px;
+  margin-top: 0px;
+}
+
+.itemBoisson .menu__name{
+  margin-bottom: 15px;
+  margin-top: 0px;
+  text-transform: none;
+}
