@@ -10,7 +10,7 @@ import {PayerSeparementComponent} from './payer-separement/payer-separement.comp
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/salles', pathMatch: 'full' },
+  { path: '', redirectTo: '/tables', pathMatch: 'full' },
   { path: 'salles', component: SallesComponent},
   { path: 'tables', component: TablesComponent},
   { path: 'table', component: TableComponent},
