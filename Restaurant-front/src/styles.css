@@ -3,17 +3,14 @@
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 
 body {
-  background: url(./assets/background.jpg) no-repeat center fixed;
-  -webkit-background-size: cover;
-  background-size: cover;
-  color: white;
- /* background-color: #eee;*/
+  background-color: white;
 }
 
 #listDesBoissons{
   padding: 10px;
   border-right: 3px solid #3a7bd5;
 }
+
 
 
 #listDesPlats{
@@ -24,11 +21,6 @@ body {
   overflow-y: scroll;
 }
 
-.note{
-  border-radius: 10px 10px 0 0 ;
-  background-color: #EFEFEF;
-  margin-top: 20px;
-}
 
 .categorieBoisson{
   margin-bottom: 5px;
@@ -47,31 +39,24 @@ body {
   margin-top: 80px;
 }
 
-table.striped > tbody > tr:nth-child(odd) {
-  background-color: #4d90fe;
- /* background-image: linear-gradient(to right, #3a7bd5 0%, #75a2e1 100%, #3a7bd5 100%);*/
-}
-
-table.striped > tbody > tr:nth-child(odd) td{
-  color: white !important;
-}
 
 td{
-  font-weight: 500;
-  color: #3D3D3D;
+  font-weight: 400;
+  color: #424242;
   padding: 2px !important;
   text-align: center !important;
+  border-bottom: 1px solid #f5f5f5 ;
 }
 
 th{
   color: #3D3D3D;
   text-align: center !important;
+  font-weight: 500;
 }
 
-tr{background-color: white;}
 
 thead {
-  background-color: white;
+  background-color: #f5f5f5;
 }
 
 .libelle{
@@ -82,8 +67,13 @@ thead {
 .total {
   font-size: 25px;
   float: right;
-  color: #d43f3a;
-  margin-right: 30px;
+  margin: 5px 5px 10px 5px;
+}
+
+.total {
+  background-color: #66bb6a;
+  color: white;
+  padding: 5px 15px 5px 15px;
 }
 
 span{
@@ -94,24 +84,14 @@ h1{
   margin:5px;
 }
 
-#boissons{
 
-}
 
 
 #listeItems {
   overflow-y: scroll;
 }
 
-.menu {
-  margin-top: 20px;
-  padding: 0px !important;
-  margin-left: 10px !important;
-  margin-right: 10px;
-  background-color: #F5F5F5;
-  border-radius: 10px 10px 0 0;
-  overflow-y: scroll;
-}
+
 
 .row .col.s7 {
   width: 56.3333333333%;
@@ -138,10 +118,12 @@ h1{
   transition: all .2s ease-in-out;
 }
 
+.tabs.tabs-fixed-width {
+background-color: #f6f6f6;
+}
 
 .tabs .tab a {
-  color: #4d90fe;
-  background-color: rgba(255,255,255,1) !important;
+  color: #8e8e8e;
   display: block;
   width: 100%;
   height: 100%;
@@ -150,32 +132,40 @@ h1{
   text-overflow: ellipsis;
   overflow: hidden;
   transition: color .28s ease;
-  font-weight: bold;
   border: 1px solid #eee;
 }
 
 .tabs .tab a.active {
-  background-color: #4d90fe !important;
-  /*background-image: linear-gradient(to right, #3a7bd5 0%, #75a2e1 100%, #3a7bd5 100%);*/
-  color: white;
-  font-weight: 500
+  color: black;
+  font-weight: 400;
 }
+
 
 .tabs .tab a:hover {
-  background-color: #b0caee !important;
- /* background-image: linear-gradient(to right, #b0caee 0%, #d7e4f6 100%, #b0caee 100%);*/
-  color: white;
+  color: #4d90fe;
+  font-weight: 400;
 }
 
+#menu {
+  margin: 10px 30px;
+  padding: 0px;
+  box-shadow: 0px 1px 4px lightgray;
+}
 
+#note {
+  margin: 10px;
+  padding: 0px 0px 0px 0px;
+  box-shadow: 0px 1px 4px lightgray;
+}
 
 .tabs .indicator {
   position: absolute;
-  bottom: 0;
+  top: 0;
   height: 0px;
-  background-color: white;
+  background-color: red;
   will-change: left, right;
 }
+
 
 .tabs {
   position: relative;
@@ -243,13 +233,7 @@ nav {
   box-shadow: 0 3px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 
-#tabBoisson{
-  border-radius: 10px 0px 0px 0px;
-}
 
-#tabPlat{
-  border-radius: 0px 10px 0px 0px;
-}
 
 td {
   padding: 0px;
@@ -372,21 +356,155 @@ h6{
   color: #3079ed;
 }
 
+.bouttonESP {
+  background-color: #2ecc71;
+  font-weight: bold;
+  color: white;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 10px 0 0 0;
+  min-width: 60px;
+}
+
+.bouttonESP:hover {
+  background-color: #48E68B;
+  font-weight: bold;
+  color: white;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 10px 0 0 0;
+  min-width: 60px;
+}
+
+.bouttonCB {
+   background: #e74c3c;
+   font-weight: bold;
+   color: white;
+   padding-left: 15px;
+   padding-right: 15px;
+   margin: 10px 0 0 0;
+  min-width: 60px;
+ }
+
+.bouttonCB:hover {
+  background: #FF6656;
+  font-weight: bold;
+  color: white;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 10px 0 0 0;
+  min-width: 60px;
+}
+
+.bouttonTR {
+  background: #e67e22;
+  font-weight: bold;
+  color: white;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 10px 0 0 0;
+  min-width: 60px;
+}
+
+.bouttonTR:hover {
+  background: #FF983C;
+  font-weight: bold;
+  color: white;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 10px 0 0 0;
+  min-width: 60px;
+}
+
+
+
 .bouttonWB:hover, .bouttonWB:visited, .bouttonWB:focus {
   background: white;
   border-color: white;
+}
+
+
+.btn-ajouter{
+  background-color: #66bb6a ;
+  padding: 0px 10px 0px 10px;
+  border-radius: 0px;
+  color: white;
+  font-weight: 500;
+}
+
+
+
+.btn-retirer{
+  background-color: #ef5350;
+  padding: 0px 10px 0px 10px;
+  border-radius: 0px;
+  color: white;
+  font-weight: 500;
 }
 
 .card-action{
   text-align: right;
 }
 
-#listSousCategorie {
+.sousCategorie {
   border-bottom: 1px solid #3079ed;
+  background-color: #f5f5f5;
 }
 
 #btnAddCommandeEmporter{
   position: fixed;
   bottom: 30px;
   right: 30px;
+}
+
+.card-item{
+  text-align: center;
+  font-size: 0.85em;
+  font-weight: 500;
+  border-left: 1px solid #f44336 ;
+  margin-left: 1.6% !important;
+  margin-right: 1.6%;
+  height: 40px;
+  line-height: 40px;
+}
+
+.item-1 {
+  border-left: 2px solid #f4511e ;
+}
+
+.item-2 {
+  border-left: 2px solid #1e88e5;
+}
+
+.item-3 {
+  border-left: 2px solid #00897b ;
+}
+
+.item-4 {
+  border-left: 2px solid #c0ca33 ;
+}
+
+.item-5 {
+  border-left: 2px solid #fb8c00 ;
+}
+
+.item-6{
+  border-left: 2px solid #5e35b1;
+}
+
+
+.card-item a {
+  color: #616161;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.montant {
+  margin-left: 10px !important;
+  box-shadow: 0px 1px 4px lightgray;
+  padding-bottom: 10px !important;
+}
+
+.item-list {
+  margin-top: 15px;
 }

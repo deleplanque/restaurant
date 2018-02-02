@@ -1,158 +1,103 @@
 
 <div class="row">
- <div class="col s7 menu" id="menu">
+ <div class="col s6 menu" id="menu">
       <ul class="tabs tabs-fixed-width">
-        <li  class="tab col s6"><a class="active" id="tabBoisson" href="#boissons">Boissons</a></li>
-        <li  class="tab col s6"><a id="tabPlat" href="#plats">Plats</a></li>
+        <li  class="tab col s6"><a class="active" href="#boissons">Boissons</a></li>
+        <li  class="tab col s6"><a  href="#plats">Plats</a></li>
       </ul>
       <div id="boissons" class="row">
-        <ul class="tabs" id="listSousCategorie">
-          <li class="tab col s2"><a href="#softs">Softs</a></li>
-          <li class="tab col s2"><a href="#bieres">Bières</a></li>
-          <li class="tab col s2"><a href="#vins">Vins</a></li>
-          <li class="tab col s2"><a href="#aperitifs">Apéritifs</a></li>
-          <li class="tab col s2"><a href="#chaudes">Chaudes</a></li>
-          <li class="tab col s2"><a href="#digestifs">Digestifs</a></li>
+        <ul class="tabs sousCategorie">
+          <li class="tab col s2 item-1"><a href="#softs">Softs</a></li>
+          <li class="tab col s2 item-2"><a href="#bieres">Bières</a></li>
+          <li class="tab col s2 item-3"><a href="#vins">Vins</a></li>
+          <li class="tab col s2 item-4"><a href="#aperitifs">Apéritifs</a></li>
+          <li class="tab col s2 item-5"><a href="#chaudes">Chaudes</a></li>
+          <li class="tab col s2 item-6"><a href="#digestifs">Digestifs</a></li>
         </ul>
-        <div id="softs">
-          <div class="col s2 article"
-               style="margin-top: 15px; text-align: center;" *ngFor="let boisson of softs">
-            <a (click)="ajouterBoisson(boisson.idBoisson)">
-              <img class="responsive-img img-thumbnail"
-                   src="./../../assets/Boisson/soft/{{boisson.logo}}">
+        <div class="item-list" id="softs">
+          <div class="col s2 card card-item item-1" *ngFor="let boisson of softs">
+            <a class="" (click)="ajouterBoisson(boisson.idBoisson)">
+             {{boisson.libelleBoisson}}
             </a>
-            <div class="col s12 item">
-              <span (click)="ajouterBoisson(boisson.idBoisson)">{{boisson.libelleBoisson}}</span>
-            </div>
           </div>
         </div>
-        <div id="bieres">
-          <div class="col s2"
-               style="margin-top: 15px; text-align: center;" *ngFor="let boisson of bieres">
-            <a (click)="ajouterBoisson(boisson.idBoisson)">
-              <img class="responsive-img img-thumbnail"
-                   src="./../../assets/Boisson/biere/{{boisson.logo}}">
+        <div class="item-list" id="bieres">
+          <div class="col s2 card card-item item-2" *ngFor="let boisson of bieres">
+            <a class="" (click)="ajouterBoisson(boisson.idBoisson)">
+              {{boisson.libelleBoisson}}
             </a>
-            <div class="col-md-12 item">
-              <span>{{boisson.libelleBoisson}}</span>
-            </div>
           </div>
         </div>
-        <div id="vins">
-          <div class="col s2"
-               style="margin-top: 15px; text-align: center;" *ngFor="let boisson of vins">
-            <a (click)="ajouterBoisson(boisson.idBoisson)">
-              <img class="responsive-img img-thumbnail"
-                   src="./../../assets/Boisson/vin/{{boisson.logo}}">
+        <div class="item-list" id="vins">
+          <div class="col s2 card card-item item-3" *ngFor="let boisson of vins">
+            <a class="" (click)="ajouterBoisson(boisson.idBoisson)">
+              {{boisson.libelleBoisson}}
             </a>
-            <div class="col-md-12 item">
-              <span>{{boisson.libelleBoisson}}</span>
-            </div>
           </div>
         </div>
-        <div id="aperitifs">
-          <div class="col s2"
-               style="margin-top: 15px; text-align: center;" *ngFor="let boisson of aperitifs">
-            <a (click)="ajouterBoisson(boisson.idBoisson)">
-              <img class="responsive-img img-thumbnail"
-                   src="./../../assets/Boisson/aperitif/{{boisson.logo}}">
+        <div class="item-list" id="aperitifs">
+          <div class="col s2 card card-item item-4" *ngFor="let boisson of aperitifs">
+            <a class="" (click)="ajouterBoisson(boisson.idBoisson)">
+              {{boisson.libelleBoisson}}
             </a>
-            <div class="col-md-12 item">
-              <span>{{boisson.libelleBoisson}}</span>
-            </div>
           </div>
         </div>
-        <div id="chaudes">
-          <div class="col s2"
-               style="margin-top: 15px; text-align: center;" *ngFor="let boisson of chaudes">
-            <a (click)="ajouterBoisson(boisson.idBoisson)">
-              <img class="responsive-img img-thumbnail"
-                   src="./../../assets/Boisson/chaude/{{boisson.logo}}">
+        <div class="item-list" id="chaudes">
+          <div class="col s2 card card-item item-5" *ngFor="let boisson of chaudes">
+            <a class="" (click)="ajouterBoisson(boisson.idBoisson)">
+              {{boisson.libelleBoisson}}
             </a>
-            <div class="col-md-12 item">
-              <span>{{boisson.libelleBoisson}}</span>
-            </div>
           </div>
         </div>
-        <div id="digestifs">
-          <div class="col s2"
-               style="margin-top: 15px; text-align: center;" *ngFor="let boisson of digestifs">
-            <a (click)="ajouterBoisson(boisson.idBoisson)">
-              <img class="responsive-img img-thumbnail"
-                   src="./../../assets/Boisson/digestif/{{boisson.logo}}">
+        <div class="item-list" id="digestifs">
+          <div class="col s2 card card-item item-6" *ngFor="let boisson of digestifs">
+            <a class="" (click)="ajouterBoisson(boisson.idBoisson)">
+              {{boisson.libelleBoisson}}
             </a>
-            <div class="col-md-12 item">
-              <span>{{boisson.libelleBoisson}}</span>
-            </div>
           </div>
         </div>
       </div>
       <div id="plats" class="row">
-        <ul class="tabs">
-          <li class="tab col s2"><a href="#gpizzas">Pizzas 33cm</a></li>
-          <li class="tab col s2"><a href="#ppizzas">Pizzas 29cm</a></li>
-          <li class="tab col s2"><a href="#pates">Pâtes</a></li>
-          <li class="tab col s2"><a href="#patesEnfant">Pâtes enfant</a></li>
-          <li class="tab col s2"><a href="#entrees">Entrées</a></li>
-          <li class="tab col s2"><a href="#desserts">Desserts</a></li>
+        <ul class="tabs sousCategorie">
+          <li class="tab col s2 item-1"><a href="#gpizzas">Pizzas 33cm</a></li>
+          <li class="tab col s2 item-2"><a href="#ppizzas">Pizzas 29cm</a></li>
+          <li class="tab col s2 item-3"><a href="#pates">Pâtes</a></li>
+          <li class="tab col s2 item-4"><a href="#patesEnfant">Pâtes enfant</a></li>
+          <li class="tab col s2 item-5"><a href="#entrees">Entrées</a></li>
+          <li class="tab col s2 item-6"><a href="#desserts">Desserts</a></li>
         </ul>
-        <div id="gpizzas">
-          <div class="col s2 article"
-               style="margin-top: 15px; text-align: center;" *ngFor="let plat of gpizzas">
-            <a (click)="ajouterPlat(plat.idPlat)">
-              <img class="responsive-img img-thumbnail"
-                   src="./../../assets/Plat/plat/pizza/{{plat.photo}}">
-            </a>
-            <div class="col s12 item">
-              <span (click)="ajouterPlat(plat.idPlat)">{{plat.libellePlat}}</span>
-            </div>
+        <div class="item-list" id="gpizzas">
+          <div class="col s2 card card-item item-1" *ngFor="let plat of gpizzas">
+              <a (click)="ajouterPlat(plat.idPlat)">{{plat.libellePlat}}</a>
           </div>
         </div>
-        <div id="ppizzas">
-          <div class="col s2 article"
-               style="margin-top: 15px; text-align: center;" *ngFor="let plat of ppizzas">
-            <a (click)="ajouterPlat(plat.idPlat)">
-              <img class="responsive-img img-thumbnail"
-                   src="./../../assets/Plat/plat/pizza/{{plat.photo}}">
-            </a>
-            <div class="col s12 item">
-              <span (click)="ajouterPlat(plat.idPlat)">{{plat.libellePlat}}</span>
-            </div>
+        <div class="item-list" id="ppizzas">
+          <div class="col s2 card card-item item-2" *ngFor="let plat of ppizzas">
+            <a (click)="ajouterPlat(plat.idPlat)">{{plat.libellePlat}}</a>
           </div>
         </div>
-        <div id="pates">
+        <div class="item-list" id="pates">
 
         </div>
-        <div id="entrees">
-          <div class="col s2 article"
-               style="margin-top: 15px; text-align: center;" *ngFor="let plat of entrees">
-            <a (click)="ajouterPlat(plat.idPlat)">
-              <img class="responsive-img img-thumbnail"
-                   src="./../../assets/Plat/entree/chaude/{{plat.photo}}">
-            </a>
-            <div class="col s12 item">
-              <span (click)="ajouterPlat(plat.idPlat)">{{plat.libellePlat}}</span>
-            </div>
+        <div id="patesEnfant">
+
+        </div>
+        <div class="item-list" id="entrees">
+          <div class="col s2 card card-item item-5" *ngFor="let plat of entrees">
+            <a (click)="ajouterPlat(plat.idPlat)">{{plat.libellePlat}}</a>
           </div>
       </div>
-        <div id="desserts">
-          <div class="col s2 article"
-               style="margin-top: 15px; text-align: center;" *ngFor="let plat of desserts">
-            <a (click)="ajouterPlat(plat.idPlat)">
-              <img class="responsive-img img-thumbnail"
-                   src="./../../assets/Plat/dessert/{{plat.photo}}">
-            </a>
-            <div class="col s12 item">
-              <span (click)="ajouterPlat(plat.idPlat)">{{plat.libellePlat}}</span>
-            </div>
+        <div class="item-list" id="desserts">
+          <div class="col s2 card card-item item-6" *ngFor="let plat of desserts">
+            <a (click)="ajouterPlat(plat.idPlat)">{{plat.libellePlat}}</a>
           </div>
         </div>
       </div>
 
   </div>
   <div class="col s5 note" >
-    <div id="note">
-      <table class="table striped responsive-table">
+    <div id="note" class="col m12 ">
+      <table class="table responsive-table">
         <thead>
         <tr>
           <th class="libelle">Libelle</th>
@@ -167,8 +112,8 @@
           <td class="libelle">{{boisson[0].libelleBoisson}}</td>
           <td>{{boisson[1]}}</td>
           <td>{{boisson[0].prix}}</td>
-          <td><button (click)="ajouterBoisson(boisson[0].idBoisson)"  class="boutton btn-success">+</button> </td>
-          <td><button (click)="supprimerBoisson(boisson[0].idBoisson)" class="boutton btn-danger">-</button> </td>
+          <td><a (click)="ajouterBoisson(boisson[0].idBoisson)"  class="boutton btn-ajouter">+</a> </td>
+          <td><a (click)="supprimerBoisson(boisson[0].idBoisson)" class="boutton btn-retirer">-</a> </td>
         </tr>
         <tr *ngFor="let plat of table.addition.tabPlats">
           <td class="libelle">{{plat[0].libellePlat}}</td>
@@ -185,22 +130,14 @@
       <div class="col m12">
         <span class="total"> Total: {{table.addition.montantTotal}} €   </span>
       </div>
-      <hr>
       <div class="col m2">
-        <img
-          alt="" (click)="payerAddition('espece')"
-          src="./../../assets/paiement/espece.jpg"
-          class="responsive-img img-thumbnail">
+       <button (click)="payerAddition('espece')" class="btn bouttonESP">Esp</button>
       </div>
       <div class="col m2">
-        <img (click)="payerAddition('cb')"
-             alt="" src="./../../assets/paiement/Logo_CB.png"
-             class="responsive-img img-thumbnail">
+        <button (click)="payerAddition('cb')" class="btn bouttonCB">CB</button>
       </div>
       <div class="col m2">
-        <img
-          alt="" (click)="payerAddition('tr')" src="./../../assets/paiement/tr.png"
-          class="responsive-img  img-thumbnail">
+        <button (click)="payerAddition('tr')" class="btn bouttonTR">TR</button>
       </div>
       <div class="col m3">
         <button class="btn bouttonBW" (click)="openCalc()">Calc</button>
