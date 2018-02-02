@@ -6,6 +6,10 @@ body {
   background-color: white;
 }
 
+a {
+  cursor: hand;
+}
+
 #listDesBoissons{
   padding: 10px;
   border-right: 3px solid #3a7bd5;
@@ -153,6 +157,12 @@ background-color: #f6f6f6;
 }
 
 #note {
+  margin: 10px;
+  padding: 0px 0px 0px 0px;
+  box-shadow: 0px 1px 4px lightgray;
+}
+
+#noteProvisoire {
   margin: 10px;
   padding: 0px 0px 0px 0px;
   box-shadow: 0px 1px 4px lightgray;

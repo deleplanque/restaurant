@@ -1,7 +1,7 @@
 <div class="row">
-  <div class="col m5 note" >
+  <div class="col m5 note">
     <div id="note">
-      <table class="table striped responsive-table">
+      <table class="table responsive-table">
         <thead>
         <tr>
           <th class="libelle">Libelle</th>
@@ -15,13 +15,13 @@
           <td class="libelle">{{boisson[0].libelleBoisson}}</td>
           <td>{{boisson[1]}}</td>
           <td>{{boisson[0].prix}}</td>
-          <td><button (click)="addBoissonToProvisoire(boisson[0].idBoisson)"  class="boutton btn-success"> > </button> </td>
+          <td><button (click)="addBoissonToProvisoire(boisson[0].idBoisson)"  class="boutton btn-ajouter"> > </button> </td>
         </tr>
         <tr *ngFor="let plat of table.addition.tabPlats">
           <td class="libelle">{{plat[0].libellePlat}}</td>
           <td>{{plat[1]}}</td>
           <td>{{plat[0].prix}}</td>
-          <td><button (click)="addPlatToProvisoire(plat[0].idPlat)"  class="boutton btn-success"> > </button> </td>
+          <td><button (click)="addPlatToProvisoire(plat[0].idPlat)"  class="boutton btn-ajouter"> > </button> </td>
         </tr>
         </tbody>
       </table>
@@ -30,7 +30,7 @@
 
   <div class="col m5 note" >
     <div id="noteProvisoire">
-      <table class="table striped responsive-table">
+      <table class="table responsive-table">
         <thead>
         <tr>
           <th>Retirer</th>
@@ -41,13 +41,13 @@
         </thead>
         <tbody>
         <tr *ngFor="let boisson of table.additionProvisoire.tabBoissons">
-          <td><button (click)="addBoissonToAddition(boisson[0].idBoisson)"  class="boutton btn-danger"> < </button> </td>
+          <td><button (click)="addBoissonToAddition(boisson[0].idBoisson)"  class="boutton btn-retirer"> < </button> </td>
           <td class="libelle">{{boisson[0].libelleBoisson}}</td>
           <td>{{boisson[1]}}</td>
           <td>{{boisson[0].prix}}</td>
         </tr>
         <tr *ngFor="let plat of table.additionProvisoire.tabPlats">
-          <td><button (click)="addPlatToAddition(plat[0].idPlat)"  class="boutton btn-danger"> < </button> </td>
+          <td><button (click)="addPlatToAddition(plat[0].idPlat)"  class="boutton btn-retirer"> < </button> </td>
           <td class="libelle">{{plat[0].libellePlat}}</td>
           <td>{{plat[1]}}</td>
           <td>{{plat[0].prix}}</td>
@@ -59,22 +59,14 @@
       <div class="col m12">
         <span class="total"> Total: {{table.additionProvisoire.montantTotal}} €   </span>
       </div>
-      <hr>
       <div class="col m2">
-        <img
-          alt="" (click)="payerAdditionProvisoire('espece')"
-          src="./../../assets/paiement/espece.jpg"
-          class="responsive-img img-thumbnail">
+        <button (click)="payerAdditionProvisoire('espece')" class="btn bouttonESP">Esp</button>
       </div>
       <div class="col m2">
-        <img (click)="payerAdditionProvisoire('cb')"
-             alt="" src="./../../assets/paiement/Logo_CB.png"
-             class="responsive-img img-thumbnail">
+        <button (click)="payerAdditionProvisoire('cb')" class="btn bouttonCB">CB</button>
       </div>
       <div class="col m2">
-        <img
-          alt="" (click)="payerAdditionProvisoire('tr')" src="./../../assets/paiement/tr.png"
-          class="img-responsive  img-thumbnail">
+        <button (click)="payerAdditionProvisoire('tr')" class="btn bouttonTR">TR</button>
       </div>
       <div class="col m3">
         <button class="btn bouttonBW" data-toggle="modal"
