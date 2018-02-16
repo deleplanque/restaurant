@@ -21,6 +21,8 @@ import {PayerSeparementService} from './payer-separement/payer-separement.servic
 import { ModalCommandeComponent } from './emporter/modal-commande/modal-commande.component';
 import {ModelCommandeService} from './emporter/modal-commande/modal-commande.service';
 import {EmporterService} from './emporter/emporter.service';
+import {MaterialModule} from './material.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -37,10 +39,12 @@ import {EmporterService} from './emporter/emporter.service';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    MaterialModule,
     HttpClientModule
   ],
   providers: [TablesService, SallesService, TableService, PayerSeparementService, ModelCommandeService, EmporterService],

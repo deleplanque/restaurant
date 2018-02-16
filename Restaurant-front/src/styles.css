@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @CHARSET "UTF-8";
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 body {
   background-color: white;
@@ -10,6 +11,9 @@ a {
   cursor: hand;
 }
 
+.text-center {
+  text-align: center;
+}
 
 #listDesBoissons{
   padding: 10px;
@@ -30,11 +34,7 @@ a {
 .categorieBoisson{
   margin-bottom: 5px;
 }
-#plan-restaurant{
-  background: url(./assets/plan2.png);
-  height: 467px;
-  width: 940px;
-}
+
 
 #rang1{
   margin-top: 20px;
@@ -258,6 +258,16 @@ td {
 .card {
   overflow: hidden;
 }
+
+.card-salle {
+  padding: 15px 30px;
+  cursor: hand;
+}
+
+.card-salle a {
+  cursor: hand;
+}
+
 
 h6{
   line-height: 70px;
@@ -518,4 +528,14 @@ h6{
 
 .item-list {
   margin-top: 15px;
+}
+
+.cdk-overlay-pane {
+  position: absolute;
+  pointer-events: auto;
+  box-sizing: border-box;
+  z-index: 1000;
+  top:30px;
+  right: 30px;
+
 }

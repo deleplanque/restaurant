@@ -1,5 +1,6 @@
-
-
-<ul>
-  <li *ngFor="let salle of salles"><a (click)="getTablesByIdSalle(salle.idSalle);">{{salle.nomSalle}}</a></li>
-</ul>
+<div class="row text-center">
+  <h1>Liste des salles</h1>
+  <ul>
+    <li *ngFor="let salle of salles"><a class="card card-salle" (click)="getTablesByIdSalle(salle.idSalle);">{{salle.nomSalle}}</a></li>
+  </ul>
+</div>

@@ -7,8 +7,11 @@ import {AppComponent} from '../app.component';
 import {Addition} from '../bean/addition';
 import {BoissonAddition} from '../bean/boissonAddition';
 import {PlatAddition} from '../bean/platAddition';
+import {MatSnackBar} from '@angular/material';
+import {SallesComponent} from "../salles/salles.component";
 
 declare var $: any;
+
 
 @Component({
   selector: 'app-table',
@@ -31,7 +34,7 @@ export class TableComponent implements OnInit {
   gpates= this.app.gpates;
   ppates= this.app.ppates;
 
-  constructor(private tableService: TableService, private app: AppComponent) { }
+  constructor(private tableService: TableService, private app: AppComponent, public snackBar: MatSnackBar) { }
 
 
   ngOnInit() {
@@ -194,6 +197,9 @@ export class TableComponent implements OnInit {
   ajouterBoisson(id: number): void {
     this.tableService.addBoisson(this.table.addition.idAddition, id).subscribe(data => {
       this.transformArrayBoissonInMap(data, this.table, 'addition');
+      this.snackBar.open('Boisson ajoutée !', 'x', {
+        duration: 300000
+      });
     }, error => {
       console.log(error);
     });
