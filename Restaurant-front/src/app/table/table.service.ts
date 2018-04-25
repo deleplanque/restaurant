@@ -47,24 +47,24 @@ export class TableService {
   }
 
 
-  addBoisson(idAddition: number, id: number): Observable<BoissonAddition[]> {
-    const url = `${this.addBoissonsUrl}/${idAddition}/${id}`;
-    return this._http.get<BoissonAddition[]>(url);
+  addBoisson(idAddition: number, boisson: Boisson): Observable<BoissonAddition[]> {
+    const url = `${this.addBoissonsUrl}/${idAddition}`;
+    return this._http.post<BoissonAddition[]>(url, boisson);
   }
 
-  removeBoisson(idAddition: number, id: number): Observable<BoissonAddition[]> {
-    const url = `${this.removeBoissonsUrl}/${idAddition}/${id}`;
-    return this._http.get<BoissonAddition[]>(url);
+  removeBoisson(idAddition: number, boisson: Boisson): Observable<BoissonAddition[]> {
+    const url = `${this.removeBoissonsUrl}/${idAddition}`;
+    return this._http.post<BoissonAddition[]>(url, boisson);
   }
 
-  addPlat(idAddition: number, id: number): Observable<PlatAddition[]> {
-    const url = `${this.addPlatUrl}/${idAddition}/${id}`;
-    return this._http.get<PlatAddition[]>(url);
+  addPlat(idAddition: number, plat: Plat): Observable<PlatAddition[]> {
+    const url = `${this.addPlatUrl}/${idAddition}`;
+    return this._http.post<PlatAddition[]>(url, plat);
   }
 
-  removePlat(idAddition: number, id: number): Observable<PlatAddition[]> {
-    const url = `${this.removePlatUrl}/${idAddition}/${id}`;
-    return this._http.get<PlatAddition[]>(url);
+  removePlat(idAddition: number, plat: Plat): Observable<PlatAddition[]> {
+    const url = `${this.removePlatUrl}/${idAddition}`;
+    return this._http.post<PlatAddition[]>(url, plat);
   }
 
   payerAddition(moyen: string, addition: Addition): Observable<Table> {

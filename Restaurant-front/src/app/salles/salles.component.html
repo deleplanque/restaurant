@@ -1,6 +1,6 @@
 <div class="row text-center">
   <h1>Liste des salles</h1>
-  <ul>
-    <li *ngFor="let salle of salles"><a class="card card-salle" (click)="getTablesByIdSalle(salle.idSalle);">{{salle.nomSalle}}</a></li>
-  </ul>
+    <div class="col m12 card-salle" *ngFor="let salle of salles">
+      <a class="card " (click)="getTablesByIdSalle(salle.idSalle);">{{salle.nomSalle}}</a>
+    </div>
 </div>

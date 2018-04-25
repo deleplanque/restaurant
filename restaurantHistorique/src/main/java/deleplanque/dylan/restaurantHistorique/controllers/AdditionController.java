@@ -1,5 +1,7 @@
 package deleplanque.dylan.restaurantHistorique.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -31,6 +33,12 @@ public class AdditionController {
 		}
 		return new ResponseEntity<Addition>(addtion, HttpStatus.CREATED);
 	}
+	
+	@RequestMapping(value = "/getAdditions", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Addition>> getAdditions() {
+		return new ResponseEntity<List<Addition>>(additionService.getAdditions(), HttpStatus.OK);
+	}
+
 	
 	@RequestMapping(value="/helloWorld", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Plat> getBoissons(){

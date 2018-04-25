@@ -1,5 +1,7 @@
 package deleplanque.dylan.restaurantHistorique.Services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +27,12 @@ public class AdditionService implements IAdditionService{
 		}
 		additionRepository.save(ad);
 		return additionRepository.findFirstByOrderByIdAdditionDesc();
+	}
+
+	@Override
+	public List<Addition> getAdditions() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

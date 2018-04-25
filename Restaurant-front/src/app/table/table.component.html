@@ -15,46 +15,34 @@
           <li class="tab col s2 item-6"><a href="#digestifs">Digestifs</a></li>
         </ul>
         <div class="item-list" id="softs">
-          <div class="col s2 card card-item item-1" *ngFor="let boisson of softs">
-            <a class="" (click)="ajouterBoisson(boisson.idBoisson)">
+          <a (click)="ajouterBoisson(boisson)" class="col s2 card card-item item-1" *ngFor="let boisson of softs">
              {{boisson.libelleBoisson}}
-            </a>
-          </div>
+          </a>
         </div>
         <div class="item-list" id="bieres">
-          <div class="col s2 card card-item item-2" *ngFor="let boisson of bieres">
-            <a class="" (click)="ajouterBoisson(boisson.idBoisson)">
+          <a (click)="ajouterBoisson(boisson)" class="col s2 card card-item item-2" *ngFor="let boisson of bieres">
               {{boisson.libelleBoisson}}
-            </a>
-          </div>
+          </a>
         </div>
         <div class="item-list" id="vins">
-          <div class="col s2 card card-item item-3" *ngFor="let boisson of vins">
-            <a class="" (click)="ajouterBoisson(boisson.idBoisson)">
+          <a (click)="ajouterBoisson(boisson)" class="col s2 card card-item item-3" *ngFor="let boisson of vins">
               {{boisson.libelleBoisson}}
-            </a>
-          </div>
+          </a>
         </div>
         <div class="item-list" id="aperitifs">
-          <div class="col s2 card card-item item-4" *ngFor="let boisson of aperitifs">
-            <a class="" (click)="ajouterBoisson(boisson.idBoisson)">
+          <a (click)="ajouterBoisson(boisson)" class="col s2 card card-item item-4" *ngFor="let boisson of aperitifs">
               {{boisson.libelleBoisson}}
-            </a>
-          </div>
+          </a>
         </div>
         <div class="item-list" id="chaudes">
-          <div class="col s2 card card-item item-5" *ngFor="let boisson of chaudes">
-            <a class="" (click)="ajouterBoisson(boisson.idBoisson)">
+          <a (click)="ajouterBoisson(boisson)" class="col s2 card card-item item-5" *ngFor="let boisson of chaudes">
               {{boisson.libelleBoisson}}
-            </a>
-          </div>
+          </a>
         </div>
         <div class="item-list" id="digestifs">
-          <div class="col s2 card card-item item-6" *ngFor="let boisson of digestifs">
-            <a class="" (click)="ajouterBoisson(boisson.idBoisson)">
+          <a (click)="ajouterBoisson(boisson)" class="col s2 card card-item item-6" *ngFor="let boisson of digestifs">
               {{boisson.libelleBoisson}}
-            </a>
-          </div>
+          </a>
         </div>
       </div>
       <div id="plats" class="row">
@@ -67,14 +55,14 @@
           <li class="tab col s2 item-6"><a href="#desserts">Desserts</a></li>
         </ul>
         <div class="item-list" id="gpizzas">
-          <div class="col s2 card card-item item-1" *ngFor="let plat of gpizzas">
-              <a (click)="ajouterPlat(plat.idPlat)">{{plat.libellePlat}}</a>
-          </div>
+          <a (click)="ajouterPlat(plat)" class="col s2 card card-item item-1" *ngFor="let plat of gpizzas">
+              {{plat.libellePlat}}
+          </a>
         </div>
         <div class="item-list" id="ppizzas">
-          <div class="col s2 card card-item item-2" *ngFor="let plat of ppizzas">
-            <a (click)="ajouterPlat(plat.idPlat)">{{plat.libellePlat}}</a>
-          </div>
+          <a (click)="ajouterPlat(plat)" class="col s2 card card-item item-2" *ngFor="let plat of ppizzas">
+           {{plat.libellePlat}}
+          </a>
         </div>
         <div class="item-list" id="pates">
 
@@ -83,14 +71,14 @@
 
         </div>
         <div class="item-list" id="entrees">
-          <div class="col s2 card card-item item-5" *ngFor="let plat of entrees">
-            <a (click)="ajouterPlat(plat.idPlat)">{{plat.libellePlat}}</a>
-          </div>
+          <a (click)="ajouterPlat(plat)" class="col s2 card card-item item-5" *ngFor="let plat of entrees">
+           {{plat.libellePlat}}
+          </a>
       </div>
         <div class="item-list" id="desserts">
-          <div class="col s2 card card-item item-6" *ngFor="let plat of desserts">
-            <a (click)="ajouterPlat(plat.idPlat)">{{plat.libellePlat}}</a>
-          </div>
+          <a (click)="ajouterPlat(plat)" class="col s2 card card-item item-6" *ngFor="let plat of desserts">
+           {{plat.libellePlat}}
+          </a>
         </div>
       </div>
 
@@ -112,15 +100,15 @@
           <td class="libelle">{{boisson[0].libelleBoisson}}</td>
           <td>{{boisson[1]}}</td>
           <td>{{boisson[0].prix}}</td>
-          <td><a (click)="ajouterBoisson(boisson[0].idBoisson)"  class="boutton btn-ajouter">+</a> </td>
-          <td><a (click)="supprimerBoisson(boisson[0].idBoisson)" class="boutton btn-retirer">-</a> </td>
+          <td><a (click)="ajouterBoisson(boisson[0])"  class="boutton btn-ajouter">+</a> </td>
+          <td><a (click)="supprimerBoisson(boisson[0])" class="boutton btn-retirer">-</a> </td>
         </tr>
         <tr *ngFor="let plat of table.addition.tabPlats">
           <td class="libelle">{{plat[0].libellePlat}}</td>
           <td>{{plat[1]}}</td>
           <td>{{plat[0].prix}}</td>
-          <td><button (click)="ajouterPlat(plat[0].idPlat)"  class="boutton btn-ajouter">+</button> </td>
-          <td><button (click)="supprimerPlat(plat[0].idPlat)" class="boutton btn-retirer">-</button> </td>
+          <td><button (click)="ajouterPlat(plat[0])"  class="boutton btn-ajouter">+</button> </td>
+          <td><button (click)="supprimerPlat(plat[0])" class="boutton btn-retirer">-</button> </td>
         </tr>
         </tbody>
       </table>

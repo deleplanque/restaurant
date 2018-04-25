@@ -31,18 +31,16 @@ public class Plat_AdditionService implements IPlat_additionService {
 	IAdditionRepository additionRepository;
 	
 	@Override
-	public List<Plat_Addition> addPlat(int idAddition, int idPlat) {
+	public List<Plat_Addition> addPlat(int idAddition, Plat plat) {
 		Addition addition = additionRepository.findByIdAddition(idAddition);
-		Plat plat = platRepository.findByIdPlat(idPlat);
-		Plat_Addition platAddition = new Plat_Addition(addition, plat);
-		platAdditionRepository.saveAndFlush(platAddition);
+		platAdditionRepository.saveAndFlush(new Plat_Addition(addition, plat));
 		return addition.getListPlats();
 	}
 
 	@Override
-	public List<Plat_Addition> removePlat(int idAddition, int idPlat) {
+	public List<Plat_Addition> removePlat(int idAddition, Plat plat) {
 		Addition addition = additionRepository.findByIdAddition(idAddition);
-		List<Plat_Addition> ba = platAdditionRepository.findByAdditionIdAdditionAndPlatIdPlat(addition.getIdAddition(), idPlat);
+		List<Plat_Addition> ba = platAdditionRepository.findByAdditionIdAdditionAndPlatIdPlat(addition.getIdAddition(), plat.getIdPlat());
 		if(ba.size() > 0) {
 			platAdditionRepository.delete(ba.get(ba.size()-1));			
 		}

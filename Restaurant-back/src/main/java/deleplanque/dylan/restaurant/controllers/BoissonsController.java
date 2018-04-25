@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -33,14 +34,14 @@ public class BoissonsController {
 	}
 
 	
-	@RequestMapping(value="/addBoisson/{idAddition}/{idBoisson}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<Boisson_Addition>> addBoisson(@PathVariable("idAddition") int idAddition ,@PathVariable("idBoisson") int idBoisson){
-		return new ResponseEntity<List<Boisson_Addition>>(boisson_addition.addBoisson(idAddition, idBoisson), HttpStatus.OK);
+	@RequestMapping(value="/addBoisson/{idAddition}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Boisson_Addition>> addBoisson(@PathVariable("idAddition") int idAddition ,@RequestBody Boisson boisson){
+		return new ResponseEntity<List<Boisson_Addition>>(boisson_addition.addBoisson(idAddition, boisson), HttpStatus.OK);
 	}
 
-	@RequestMapping(value="/removeBoisson/{idAddition}/{idBoisson}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<Boisson_Addition>> removeBoisson(@PathVariable("idAddition") int idAddition ,@PathVariable("idBoisson") int idBoisson){
-		return new ResponseEntity<List<Boisson_Addition>>(boisson_addition.removeBoisson(idAddition, idBoisson), HttpStatus.OK);
+	@RequestMapping(value="/removeBoisson/{idAddition}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Boisson_Addition>> removeBoisson(@PathVariable("idAddition") int idAddition , @RequestBody Boisson boisson){
+		return new ResponseEntity<List<Boisson_Addition>>(boisson_addition.removeBoisson(idAddition, boisson), HttpStatus.OK);
 	}
 
 	

@@ -35,18 +35,18 @@ public class Boisson_AdditionService implements IBoisson_AdditionService {
 	}
 
 	@Override
-	public List<Boisson_Addition> addBoisson(int idAddition, int idBoisson) {
+	public List<Boisson_Addition> addBoisson(int idAddition, Boisson boisson) {
 		Addition addition= additionRepository.findByIdAddition(idAddition);
-		boissonAdditionRepository.saveAndFlush(new Boisson_Addition(addition, boissonRepository.findByIdBoisson(idBoisson)));
+		boissonAdditionRepository.saveAndFlush(new Boisson_Addition(addition, boisson));
 		return addition.getListBoissons();
 	}
 
 	@Override
-	public List<Boisson_Addition> removeBoisson(int idAddition, int idBoisson) {
+	public List<Boisson_Addition> removeBoisson(int idAddition, Boisson b) {
 		Boisson_Addition boisson = new Boisson_Addition();
 		Addition addition= additionRepository.findByIdAddition(idAddition);
 		List<Boisson_Addition> ba = boissonAdditionRepository
-				.findByAdditionIdAdditionAndBoissonIdBoisson(addition.getIdAddition(), idBoisson);
+				.findByAdditionIdAdditionAndBoissonIdBoisson(addition.getIdAddition(), b.getIdBoisson());
 		if (ba.size() > 0) {
 			boisson = ba.get(ba.size() - 1);
 			boissonAdditionRepository.delete(boisson);

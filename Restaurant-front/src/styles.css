@@ -8,7 +8,7 @@ body {
 }
 
 a {
-  cursor: hand;
+  cursor: pointer;
 }
 
 .text-center {
@@ -260,14 +260,28 @@ td {
 }
 
 .card-salle {
-  padding: 15px 30px;
-  cursor: hand;
+  margin-top: 30px;
+  font-size: 2em;
 }
 
 .card-salle a {
-  cursor: hand;
+  cursor: pointer;
+  padding: 15px 200px;
+  cursor: pointer;
+  color: #3D3D3D;
 }
 
+.card-table {
+  margin-top: 50px;
+  font-size: 1.5em;
+}
+
+.card-table a {
+  cursor: pointer;
+  padding: 15px 30px;
+  cursor: pointer;
+  color: #3D3D3D;
+}
 
 h6{
   line-height: 70px;
@@ -490,27 +504,27 @@ h6{
 }
 
 .item-1 {
-  border-left: 2px solid #f4511e ;
+  border-left: 4px solid #f4511e ;
 }
 
 .item-2 {
-  border-left: 2px solid #1e88e5;
+  border-left: 4px solid #1e88e5;
 }
 
 .item-3 {
-  border-left: 2px solid #00897b ;
+  border-left: 4px solid #00897b ;
 }
 
 .item-4 {
-  border-left: 2px solid #c0ca33 ;
+  border-left: 4px solid #c0ca33 ;
 }
 
 .item-5 {
-  border-left: 2px solid #fb8c00 ;
+  border-left: 4px solid #fb8c00 ;
 }
 
 .item-6{
-  border-left: 2px solid #5e35b1;
+  border-left: 4px solid #5e35b1;
 }
 
 

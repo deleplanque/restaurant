@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import deleplanque.dylan.restaurant.FormBean.UpdatePlatForm;
+import deleplanque.dylan.restaurant.entity.Boisson;
 import deleplanque.dylan.restaurant.entity.Plat;
 import deleplanque.dylan.restaurant.entity.Plat_Addition;
 import deleplanque.dylan.restaurant.entity.Tables;
@@ -38,16 +39,16 @@ public class PlatsController {
 		return new ResponseEntity<List<Plat>>(platService.getPlats(), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/addPlat/{idAddition}/{idPlat}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/addPlat/{idAddition}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Plat_Addition>> addPlat(@PathVariable("idAddition") int idAddition,
-			@PathVariable("idPlat") int idPlat) {
-		return new ResponseEntity<List<Plat_Addition>>(platAdditionService.addPlat(idAddition, idPlat), HttpStatus.OK);
+			@RequestBody Plat plat) {
+		return new ResponseEntity<List<Plat_Addition>>(platAdditionService.addPlat(idAddition, plat), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/removePlat/{idAddition}/{idPlat}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/removePlat/{idAddition}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Plat_Addition>> removePlat(@PathVariable("idAddition") int idAddition,
-			@PathVariable("idPlat") int idPlat) {
-		return new ResponseEntity<List<Plat_Addition>>(platAdditionService.removePlat(idAddition, idPlat),
+			@RequestBody Plat plat) {
+		return new ResponseEntity<List<Plat_Addition>>(platAdditionService.removePlat(idAddition, plat),
 				HttpStatus.OK);
 	}
 

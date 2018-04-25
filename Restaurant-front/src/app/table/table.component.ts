@@ -194,37 +194,46 @@ export class TableComponent implements OnInit {
     return null;
   }
 
-  ajouterBoisson(id: number): void {
-    this.tableService.addBoisson(this.table.addition.idAddition, id).subscribe(data => {
+  ajouterBoisson(boisson: Boisson): void {
+    this.tableService.addBoisson(this.table.addition.idAddition, boisson).subscribe(data => {
       this.transformArrayBoissonInMap(data, this.table, 'addition');
       this.snackBar.open('Boisson ajoutée !', 'x', {
-        duration: 300000
+        duration: 1500
       });
     }, error => {
       console.log(error);
     });
   }
 
-  supprimerBoisson(id: number): void {
-    this.tableService.removeBoisson(this.table.addition.idAddition, id).subscribe(data => {
+  supprimerBoisson(boisson: Boisson): void {
+    this.tableService.removeBoisson(this.table.addition.idAddition, boisson).subscribe(data => {
       this.transformArrayBoissonInMap(data, this.table, 'addition');
+      this.snackBar.open('Boisson supprimée !', 'x', {
+        duration: 1500
+      });
     }, error => {
       console.log(error);
     });
   }
 
 
-  ajouterPlat(id: number): void {
-    this.tableService.addPlat(this.table.addition.idAddition, id).subscribe(data => {
+  ajouterPlat(plat: Plat): void {
+    this.tableService.addPlat(this.table.addition.idAddition, plat).subscribe(data => {
       this.transformArrayPlatInMap(data, this.table, 'addition');
+      this.snackBar.open('Plat ajoutée !', 'x', {
+        duration: 1500
+      });
     }, error => {
       console.log(error);
     });
   }
 
-  supprimerPlat(id: number): void {
-    this.tableService.removePlat(this.table.addition.idAddition, id).subscribe(data => {
+  supprimerPlat(plat: Plat): void {
+    this.tableService.removePlat(this.table.addition.idAddition, plat).subscribe(data => {
       this.transformArrayPlatInMap(data, this.table, 'addition');
+      this.snackBar.open('Plat supprimée !', 'x', {
+        duration: 1500
+      });
     }, error => {
       console.log(error);
     });
@@ -232,6 +241,7 @@ export class TableComponent implements OnInit {
 
 
   payerAddition(moyen: string) {
+    console.log(this.table.addition);
     this.tableService.payerAddition(moyen, this.table.addition).subscribe(data => {
       this.tableService.resetAddition(this.table.idTable).subscribe(data2 => {
         this.table.addition.listBoissons = data2.addition.listBoissons;

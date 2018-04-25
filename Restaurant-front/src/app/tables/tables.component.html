@@ -9,8 +9,8 @@
 <div class="row text-center">
   <h1>Plan de salle</h1>
   <div class="col m8 offset-m2">
-    <div class="col m3" *ngFor="let table of tables">
-      <a class="card card-table" (click)="getTable(table.numero);">Table {{table.numero}}</a>
+    <div class="col m3 card-table" *ngFor="let table of tables">
+      <a class="card" (click)="getTable(table.numero);">Table {{table.numero}}</a>
     </div>
   </div>
 </div>
