@@ -39,7 +39,7 @@ public class Boisson implements Serializable{
 		this.idBoisson = idBoisson;
 		this.libelleBoisson = libelleBoisson;
 		this.categorie = categorie;
-		this.setSousCategorie(sousCategorie);
+		this.sousCategorie = sousCategorie;
 		this.prix = prix;
 		this.logo = logo;
 	}

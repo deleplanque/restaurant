@@ -34,6 +34,8 @@ public class Plat_AdditionService implements IPlat_additionService {
 	public List<Plat_Addition> addPlat(int idAddition, Plat plat) {
 		Addition addition = additionRepository.findByIdAddition(idAddition);
 		platAdditionRepository.saveAndFlush(new Plat_Addition(addition, plat));
+		addition.setMontantTotal(addition.getMontantTotal()+plat.getPrix());
+		additionRepository.saveAndFlush(addition);
 		return addition.getListPlats();
 	}
 
@@ -44,6 +46,8 @@ public class Plat_AdditionService implements IPlat_additionService {
 		if(ba.size() > 0) {
 			platAdditionRepository.delete(ba.get(ba.size()-1));			
 		}
+		addition.setMontantTotal(addition.getMontantTotal()-plat.getPrix());
+		additionRepository.saveAndFlush(addition);
 		return addition.getListPlats();
 	}
 

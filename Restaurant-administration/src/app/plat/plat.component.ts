@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Plat} from '../bean/plat';
 import {PlatService} from './plat.service';
 import {ModalEditionComponent} from './modal-edition/modal-edition.component';
-import {MatDialog} from "@angular/material";
+import {MatDialog} from '@angular/material';
 declare var $: any;
 
 @Component({

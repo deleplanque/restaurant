@@ -1,0 +1,16 @@
+<div class="col m10 offset-m2 filtre">
+filtre
+</div>
+<div class="col m10 offset-m2">
+  <ul class="collapsible">
+    <li *ngFor="let addition of additions">
+      <div class="collapsible-header"><span>10-07-2018</span><span class="prix">{{addition.montantTotal}} €</span></div>
+      <div class="collapsible-body">
+        <ul>
+          <li *ngFor="let boisson of addition.listBoissons"><span>{{boisson.boisson.libelleBoisson}}</span><span style="float: right">{{boisson.boisson.prix}} €</span></li>
+          <li *ngFor="let plat of addition.listPlats"><span>{{plat.plat.libellePlat}}</span><span style="float: right">{{plat.plat.prix}} €</span> </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>

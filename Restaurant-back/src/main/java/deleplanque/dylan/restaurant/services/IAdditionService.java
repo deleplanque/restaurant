@@ -1,5 +1,6 @@
 package deleplanque.dylan.restaurant.services;
 
+import deleplanque.dylan.restaurant.entity.Addition;
 import deleplanque.dylan.restaurant.entity.Tables;
 
 public interface IAdditionService {
@@ -7,5 +8,7 @@ public interface IAdditionService {
 	Tables resetAdditionProvisoire(int idTable);
 
 	Tables resetAddition(int idTable);
+
+	Addition getAdditionById(int idAddition);
 
 }

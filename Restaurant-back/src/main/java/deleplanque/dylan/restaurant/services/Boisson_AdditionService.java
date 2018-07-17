@@ -38,6 +38,8 @@ public class Boisson_AdditionService implements IBoisson_AdditionService {
 	public List<Boisson_Addition> addBoisson(int idAddition, Boisson boisson) {
 		Addition addition= additionRepository.findByIdAddition(idAddition);
 		boissonAdditionRepository.saveAndFlush(new Boisson_Addition(addition, boisson));
+		addition.setMontantTotal(addition.getMontantTotal()+boisson.getPrix());
+		additionRepository.saveAndFlush(addition);
 		return addition.getListBoissons();
 	}
 
@@ -51,6 +53,8 @@ public class Boisson_AdditionService implements IBoisson_AdditionService {
 			boisson = ba.get(ba.size() - 1);
 			boissonAdditionRepository.delete(boisson);
 		}
+		addition.setMontantTotal(addition.getMontantTotal()-b.getPrix());
+		additionRepository.saveAndFlush(addition);
 		return addition.getListBoissons();
 	}
 

@@ -75,6 +75,7 @@ export class ModalEditionComponent implements OnInit {
     plat.prix = this.prix;
     plat.categorie = this.categorie;
     plat.sousCategorie = this.sousCategorie;
+    console.log(listIngredients);
     this.modalEditionService.modifierPlat(plat, listIngredients)
       .subscribe(data => {
       }, error => {

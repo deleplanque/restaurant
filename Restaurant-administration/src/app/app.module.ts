@@ -16,6 +16,8 @@ import { MaterialModule } from './material.module';
 import {ModelEditionService} from './plat/modal-edition/model-edition.service';
 import {FormsModule} from '@angular/forms';
 import { ModalCreationPlatComponent } from './plat/modal-creation-plat/modal-creation-plat.component';
+import {HistoriqueComponent} from './historique/historique.component';
+import {HistoriqueService} from './historique/historique.service';
 
 
 @NgModule({
@@ -24,6 +26,7 @@ import { ModalCreationPlatComponent } from './plat/modal-creation-plat/modal-cre
     PlatComponent,
     BoissonComponent,
     StatistiquesComponent,
+    HistoriqueComponent,
     ModalEditionComponent,
     ModalCreationPlatComponent
   ],
@@ -37,7 +40,7 @@ import { ModalCreationPlatComponent } from './plat/modal-creation-plat/modal-cre
   ],
   entryComponents: [ModalEditionComponent],
   exports: [MaterialModule],
-  providers: [AppService, PlatService, BoissonService, StatistiquesService, ModelEditionService],
+  providers: [AppService, PlatService, BoissonService, StatistiquesService, ModelEditionService, HistoriqueService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

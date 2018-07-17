@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import deleplanque.dylan.restaurant.entity.Addition;
 import deleplanque.dylan.restaurant.entity.Tables;
 import deleplanque.dylan.restaurant.services.IAdditionService;
 
@@ -27,5 +28,10 @@ public class AdditionController {
 	@RequestMapping(value="/resetAdditionProvisoire/{idTable}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Tables> resetAdditionProvisoire(@PathVariable("idTable") int idAddition){
 		return new ResponseEntity<Tables>(additionService.resetAdditionProvisoire(idAddition), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/getAdditionById/{idAddition}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Addition> getAdditionById(@PathVariable("idAddition") int idAddition){
+		return new ResponseEntity<Addition>(additionService.getAdditionById(idAddition), HttpStatus.OK);
 	}
 }

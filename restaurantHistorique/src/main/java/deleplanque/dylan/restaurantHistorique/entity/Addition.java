@@ -21,6 +21,7 @@ public class Addition implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int idAddition;
+	
 	private float montantTotal;
 
 	@OneToMany(mappedBy="addition", cascade=CascadeType.ALL)

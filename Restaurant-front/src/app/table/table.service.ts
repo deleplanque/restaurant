@@ -20,6 +20,8 @@ export class TableService {
   private removePlatUrl = 'api/removePlat';
   private resetAdditionUrl = 'api/resetAddition';
   private payerAdditionUrl = 'apiHistorique/ajouterAddition';
+  private getAdditionByIdUrl = 'api/getAdditionById';
+
 
   constructor(private _http: HttpClient) { }
 
@@ -71,6 +73,12 @@ export class TableService {
     const url = `${this.payerAdditionUrl}/${moyen}`;
     return this._http.post<Table>(url, addition);
   }
+
+  getAdditionById(addition: Addition): Observable<Addition> {
+    const url = `${this.getAdditionByIdUrl}/${addition.idAddition}`;
+    return this._http.get<Addition>(url);
+  }
+
 
   resetAddition(idTable: number): Observable<Table> {
     const url = `${this.resetAdditionUrl}/${idTable}`;

@@ -8,7 +8,7 @@ import {Addition} from '../bean/addition';
 import {BoissonAddition} from '../bean/boissonAddition';
 import {PlatAddition} from '../bean/platAddition';
 import {MatSnackBar} from '@angular/material';
-import {SallesComponent} from "../salles/salles.component";
+import {SallesComponent} from '../salles/salles.component';
 
 declare var $: any;
 
@@ -241,20 +241,30 @@ export class TableComponent implements OnInit {
 
 
   payerAddition(moyen: string) {
-    console.log(this.table.addition);
-    this.tableService.payerAddition(moyen, this.table.addition).subscribe(data => {
-      this.tableService.resetAddition(this.table.idTable).subscribe(data2 => {
-        this.table.addition.listBoissons = data2.addition.listBoissons;
-        this.transformArrayBoissonInMap(this.table.addition.listBoissons, this.table, 'addition');
-        this.table.addition.listPlats = data2.addition.listPlats;
-        this.transformArrayPlatInMap(this.table.addition.listPlats, this.table, 'addition');
-        sessionStorage.setItem('table', JSON.stringify(this.table));
-      }, error => {
-        console.log(error);
-      });
+    this.tableService.getAdditionById(this.table.addition).subscribe(addition => {
+      if (addition.montantTotal > 0) {
+        this.tableService.payerAddition(moyen, addition).subscribe(data => {
+          this.tableService.resetAddition(this.table.idTable).subscribe(data2 => {
+            this.table.addition.listBoissons = data2.addition.listBoissons;
+            this.transformArrayBoissonInMap(this.table.addition.listBoissons, this.table, 'addition');
+            this.table.addition.listPlats = data2.addition.listPlats;
+            this.transformArrayPlatInMap(this.table.addition.listPlats, this.table, 'addition');
+            sessionStorage.setItem('table', JSON.stringify(this.table));
+          }, error => {
+            console.log(error);
+          });
+        }, error => {
+          console.log(error);
+        });
+      } else {
+        this.snackBar.open('Le montant est égal à 0', 'x', {
+          duration: 1500
+        });
+      }
     }, error => {
       console.log(error);
     });
+
   }
 
   openCalc(): void {

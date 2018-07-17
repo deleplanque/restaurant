@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import deleplanque.dylan.restaurant.entity.Addition;
 import deleplanque.dylan.restaurant.entity.Boisson_Addition;
 import deleplanque.dylan.restaurant.entity.Plat_Addition;
 import deleplanque.dylan.restaurant.entity.Tables;
@@ -33,6 +34,9 @@ public class AdditionService implements IAdditionService{
 	@Override
 	public Tables resetAdditionProvisoire(int idTable) {
 		Tables table = tableRepository.findByIdTable(idTable);
+		Addition addition = additionRepository.findByIdAddition(table.getAddition().getIdAddition());
+		addition.setMontantTotal(0);
+		additionRepository.save(addition);
 		List<Boisson_Addition> ba = boisson_AdditionRepository
 				.findByAdditionIdAddition(table.getAdditionProvisoire().getIdAddition());
 		for (int i=0; i<ba.size(); i++) {
@@ -49,6 +53,9 @@ public class AdditionService implements IAdditionService{
 	@Override
 	public Tables resetAddition(int idTable) {
 		Tables table = tableRepository.findByIdTable(idTable);
+		Addition addition = additionRepository.findByIdAddition(table.getAddition().getIdAddition());
+		addition.setMontantTotal(0);
+		additionRepository.save(addition);
 		List<Boisson_Addition> ba = boisson_AdditionRepository
 				.findByAdditionIdAddition(table.getAddition().getIdAddition());
 		for (int i=0; i<ba.size(); i++) {
@@ -59,7 +66,13 @@ public class AdditionService implements IAdditionService{
 		for (int i=0; i<listPlat.size(); i++) {
 			plat_AdditionRepository.delete(listPlat.get(i));
 		}
+		
 		return table;
+	}
+
+	@Override
+	public Addition getAdditionById(int idAddition) {
+		return additionRepository.findByIdAddition(idAddition);
 	}
 	
 }

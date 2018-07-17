@@ -1,0 +1,21 @@
+.collapsible-header {
+  display: -ms-flexbox;
+  display: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  line-height: 1.5;
+  padding: 1rem;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.filtre {
+  display: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  line-height: 1.5;
+  padding: 1rem;
+  background: linear-gradient(45deg, #1691f5 0%, #3079ed 100%) !important;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+}

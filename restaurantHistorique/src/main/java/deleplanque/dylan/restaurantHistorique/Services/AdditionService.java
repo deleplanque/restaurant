@@ -16,23 +16,21 @@ public class AdditionService implements IAdditionService{
 	
 	@Override
 	public Addition ajouterAddition(Addition addition) {
+		for(int i=0; i<addition.getListBoissons().size();i++)
+		{
+			addition.getListBoissons().get(i).setAddition(addition);
+		}
+		for(int i=0; i<addition.getListPlats().size();i++)
+		{
+			addition.getListPlats().get(i).setAddition(addition);
+		}
 		additionRepository.save(addition);
-			Addition ad = additionRepository.findFirstByOrderByIdAdditionDesc();
-		for (int i=0; i<ad.getListBoissons().size(); i++) {
-			ad.getListBoissons().get(i).setAddition(ad);
-		}
-		
-		for (int i=0; i<ad.getListPlats().size(); i++) {
-			ad.getListPlats().get(i).setAddition(ad);
-		}
-		additionRepository.save(ad);
 		return additionRepository.findFirstByOrderByIdAdditionDesc();
 	}
 
 	@Override
 	public List<Addition> getAdditions() {
-		// TODO Auto-generated method stub
-		return null;
+		return additionRepository.findAll();
 	}
 
 }
